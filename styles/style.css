@@ -2,3 +2,23 @@
     min-height: 100px;
 }
 
+footer {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    color: #3b3b3b;
+}
+
+#footerbadge {
+    height:50px;
+    margin-left: 10px;
+    width:125px;
+}
+
+.social {
+    font-size: 25px;
+}
+
+.social li {
+    display: inline-block;
+    margin: 10px;
+}

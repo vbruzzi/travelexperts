@@ -1,23 +1,42 @@
+
+/* SETS BASIC PAGE THEME COLORS AND FEATURED IMAGES */
 :root {
     --featured-card-bg1: url("../media/featured1.jpg");
     --featured-card-bg2: url("../media/featured2.jpg");
     --featured-card-bg3: url("../media/featured3.jpg");
-    --featured-card-bg4: url("../media/featured3.jpg");
+    --featured-card-bg4: url("../media/featured4.jpg");
     --jumbotron-image: url("../media/jumbo2.jpg");
+    --theme-color-opaque: rgba(91, 0, 114, 0.5);
+    --theme-color: rgba(91, 0, 114);
 }
 
-.jumbotron {
+
+/* JUMBOTRON SETTINGS */
+.flashsales {
     background: var(--jumbotron-image) no-repeat center center;
     background-size: cover;
     min-height: 400px;
 }
 
-.jumbotron .jumbotext, .card-title, .card-text {
+.btn-default
+{
+  background-color: var(--theme-color) !important;
+  color:#FFF !important;
+  border-color: #2F3E48;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+
+  background-color: rgb(109, 0, 136) !important;
+  color:#FFF;
+  border-color: #31347B;
+ }
+
+.jumbotron .jumbotext {
     display: table;
     padding:10px;
     position:relative;
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(91, 0, 114, 0.5);
+    background: var(--theme-color); /* Fallback for older browsers without RGBA-support */
+    background: var(--theme-color-opaque);
     color: white;
 }
 
@@ -27,8 +46,51 @@
     font-size: 20px;
 }
 
+/* BUSINESS STATEMENT STYLES */
+
+.statement {
+    max-width: 800px;
+    margin: 50px 0 ;
+}
+
+
+span {
+    color: var(--theme-color);
+    font-weight: 400;
+}
+
+
+/* FEATURED PACKAGES STYLES */
+
+.featuredtitle {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-title {
+    color: white;
+}
+
+.card-text {
+    color: #e8e8e8;
+    list-style: none;
+    padding: 0;
+}
+
+.card-text li {
+    margin-top: 10px;
+}
+
+.card-text li:before {
+    content: "-";
+}
+
 .card-deck {
     margin: auto !important;
+}
+
+.card a:hover {
+    text-decoration: none;
 }
 
 .featured1 {
@@ -49,6 +111,30 @@
 
 .card-body {
     background-size: cover;
-    max-width: 300px;
     min-height: 400px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.btn.outline {
+    background: none;
+    color: white;
+}
+
+.btn-primary.outline {
+	border: 2px solid #0099cc;
+	color: #0099cc;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #33a6cc;
+	border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: #007299;
+	color: #007299;
+	box-shadow: none;
 }

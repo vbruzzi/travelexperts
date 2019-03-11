@@ -1,21 +1,32 @@
+<!-- Home page made by Vitor -->
+
+
 <!DOCTYPE html>
 <html> 
     <head>
         <title>Travel Experts</title>
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/home.css">
+        <!-- AWESOME FONT -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
+        <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/home.css">
+
+        <!-- JQUERY, POPPER.JS AND BOOSTRAP JS FILE-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
+
+    <!-- NAVBAR -->
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <header class="container">
-                <a class="navbar-brand" href="#">Travel Experts</a>
+                <a class="navbar-brand" href="#"><img src="media/logo.png" alt="Travel Experts Logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,41 +48,118 @@
             </header>
         </nav>
 
-        <div class="jumbotron">
+        <!-- Flask sales section -->
+        <div class="jumbotron flashsales">
             <div class="container">
                 <h1 class="jumbotext">Flash sale</h1>
-                <h2>$300 Flight to Hong Kong</h2>
-                <p>
+                <h2 class="jumbotext">$300 Flight to Hong Kong</h2>
+                <p class="jumbotext">
                     Affordable flights to Hong Kong now!!
                 </p>
+                <a href="#" class="mt-auto btn btn-default">Buy now</a>
             </div>
         </div>
-        <div class="card-deck container">
-            <div class="card border-0">
-                <div class="card-body featured1">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
+
+        
+        <!-- COMPANY BUSINESS STATEMENT/GREETER -->
+        <div class="statement mx-auto text-center">
+            <h1 class="display-4">Travel at the <span>best</span> rates</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis elementum elit id auctor. In dictum erat eu nisi tempor eleifend. Fusce laoreet purus at tempor hendrerit. Vestibulum pretium sagittis magna, ut dictum arcu aliquam quis. </p>
+        </div>
+
+        <!-- FEATURED PACKAGES -->
+        <div class="container featured">
+            <div class="featuredtitle row">
+                <h1 class="salestitle">Featured Packages</h1>                
             </div>
-            <div class="card border-0">
-                <div class="card-body featured2">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    
+            <div class="card-deck row">
+                <div class="card border-0 col-sm-3">
+                    <a href="#">
+                        <div class="card-body rounded featured1 d-flex flex-column">
+                            <h5 class="card-title">Copacabana</h5>
+                        <ul class="card-text">
+                                <li>
+                                    5 days 6 nights
+                                </li>
+                                <li>
+                                    Luxury sedan
+                                </li>
+                                <li>
+                                    Hikes
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
+                        </div>
+                    </a>
+                    
                 </div>
-            </div>
-            <div class="card border-0">
-                <div class="card-body featured3">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                <div class="card border-0 col-sm-3">
+                    <a href="#">
+                        <div class="card-body rounded featured2 d-flex flex-column">
+                            <h5 class="card-title">Calgary</h5>
+                            <ul class="card-text">
+                                <li>
+                                    5 days 6 nights
+                                </li>
+                                <li>
+                                    Luxury sedan
+                                </li>
+                                <li>
+                                    Hikes
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="card border-0">
-                <div class="card-body featured4">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+                <div class="card border-0 col-sm-3">
+                    <a href="#">
+                        <div class="card-body rounded featured3 d-flex flex-column">
+                            <h5 class="card-title">Japan</h5>
+                            <ul class="card-text">
+                                <li>
+                                    5 days 6 nights
+                                </li>
+                                <li>
+                                    Luxury sedan
+                                </li>
+                                <li>
+                                    Hikes
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card border-0 col-sm-3">
+                    <a href="#">
+                        <div class="card-body rounded featured4 d-flex flex-column">
+                            <h5 class="card-title">Paris</h5>
+                            <ul class="card-text">
+                                <li>
+                                    5 days 6 nights
+                                </li>
+                                <li>
+                                    Luxury sedan
+                                </li>
+                                <li>
+                                    Hikes
+                                </li>
+                            </ul>
+                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
+                        </div>
+                    </a>      
                 </div>
             </div>
         </div>
+        
+
+
+        <!-- FOOTER -->
         <footer class="page-footer font-small pt-4">
             <div class="container text-center text-md-left">
         

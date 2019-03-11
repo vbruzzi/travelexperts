@@ -8,6 +8,7 @@
     --jumbotron-image: url("../media/jumbo2.jpg");
     --theme-color-opaque: rgba(91, 0, 114, 0.5);
     --theme-color: rgba(91, 0, 114);
+    --theme-color-hover: rgb(121, 0, 151);
 }
 
 
@@ -22,13 +23,13 @@
 {
   background-color: var(--theme-color) !important;
   color:#FFF !important;
-  border-color: #2F3E48;
+  border-color: var(--theme-color);
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
 
-  background-color: rgb(109, 0, 136) !important;
+  background-color: var(--theme-color-hover) !important;
   color:#FFF;
-  border-color: #31347B;
+  border-color: var(--theme-color-hover);
  }
 
 .jumbotron .jumbotext {
@@ -124,17 +125,8 @@ span {
     color: white;
 }
 
-.btn-primary.outline {
-	border: 2px solid #0099cc;
-	color: #0099cc;
-}
 
-.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
-	color: #33a6cc;
-	border-color: #33a6cc;
-}
-.btn-primary.outline:active, .btn-primary.outline.active {
-	border-color: #007299;
-	color: #007299;
-	box-shadow: none;
+.btn-light.outline:hover, .btn-light.outline:focus, .btn-light.outline:active, .btn-light.outline.active, .open > .dropdown-toggle.btn-light {
+    color: black;
+    background-color: white;
 }

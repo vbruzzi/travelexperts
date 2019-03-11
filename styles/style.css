@@ -1,3 +1,8 @@
+:root {
+    --theme-color: rgba(91, 0, 114);
+    --theme-color-hover: rgb(121, 0, 151);
+}
+
 .navbar {
     min-height: 100px;
 }
@@ -21,4 +26,12 @@ footer {
 .social li {
     display: inline-block;
     margin: 10px;
+}
+
+.social li a {
+    color: var(--theme-color);
+}
+
+.social li a:hover {
+    color: var(--theme-color-hover);
 }

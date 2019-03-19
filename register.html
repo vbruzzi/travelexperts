@@ -22,6 +22,60 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script>
+    var hints = new Array;
+    hints = [
+      'Instructions and Hints to fill the form',
+      'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
+      'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
+      'Please enter your valid email address, contains @ and . symbals',
+      'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
+      'Verify your password, must match the previous password settings',
+      'Please enter your local address, P.O.Box, Street No. etc.',
+      'Please enter your city',
+      'Please enter your province/state',
+      'Please enter your country',
+      'Please enter your post code, format for Canadian postcode: A1B 2C3',
+      'Please enter your personal contact number, follow the patten: (987) 456-1234.',
+      'Please enter your business contact number, follow the patten: (987) 456-1234.'
+    ];
+    function toggle(id) {
+      var i = parseInt(id);
+      var hide = document.getElementById("hideText");
+      var text = document.getElementById("displayText");
+      text.style.display = "none";
+      hide.style.display = "visable";
+      hide.innerHTML = hints[i];
+    }
+
+    function validateform(form) {
+      var flag = true;
+      var i, j;
+
+      for (i = 1; i < 13; i++) {
+        j = i.toString();
+        if (document.getElementById(j).value == '') {
+          alert("Please fill all blanks!");
+          return false;
+        }
+      }
+      if (form.passwd1.value != form.passwd2.value) {
+        flag = false;
+        alert("Please make your password settings match!");
+        return flag;
+      }
+      else {
+        return flag && confirm("Are you sure to submit the form?");
+      }
+
+      var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
+      if (zip.test(form.postcode.value)) {
+        return false;
+      }
+      return true;
+    }
+
+  </script>
 </head>
 
 <body>
@@ -56,103 +110,132 @@
       <div class="row">
 
         <div class="col-lg-4 bg-success">
-          <h5>Welcome back to Travel Experts! Please login:</h5>
-            <form class="px-4 py-3">
+          <h5>Return customers: Welcome back to Travel Experts! Please login:</h5>
+          <form class="px-4 py-3">
 
-              <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-              </div>
-
-              <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-              </div>
-
-              <div class="form-group">
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                  <label class="form-check-label" for="dropdownCheck">
-                    Remember me
-                  </label>
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
-
-            <div class="dropdown-divider">
-              <a class="dropdown-item" href="#">New around here? Sign up</a>
-              <a class="dropdown-item" href="#">Forgot password?</a>
+            <div class="form-group">
+              <label for="Email1">Email address</label>
+              <input type="email" class="form-control" id="Email1" placeholder="email@example.com">
             </div>
+
+            <div class="form-group">
+              <label for="Password1">Password</label>
+              <input type="password" class="form-control" id="Password1" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="Check">
+                <label class="form-check-label" for="Check">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+
+          <div class="dropdown">
+            <div class="form-group">
+              <a class="dropdown-item" href="#">Forgot password? I can help!</a>
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-8 bg-info">
-          <h5>New to Travel Experts? Please register here!</h5>
+        <div class="col-lg-8" style="background-color: blueviolet">
+          <h5>New around here? Please sign up:</h5>
 
-          <form id='register' name='registernewuser' action='mailto: admin@travelexperts.com' method='post'
-            enctype="text/plain">
+          <form id='register' name='registernewuser' action='process.php' method='post' enctype="text/plain"
+            class="px-4 py-3">
             <table>
               <tr>
-                <td><label>Please enter your First name </label></td>
-                <td><input id='firstname' name='firstname' type='text' maxlength=40 autofocus placeholder="First name"> </td>
-              </tr>
-              <tr>
-                <td><label>Please enter your Last name </label></td>
-                <td><input id='lastname' name='lastname' type='text' maxlength=40  placeholder="Last name"/> </td>
-              </tr>
-              <tr>
-                <td><label>Email address: &nbsp;&nbsp; </label></td>
-                <td><input id='email' name='email' type='email' placeholder="email@example.com"/></td>
-              </tr>
-              <tr>
-                <td><label>Please input your password (8-15 letters + numbers only):&nbsp;&nbsp; </label></td>
-                <td><input id='pwd1' name='passwd1' type='password' maxlength=15  placeholder="password"/></td>
-              </tr>
-              <tr>
-                <td><label>Please verify your password:&nbsp;&nbsp; </label></td>
-                <td><input id='pwd2' name='passwd2' type='password' /></td>
-              </tr>
-              <tr>
-                <td colspan="2"><label>Please enter your address: </label></td>
-              </tr>
-              <tr>
-                <td align='right'><label>Your Steet number: </label></td>
-                <td><input id='address' , name='localaddress' type='text' placeholder="eg. 123-45 67th St., NE"/>
-              </tr>
-              <tr>
-                <td align='right'><label>City/Town/County: </label></td>
-                <td><input id='city' , name='city' type='text' />
-              </tr>
-              <tr>
-                <td align='right'><label>Province/State: </label></td>
-                <td><input id='pv' , name='province' type='text' />
-              </tr>
-              <tr>
-                <td align='right'><label>Country: </label></td>
-                <td><input id='country' , name='country' type='text' />
-              </tr>
-              <tr>
-                <td align='right'><label>Post Code: </label></td>
-                <td><input id='zip' , name='postcode' type='text' />
-              </tr>
-
-              <tr>
-                <td><label>Your personal contact number with area code: </label></td>
-                <td><input id='contact' , name='contactno' type='text' placeholder="(780)555-1234"/>
-              </tr>
-              <tr>
-                <td><label>Your business contact number with area code: </label></td>
-                <td><input id='biz' , name='businessno' type='text'  placeholder="(780)555-1234"/>
-              </tr>
-
-              </tr>
-
-              <tr>
-                <td align="center"><input id='reset' name='resetbutton' type='reset' value='Clear' /></td>
-                <td align="center"><input id='submit' name='submitbutton' type='submit' /> </td>
+                <th colspan="2">
+                  <div id="displayText">Instructions and Hints to fill the form</div>
+                  <div id="hideText" class="text"> </div>
+                </th>
               </tr>
             </table>
+            <div class="form-group">
+              <label for='1'>Please enter your First name </label></td>
+
+              <input class="form-control" id='1' name='firstname' type='text' minlength='2' maxlength='25' required
+                pattern='[A-Za-z]+'
+                onfocus='toggle(this.id);this.form.firstname.placeholder="First name(2~25 characters)";'
+                onblur='toggle(0)'>
+            </div>
+            <div class="form-group">
+              <label for='2'>Please enter your Last name </label></td>
+
+              <input class="form-control" id='2' name='lastname' type='text' minlength='2' maxlength='25' required
+                pattern='[A-Za-z]+'
+                onfocus='toggle(this.id);this.form.lastname.placeholder="Last name(2~25 characters)";'
+                onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='3'>Email address as login ID: &nbsp;&nbsp; </label>
+              <input class="form-control" id='3' name='email' type='email'
+                pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required
+                onfocus='toggle(this.id); this.form.email.placeholder="a valid email address";' onblur='toggle(0);'>
+            </div>
+            <div class="form-group"><label for='4'>Please input your password (8-15 letters + numbers only):&nbsp;&nbsp;
+              </label>
+              <input class="form-control" id='4' name='passwd1' type='password' minlength='8' maxlength='15' required
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+                title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters'
+                onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+            </div>
+            <div class="form-group"><label for='5'>Please verify your password:&nbsp;&nbsp; </label>
+              <input class="form-control" id='5' name='passwd2' type='password' minlength='8' maxlength='15' required
+                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must match the previous password settings'
+                onfocus='toggle(this.id); this.form.passwd2.placeholder="Verify password"' onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label>Please enter your address–: </label>
+            </div>
+            <div class="form-group">
+              <label for='6'>Your Steet number: </label>
+              <input class="form-control" id='6' name='localaddress' type='text'
+                onfocus='toggle(this.id);this.form.address.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='7'>City/Town/County: </label>
+              <input class="form-control" id='7' name='city' type='text' onfocus='toggle(this.id);'
+                onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='8'>Province/State: </label>
+              <input class="form-control" id='8' name='province' type='text' onfocus='toggle(this.id);'
+                onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='9'>Country: </label>
+              <input class="form-control" id='9' name='country' type='text' onfocus='toggle(this.id);'
+                onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='10'>Post Code: </label>
+              <input class="form-control" id='10' name='postcode' type='text'
+                  onfocus='toggle(this.id); this.form.zip.placeholder="A1B 2C3";' onblur='toggle(0);' />
+            </div>
+
+            <div class="form-group">
+              <label for='11'>Your personal contact number with area code: </label></td>
+              <input class="form-control" id='11' name='contactno' type='text'
+                title='Please enter your personal contact number follow the patten: (987) 456-1234.'
+                onfocus='toggle(this.id); this.form.contactno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <label for='12'>Your business contact number with area code: </label>
+              <input class="form-control" id='12' name='businessno' type='text'
+                title='Please enter your business contact number follow the patten: (987) 456-1234.'
+                onfocus='toggle(this.id); this.form.businessno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+            </div>
+            <div class="form-group">
+              <input id='reset' name='resetbutton' class='btn btn-primary' type='reset'
+                onclick='return confirm("Are you sure to clear the form?")' />
+              <input id='submit' name='submitbutton' class='btn btn-primary' type='submit'
+                onclick='return validateform(this.form);' />
+            </div>
           </form>
         </div>
       </div>

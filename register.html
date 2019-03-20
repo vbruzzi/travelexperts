@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
   <title>Travel Experts - Customer Registration</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/home.css">
@@ -22,6 +23,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+  <!-- the following css style sheet is by Ken Zhang -->
   <script>
     var hints = new Array;
     hints = [
@@ -39,13 +42,14 @@
       'Please enter your personal contact number, follow the patten: (987) 456-1234.',
       'Please enter your business contact number, follow the patten: (987) 456-1234.'
     ];
+
     function toggle(id) {
       var i = parseInt(id);
       var hide = document.getElementById("hideText");
       var text = document.getElementById("displayText");
       text.style.display = "none";
       hide.style.display = "visable";
-      hide.innerHTML = hints[i];
+      hide.innerHTML = "<label class='text-warning'>"+hints[i]+"</label>";
     }
 
     function validateform(form) {
@@ -79,6 +83,7 @@
 </head>
 
 <body>
+  <!-- The following nav/header part completed by Ritor -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <header class="container">
       <a class="navbar-brand" href="index.html">Travel Experts</a>
@@ -90,7 +95,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Vacation Package <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="packages.html">Vacation Package <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact Us</a>
@@ -103,14 +108,15 @@
       </div>
     </header>
   </nav>
-
+<!-- The above section is nav/header which is completed by Ritor -->
+<!-- The following main section completed by Ken Zhang -->
   <main>
-    <div class="container">
+    <div class="container flashsales">
 
       <div class="row">
-
-        <div class="col-lg-4 bg-success">
-          <h5>Return customers: Welcome back to Travel Experts! Please login:</h5>
+        <!-- Customer login starts from here -->
+        <div class="col-lg-4 text-light" style="background-color: rgba(91,91,1,0.85)"><br />
+          <h5 class="text-light">Return customers:<br /> Welcome back to Travel Experts!<br /> Please login:</h5>
           <form class="px-4 py-3">
 
             <div class="form-group">
@@ -137,118 +143,134 @@
 
           <div class="dropdown">
             <div class="form-group">
-              <a class="dropdown-item" href="#">Forgot password? I can help!</a>
+              <a class="dropdown-item text-warning" href="#">Forgot password? I can help!</a>
             </div>
           </div>
         </div>
+        <!-- Registration section starts here -->
+        <div class="col-lg-8 text-light" style="background-color:  rgba(91,0,114,0.75)"><br />
+          <h5  class="text-light">New around here? Please sign up:</h5>
 
-        <div class="col-lg-8" style="background-color: blueviolet">
-          <h5>New around here? Please sign up:</h5>
+          <form id='register' name='registernewuser' action='bouncer.php' method='post' enctype='text/plain'
+            class='px-4 py-3'>
+            <div class="form-row"  class="text-light">
+              <div id="displayText"  class="text-warning"><label>Instructions and Hints to fill the form</label></div>
+              <div id="hideText" class="text" > </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for='1'>Please enter your First name </label></td>
+                <input class="form-control" id='1' name='firstname' type='text' minlength='2' maxlength='25' required
+                  pattern='[A-Za-z]+'
+                  onfocus='toggle(this.id);this.form.firstname.placeholder="First name(2~25 characters)";'
+                  onblur='toggle(0)'>
+              </div>
 
-          <form id='register' name='registernewuser' action='process.php' method='post' enctype="text/plain"
-            class="px-4 py-3">
-            <table>
-              <tr>
-                <th colspan="2">
-                  <div id="displayText">Instructions and Hints to fill the form</div>
-                  <div id="hideText" class="text"> </div>
-                </th>
-              </tr>
-            </table>
-            <div class="form-group">
-              <label for='1'>Please enter your First name </label></td>
+              <div class="form-group col-md-6">
+                <label for='2'>Please enter your Last name </label></td>
 
-              <input class="form-control" id='1' name='firstname' type='text' minlength='2' maxlength='25' required
-                pattern='[A-Za-z]+'
-                onfocus='toggle(this.id);this.form.firstname.placeholder="First name(2~25 characters)";'
-                onblur='toggle(0)'>
+                <input class="form-control" id='2' name='lastname' type='text' minlength='2' maxlength='25' required
+                  pattern='[A-Za-z]+'
+                  onfocus='toggle(this.id);this.form.lastname.placeholder="Last name(2~25 characters)";'
+                  onblur='toggle(0);' />
+              </div>
             </div>
-            <div class="form-group">
-              <label for='2'>Please enter your Last name </label></td>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for='3'>Email address as login ID: &nbsp;&nbsp; </label>
+                <input class="form-control" id='3' name='email' type='email'
+                  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required
+                  onfocus='toggle(this.id); this.form.email.placeholder="a valid email address";' onblur='toggle(0);'>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for='4'>Please input your password:&nbsp;&nbsp;
+                </label>
+                <input class="form-control" id='4' name='passwd1' type='password' minlength='8' maxlength='15' required
+                  pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+                  title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters'
+                  onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+              </div>
 
-              <input class="form-control" id='2' name='lastname' type='text' minlength='2' maxlength='25' required
-                pattern='[A-Za-z]+'
-                onfocus='toggle(this.id);this.form.lastname.placeholder="Last name(2~25 characters)";'
-                onblur='toggle(0);' />
+              <div class="form-group col-md-6">
+                <label for='5'>Please verify your password:&nbsp;&nbsp; </label>
+                <input class="form-control" id='5' name='passwd2' type='password' minlength='8' maxlength='15' required
+                  pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must match the previous password settings'
+                  onfocus='toggle(this.id); this.form.passwd2.placeholder="Verify password"' onblur='toggle(0);' />
+              </div>
             </div>
-            <div class="form-group">
-              <label for='3'>Email address as login ID: &nbsp;&nbsp; </label>
-              <input class="form-control" id='3' name='email' type='email'
-                pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required
-                onfocus='toggle(this.id); this.form.email.placeholder="a valid email address";' onblur='toggle(0);'>
+            <div class="form-row">
+              <label>Please enter your address: </label>
             </div>
-            <div class="form-group"><label for='4'>Please input your password (8-15 letters + numbers only):&nbsp;&nbsp;
-              </label>
-              <input class="form-control" id='4' name='passwd1' type='password' minlength='8' maxlength='15' required
-                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
-                title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters'
-                onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for='6'>Your Steet number: </label>
+                <input class="form-control" id='6' name='localaddress' type='text'
+                  onfocus='toggle(this.id);this.form.address.placeholder="eg. 123-45 67th St., NE"'
+                  onblur='toggle(0);' />
+              </div>
+              <div class="form-group col-md-4">
+                <label for='7'>City/Town/County: </label>
+                <input class="form-control" id='7' name='city' type='text' onfocus='toggle(this.id);'
+                  onblur='toggle(0);' />
+              </div>
             </div>
-            <div class="form-group"><label for='5'>Please verify your password:&nbsp;&nbsp; </label>
-              <input class="form-control" id='5' name='passwd2' type='password' minlength='8' maxlength='15' required
-                pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must match the previous password settings'
-                onfocus='toggle(this.id); this.form.passwd2.placeholder="Verify password"' onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <label>Please enter your address–: </label>
-            </div>
-            <div class="form-group">
-              <label for='6'>Your Steet number: </label>
-              <input class="form-control" id='6' name='localaddress' type='text'
-                onfocus='toggle(this.id);this.form.address.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <label for='7'>City/Town/County: </label>
-              <input class="form-control" id='7' name='city' type='text' onfocus='toggle(this.id);'
-                onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <label for='8'>Province/State: </label>
-              <input class="form-control" id='8' name='province' type='text' onfocus='toggle(this.id);'
-                onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <label for='9'>Country: </label>
-              <input class="form-control" id='9' name='country' type='text' onfocus='toggle(this.id);'
-                onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <label for='10'>Post Code: </label>
-              <input class="form-control" id='10' name='postcode' type='text'
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for='8'>Province/State: </label>
+                <input class="form-control" id='8' name='province' type='text' onfocus='toggle(this.id);'
+                  onblur='toggle(0);' />
+              </div>
+              <div class="form-group col-md-4">
+                <label for='9'>Country: </label>
+                <input class="form-control" id='9' name='country' type='text' onfocus='toggle(this.id);'
+                  onblur='toggle(0);' />
+              </div>
+              <div class="form-group col-md-4">
+                <label for='10'>Post Code: </label>
+                <input class="form-control" id='10' name='postcode' type='text'
                   onfocus='toggle(this.id); this.form.zip.placeholder="A1B 2C3";' onblur='toggle(0);' />
+              </div>
             </div>
-
-            <div class="form-group">
-              <label for='11'>Your personal contact number with area code: </label></td>
-              <input class="form-control" id='11' name='contactno' type='text'
-                title='Please enter your personal contact number follow the patten: (987) 456-1234.'
-                onfocus='toggle(this.id); this.form.contactno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for='11'>Your personal contact number with area code: </label></td>
+                <input class="form-control" id='11' name='contactno' type='text'
+                  title='Please enter your personal contact number follow the patten: (987) 456-1234.'
+                  onfocus='toggle(this.id); this.form.contactno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+              </div>
+              <div class="form-group col-md-6">
+                <label for='12' class='jumbotext'>Your business contact number with area code: </label>
+                <input class="form-control" id='12' name='businessno' type='text'
+                  title='Please enter your business contact number follow the patten: (987) 456-1234.'
+                  onfocus='toggle(this.id); this.form.businessno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+              </div>
             </div>
-            <div class="form-group">
-              <label for='12'>Your business contact number with area code: </label>
-              <input class="form-control" id='12' name='businessno' type='text'
-                title='Please enter your business contact number follow the patten: (987) 456-1234.'
-                onfocus='toggle(this.id); this.form.businessno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
-            </div>
-            <div class="form-group">
-              <input id='reset' name='resetbutton' class='btn btn-primary' type='reset'
-                onclick='return confirm("Are you sure to clear the form?")' />
-              <input id='submit' name='submitbutton' class='btn btn-primary' type='submit'
-                onclick='return validateform(this.form);' />
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input id='reset' name='resetbutton' class='btn btn-primary' type='reset'
+                  onclick='return confirm("Are you sure to clear the form?")' />
+              </div>
+              <div class="form-group col-md-6">
+                <input id='submit' name='submitbutton'  class='btn btn-primary' type='submit'
+                  onclick='return validateform(this.form);' />
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
   </main>
-
+<!-- Ken Zhang's main section code ends here   -->
+<!-- The following footer section is completed by Ritor -->
   <footer class="page-footer font-small pt-4">
     <div class="container text-center text-md-left">
 
       <div class="row">
 
         <div class="col-md-6 mt-md-0 mt-3">
-
+        
           <h5 class="text-uppercase">Travel Experts</h5>
           <p>Hmmm... travel good.</p>
           <img id="footerbadge" src="media/footerbadge.svg" alt="Airplane badge">

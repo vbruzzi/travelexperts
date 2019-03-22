@@ -1,0 +1,54 @@
+:root {
+    --featured-card-bg1: url("../media/featured1.jpg");
+    --featured-card-bg2: url("../media/featured2.jpg");
+    --featured-card-bg3: url("../media/featured3.jpg");
+    --featured-card-bg4: url("../media/featured3.jpg");
+    --jumbotron-image: url("../media/jumbo2.jpg");
+}
+
+.jumbotron {
+    background: var(--jumbotron-image) no-repeat center center;
+    background-size: cover;
+    min-height: 400px;
+}
+
+.jumbotron .jumbotext, .card-title, .card-text {
+    display: table;
+    padding:10px;
+    position:relative;
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(91, 0, 114, 0.5);
+    color: white;
+}
+
+.jumbotron p {
+    color: white;
+    max-width: 500px;
+    font-size: 20px;
+}
+
+.card-deck {
+    margin: auto !important;
+}
+
+.featured1 {
+    background: var(--featured-card-bg1);
+}
+
+.featured2 {
+    background: var(--featured-card-bg2);
+}
+
+.featured3 {
+    background: var(--featured-card-bg3);
+}
+
+.featured4 {
+    background: var(--featured-card-bg4);
+}
+
+.card-body {
+    background-size: cover;
+    max-width: 300px;
+    min-height: 400px;
+}

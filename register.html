@@ -1,19 +1,26 @@
+<!-- Register page by Ken Zhang -->
+
 <!DOCTYPE html>
 <html>
 
 <head>
-
-  <title>Travel Experts - Customer Registration</title>
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/home.css">
+  <title>Register</title>
+  <!-- AWESOME FONT -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css"
     integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css"
     integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css"
     integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/home.css">
+
+  <!-- JQUERY, POPPER.JS AND BOOSTRAP JS FILE-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -23,70 +30,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
-  <!-- the following css style sheet is by Ken Zhang -->
-  <script>
-    var hints = new Array;
-    hints = [
-      'Instructions and Hints to fill the form',
-      'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
-      'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
-      'Please enter your valid email address, contains @ and . symbals',
-      'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
-      'Verify your password, must match the previous password settings',
-      'Please enter your local address, P.O.Box, Street No. etc.',
-      'Please enter your city',
-      'Please enter your province/state',
-      'Please enter your country',
-      'Please enter your post code, format for Canadian postcode: A1B 2C3',
-      'Please enter your personal contact number, follow the patten: (987) 456-1234.',
-      'Please enter your business contact number, follow the patten: (987) 456-1234.'
-    ];
-
-    function toggle(id) {
-      var i = parseInt(id);
-      var hide = document.getElementById("hideText");
-      var text = document.getElementById("displayText");
-      text.style.display = "none";
-      hide.style.display = "visable";
-      hide.innerHTML = "<label class='text-warning'>"+hints[i]+"</label>";
-    }
-
-    function validateform(form) {
-      var flag = true;
-      var i, j;
-
-      for (i = 1; i < 13; i++) {
-        j = i.toString();
-        if (document.getElementById(j).value == '') {
-          alert("Please fill all blanks!");
-          return false;
-        }
-      }
-      if (form.passwd1.value != form.passwd2.value) {
-        flag = false;
-        alert("Please make your password settings match!");
-        return flag;
-      }
-      else {
-        return flag && confirm("Are you sure to submit the form?");
-      }
-
-      var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
-      if (zip.test(form.postcode.value)) {
-        return false;
-      }
-      return true;
-    }
-
-  </script>
 </head>
 
+<!-- NAVBAR -->
+
 <body>
-  <!-- The following nav/header part completed by Ritor -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <header class="container">
-      <a class="navbar-brand" href="index.html">Travel Experts</a>
+      <a class="navbar-brand" href="index.php"><img src="media/logo.png" alt="Travel Experts Logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -98,7 +49,7 @@
             <a class="nav-link" href="packages.html">Vacation Package <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="contacts.html">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="register.html" tabindex="-1" aria-disabled="true">Register</a>
@@ -108,8 +59,7 @@
       </div>
     </header>
   </nav>
-<!-- The above section is nav/header which is completed by Ritor -->
-<!-- The following main section completed by Ken Zhang -->
+  </head>
   <main>
     <div class="container flashsales">
 
@@ -149,13 +99,13 @@
         </div>
         <!-- Registration section starts here -->
         <div class="col-lg-8 text-light" style="background-color:  rgba(91,0,114,0.75)"><br />
-          <h5  class="text-light">New around here? Please sign up:</h5>
+          <h5 class="text-light">New around here? Please sign up:</h5>
 
           <form id='register' name='registernewuser' action='bouncer.php' method='post' enctype='text/plain'
             class='px-4 py-3'>
-            <div class="form-row"  class="text-light">
-              <div id="displayText"  class="text-warning"><label>Instructions and Hints to fill the form</label></div>
-              <div id="hideText" class="text" > </div>
+            <div class="form-row" class="text-light">
+              <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
+              <div id="hideText" class="text"> </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -253,7 +203,7 @@
                   onclick='return confirm("Are you sure to clear the form?")' />
               </div>
               <div class="form-group col-md-6">
-                <input id='submit' name='submitbutton'  class='btn btn-primary' type='submit'
+                <input id='submit' name='submitbutton' class='btn btn-primary' type='submit'
                   onclick='return validateform(this.form);' />
               </div>
             </div>
@@ -262,15 +212,14 @@
       </div>
     </div>
   </main>
-<!-- Ken Zhang's main section code ends here   -->
-<!-- The following footer section is completed by Ritor -->
+
   <footer class="page-footer font-small pt-4">
     <div class="container text-center text-md-left">
 
       <div class="row">
 
         <div class="col-md-6 mt-md-0 mt-3">
-        
+
           <h5 class="text-uppercase">Travel Experts</h5>
           <p>Hmmm... travel good.</p>
           <img id="footerbadge" src="media/footerbadge.svg" alt="Airplane badge">
@@ -311,6 +260,61 @@
     </div>
 
   </footer>
+  <script>
+    var hints = new Array;
+    hints = [
+      'Instructions and Hints to fill the form',
+      'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
+      'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
+      'Please enter your valid email address, contains @ and . symbals',
+      'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
+      'Verify your password, must match the previous password settings',
+      'Please enter your local address, P.O.Box, Street No. etc.',
+      'Please enter your city',
+      'Please enter your province/state',
+      'Please enter your country',
+      'Please enter your post code, format for Canadian postcode: A1B 2C3',
+      'Please enter your personal contact number, follow the patten: (987) 456-1234.',
+      'Please enter your business contact number, follow the patten: (987) 456-1234.'
+    ];
+
+    function toggle(id) {
+      var i = parseInt(id);
+      var hide = document.getElementById("hideText");
+      var text = document.getElementById("displayText");
+      text.style.display = "none";
+      hide.style.display = "visable";
+      hide.innerHTML = "<label class='text-warning'>" + hints[i] + "</label>";
+    }
+
+    function validateform(form) {
+      var flag = true;
+      var i, j;
+
+      for (i = 1; i < 13; i++) {
+        j = i.toString();
+        if (document.getElementById(j).value == '') {
+          alert("Please fill all blanks!");
+          return false;
+        }
+      }
+      if (form.passwd1.value != form.passwd2.value) {
+        flag = false;
+        alert("Please make your password settings match!");
+        return flag;
+      }
+      else {
+        return flag && confirm("Are you sure to submit the form?");
+      }
+
+      var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
+      if (zip.test(form.postcode.value)) {
+        return false;
+      }
+      return true;
+    }
+
+  </script>
 
 </BODY>
 

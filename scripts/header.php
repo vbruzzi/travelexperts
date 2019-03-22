@@ -1,6 +1,3 @@
-<!-- Home page made by Vitor -->
-
-
 <!DOCTYPE html>
 <html>
     <head>

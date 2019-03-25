@@ -1,13 +1,22 @@
 <!-- Contacts page by Samira -->
 
+
+
+
 <?php require "scripts/header.php" ?>
 <!-- CONTACTS STYLES -->
 <link rel="stylesheet" href="styles/contacts.css">
+<style>
+    /*tr:hover {background: rgb(121, 0, 151) !important; }*/
+   
+    
 
+</style>
+<!-- CREATE CONTENT -->
 <div class="container" align='center'>
-    <h1>Contact us</h1>
+    <h1 ID= headline >Contact us</h1>
     <h5>You can contact as with all your questions and booking needs
-        via <a href="mailto:info@travelexperts.com">email</a>, phone or in person
+        via <a ID = email href="mailto:info@travelexperts.com">email</a>, phone or in person
         You can reach any of our agents directly, or by contacting our headquarters in Calgary or
         one of our branches in Onoko or Edmonton.</h5>
     <!-- button to open the modal/window with agent contact details at Calgary location -->
@@ -21,16 +30,16 @@
                 will be space holders for now.-->
 <div class="container" align='center'></div><br />
 
-<table border=1 id='table1' style='width:100%'>
-    <col width="100">
+<table border=1 class='table1' style='width:100%'>
+    <col width="50">
     <col width="200">
     <col width="200">
     <col width="200">
-    <col width="100">
+    <col width="50">
     <tr>
         <!--First row of table has headline for Calgary. All three cells are merged and headline is centered. -->
         <td>1</td>
-        <td class=belowheadline colspan='3' align='center'>
+        <td class=headlinecell colspan='3' align='center'>
             <h5>CALGARY HEADQUATERS</h5>
         </td>
 
@@ -40,15 +49,15 @@
         <!--Second row of table has in left cell: picture representing Calgary, in middle 
                     branch address and  in the right cell a map linking to google maps with location address. -->
         <td>6</td>
-        <td><img width='200px' align='center' src="media/contacts/Calgary1.jpg" /></td>
+        <td id= cell1 class=cell><img width='200px' align='center' src="media/contacts/Calgary1.jpg" /></td>
 
-        <td>
-            <p>113 4 Ave SE, World tower level 10, suit 109<br />Calgary,AB T2G4Z6<br />
-                hours: Mo-Fri 9am-5pm<br />info@travelexperts.com<br />phone:403 123 4567</p>
+        <td class=cell>
+            <p>1155 8th Ave SW, World tower level 10, suit 109<br />Calgary,AB, T2P1N3<br />
+                hours: Mo-Fri 9am-5pm<br />info@travelexperts.com<br />phone: 403 2719 873<br /> fax: 403 271 9872</p>
         </td>
 
-        <td>
-            <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//51.0491311,-114.0622718/@51.0491041,-114.0623791,16z"><img src="media/contacts/Calgarymap2.jpg" style="width:200px; height:20%" title="Calgarymap"></a>
+        <td id= cell1 class =cell>
+            <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//51.0491311,-114.0622718/@51.0491041,-114.0623791,16z"><img src="media/contacts/Calgarymap2.jpg" style="width:200px; height:20%" title="Calgarymap"/></a>
         </td>
         <td>10</td>
     </tr>
@@ -57,7 +66,7 @@
         <tr>
             <!--Third row is Okotoks headline. Merge 3 cells and center headline. -->
             <td>11</td>
-            <td colspan='3' align='center'>
+            <td colspan='3' class=headlinecell align='center'>
                 <h5>Okotoks Branch </h5>
             </td>
             <td>13</td>>
@@ -66,13 +75,13 @@
             <!--Fourth row of table has a picture representing Okotoks, the branch address and
                             a map linking to google maps with location address. -->
             <td>16</td>
-            <td><img width='200px' align='center' src="media/contacts/Okotoksplaza.jpg" /></td>
+            <td id= cell1 class=cell><img width='200px' align='center' src="media/contacts/Okotoksplaza.jpg" /></td>
 
-            <td>
-                <p>5 Elizabeth St, ground floor,<br />Okotoks, AB T1S 2C1<br />
-                    hours:Mo-Fri 9 am -5pm<br />info@travelexperts.com<br />phone:406 987 6543</p>
+            <td class=cell>
+                <p>110 Main Street, ground floor,<br />Okotoks, AB, T7R3J5<br />
+                    hours:Mo-Fri 9 am -5pm<br />info@travelexperts.com<br />phone: 403 563 2381<br/>fax: 403 563 2382</p>
             </td>
-            <td>
+            <td id= cell1 class=cell >
                 <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//50.7253655,-113.9750487/@50.7254225,-113.9750904,17z/data=!4m2!4m1!3e2"><img src="media/contacts/Okotoksmap.png" style="width:200px; height:20%" /></a>
             </td>
             <td>20</td>
@@ -95,30 +104,50 @@
 <!-- Creating the  modal-->
 <div id="ModalCalgaryAgents" class="modal">
     <div class="modal-content">
-        <div class="modal-header">
-            <h5>Contact an expert:</h5>
-            <span class="close">&times;</span>
-        </div>
+        <div class=modal-header>
+            <h4 class="modal-title w-100 text-center" >Contact an expert:</h4>
+        </div> 
+           <span class="close">&times;</span>
         <div class="modal-body">
-            <table class='modaltable' border=1>
+            <table class='modaltable'>
                 <TR>
                     <TD class='modalheading' colspan='2'>
-                        <h6> Calgary Headquarters</h6>
+                        <h6 > Travelagents located in Calgary</h6>
                     </TD>
                 </TR>
                 <TR>
                     <TD><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
                     <TD>
-                        <p> John Doe, junior agent<br />
-                            <a href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
+                        <div class =modalagentname> <h6>John Doe, junior agent</h6></div>
+                           <p> <a href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
                             >phone: 403 123 456 01</p>
                     </TD>
                 </TR>
                 <TD><img width='250px' src="media/contacts/agentAnn.jpg" /></TD>
                 <TD>
-                    <p> Ann Douglas junior agent<br />
-                        <a href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
+                    <h6> Ann Douglas, junior agent</h6>
+                        <p><a href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
                         >phone: 403 123 456 02</p>
+                </TD>
+                </TR>
+                <TR>
+                    <TD class='modalheading' colspan='2'>
+                        <h6 > Travelagents located in Okotoks</h6>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD><img width='250px' src="media/contacts/agentAsian.jpg" /> </TD>
+                    <TD>
+                        <div class =modalagentname> <h6>Karen Smith, senior agent</h6></div>
+                           <p> <a href="mailto:karensmith@travelexperts.com">Karensmith@travelexperts.com</a><br />
+                            >phone: 403 563 2382</p>
+                    </TD>
+                </TR>
+                <TD><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
+                <TD>
+                    <h6> Hamila Kumi, junior agent</h6>
+                        <p><a href="hamilakumi@travelexperts.com">Hamilakumi@travelexperts.com</a><br />
+                        >phone: 403 563 2383</p>
                 </TD>
                 </TR>
             </table>

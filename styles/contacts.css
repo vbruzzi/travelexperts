@@ -7,6 +7,9 @@
     text-align: center;
 
 }
+div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
+
+}
 
 .button {
     text-align: center;
@@ -43,6 +46,9 @@
     /* Could be more or less, depending on screen size */
 }
 
+div.modalagentname { font-weight:bold;color:rgba(91, 0, 114, 1.0);
+    }     
+
 .close {
     color: #aaa;
     float: left;
@@ -57,8 +63,13 @@
     cursor: pointer;
 }
 
-td.belowheadline {
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: rgba(91, 0, 114);
-}
+.button              {background:rgba(91, 0, 114, 0.5); border: 2px solid white; border-radius: 4px;}
+.button:hover        {background: rgb(121, 0, 151);color:white;}
+td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
+    td.cell          {background:rgb(235, 230, 255);border-radius:30px;}
+    #email           {color:rgba(91, 0, 114, 1.0);}
+    #headline        {color:rgba(91, 0, 114, 1.0);}
+    .table1, td      {border-style:solid;border-color:white; border-width:8px;}
+    #cell1           {text-align:center;}
+    #modalheader      {box-align:center;}
+

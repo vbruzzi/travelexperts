@@ -11,7 +11,11 @@
         <!-- Customer login starts from here -->
         <div class="col-lg-4 text-light" style="background-color: rgba(91,91,1,0.85)"><br />
             <h5 class="text-light">Return customers:<br /> Welcome back to Travel Experts!<br /> Please login:</h5>
+<<<<<<< HEAD
             <form class="px-4 py-3">
+=======
+            <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
 
                 <div class="form-group">
                     <label for="Email1">Email address</label>
@@ -20,7 +24,11 @@
 
                 <div class="form-group">
                     <label for="Password1">Password</label>
+<<<<<<< HEAD
                     <input type="password" class="form-control" id="Password1" placeholder="Password">
+=======
+                    <input type="password" class="form-control" name="Password1" placeholder="Password">
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
                 </div>
 
                 <div class="form-group">
@@ -44,8 +52,13 @@
         <!-- Registration section starts here -->
         <div class="col-lg-8 text-light" style="background-color:  rgba(91,0,114,0.75)"><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
+<<<<<<< HEAD
 
             <form id='register' name='registernewuser' action='bouncer.php' method='post' enctype='text/plain' class='px-4 py-3'>
+=======
+            <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
+            <!--form name="signup" action='bouncer.php' method="post" enctype='text/plain' class='px-4 py-3'-->
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
                 <div class="form-row" class="text-light">
                     <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
                     <div id="hideText" class="text"> </div>
@@ -59,7 +72,11 @@
                     <div class="form-group col-md-6">
                         <label for='2'>Please enter your Last name </label></td>
 
+<<<<<<< HEAD
                         <input class="form-control" id='2' name='lastname' type='text' minlength='2' maxlength='25' required pattern='[A-Za-z]+' onfocus='toggle(this.id);this.form.lastname.placeholder="Last name(2~25 characters)";' onblur='toggle(0);' />
+=======
+                        <input class="form-control" id="2" name="lastname" type="text" minlength="2" maxlength="25" required pattern="[A-Za-z]+" onfocus="toggle(this.id);this.form.lastname.placeholder='Last name(2~25 characters)';" onblur="toggle(0);" />
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
                     </div>
                 </div>
                 <div class="form-row">
@@ -110,11 +127,19 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for='11'>Your personal contact number with area code: </label></td>
+<<<<<<< HEAD
                         <input class="form-control" id='11' name='contactno' type='text' title='Please enter your personal contact number follow the patten: (987) 456-1234.' onfocus='toggle(this.id); this.form.contactno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-6">
                         <label for='12' class='jumbotext'>Your business contact number with area code: </label>
                         <input class="form-control" id='12' name='businessno' type='text' title='Please enter your business contact number follow the patten: (987) 456-1234.' onfocus='toggle(this.id); this.form.businessno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+=======
+                        <input class="form-control" id='11' name='contactno' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for='12' class='jumbotext'>Your business contact number with area code: </label>
+                        <input class="form-control" id='12' name='businessno' type='text' title='Please enter your business contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.businessno.placeholder="9874561234"' onblur='toggle(0);' />
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
                     </div>
                 </div>
                 <div class="form-row">
@@ -144,8 +169,13 @@
         'Please enter your province/state',
         'Please enter your country',
         'Please enter your post code, format for Canadian postcode: A1B 2C3',
+<<<<<<< HEAD
         'Please enter your personal contact number, follow the patten: (987) 456-1234.',
         'Please enter your business contact number, follow the patten: (987) 456-1234.'
+=======
+        'Please enter your personal contact number, follow the patten: 9874561234.',
+        'Please enter your business contact number, follow the patten: 9874561234.'
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
     ];
 
     function toggle(id) {
@@ -160,7 +190,11 @@
     function validateform(form) {
         var flag = true;
         var i, j;
+<<<<<<< HEAD
 
+=======
+        //Verify if all blanks are filled
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
         for (i = 1; i < 13; i++) {
             j = i.toString();
             if (document.getElementById(j).value == '') {
@@ -168,11 +202,21 @@
                 return false;
             }
         }
+<<<<<<< HEAD
+=======
+        //verify PostCode(Canada)
+        var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
+        if (zip.test(form.postcode.value)) {
+            return false;
+        }
+        //Verify if passwords match 
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
         if (form.passwd1.value != form.passwd2.value) {
             flag = false;
             alert("Please make your password settings match!");
             return flag;
         } else {
+<<<<<<< HEAD
             return flag && confirm("Are you sure to submit the form?");
         }
 
@@ -181,6 +225,14 @@
             return false;
         }
         return true;
+=======
+        
+            return flag && confirm("Are you sure to submit the form?");
+        }
+
+
+        //return true;
+>>>>>>> dc14f66f3c83a638b6c6f224f6941b5d0b0005f3
     }
 </script>
 

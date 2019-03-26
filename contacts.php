@@ -6,24 +6,30 @@
 <?php require "scripts/header.php" ?>
 <!-- CONTACTS STYLES -->
 <link rel="stylesheet" href="styles/contacts.css">
-<style>
-    /*tr:hover {background: rgb(121, 0, 151) !important; }*/
-   
-    
 
-</style>
 <!-- CREATE CONTENT -->
 <div class="container" align='center'>
     <h1 ID= headline >Contact us</h1>
-    <h5>You can contact as with all your questions and booking needs
-        via <a ID = email href="mailto:info@travelexperts.com">email</a>, phone or in person
-        You can reach any of our agents directly, or by contacting our headquarters in Calgary or
-        one of our branches in Onoko or Edmonton.</h5>
-    <!-- button to open the modal/window with agent contact details at Calgary location -->
-    <button class='button' id="buttonCalgaryAgents">available agents</button>
+    <div class=table1>
+        <table>
+            <TR><TD>
+            <img width=600px'  src="media/contacts/agentswithglobe5.jpg">
+               </TD>
+                <TD class = buttoncell >
+                   <h5> You can contact as with all your questions and booking needs
+                        via <a ID = email href="mailto:info@travelexperts.com">email</a>, phone or in person
+                        You can reach any of our agents directly, or by contacting our headquarters in Calgary or
+                        one of our branches in Onoko or Edmonton.</h5><br/>
+                    <!-- button to open the modal/window with agent contact details at Calgary location -->
+                         <button class='button' id="buttonCalgaryAgents">available agents</button>
+               </TD>
+            </TR>
+        </table>
+    </div>
+    <h5></h5>
+    
     <br />
-
-    <img width='800px' align='center' src="media/contacts/groupagents.jpg">
+    
     <br />
 </div>
 <!--Create a table to arangee elements on page:5 colums by 5 rows.Left and right columns
@@ -99,7 +105,7 @@
 <!--  MODALS: The button is linked to open up a modal, i.e. a text field listing the agents'
                         contact details. The modal contains 1 table with 2 columns and one row per agent. -->
 
-<!-- MODAL CODE-->
+<!-- MODAL CODE MODAL CODE MODAL CODE-->
 <!-- <div class='container'>-->
 <!-- Creating the  modal-->
 <div id="ModalCalgaryAgents" class="modal">
@@ -119,35 +125,36 @@
                     <TD><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
                     <TD>
                         <div class =modalagentname> <h6>John Doe, junior agent</h6></div>
-                           <p> <a href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
-                            >phone: 403 123 456 01</p>
+                            <a  href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
+                            </p>  phone: 403 123 456 01</p>
                     </TD>
                 </TR>
-                <TD><img width='250px' src="media/contacts/agentAnn.jpg" /></TD>
-                <TD>
-                    <h6> Ann Douglas, junior agent</h6>
-                        <p><a href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
-                        >phone: 403 123 456 02</p>
+                <TR>
+                    <TD><img width='250px' src="media/contacts/agentAnn.jpg" /></TD>
+                    <TD>
+                    <div class =modalagentname> <h6>Ann Douglas, junior agent</h6></div>
+                        <a href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
+                        <p>phone: 403 123 456 02</p>
                 </TD>
-                </TR>
+                </TR> 
                 <TR>
                     <TD class='modalheading' colspan='2'>
                         <h6 > Travelagents located in Okotoks</h6>
                     </TD>
-                </TR>
+                </TR>>
                 <TR>
                     <TD><img width='250px' src="media/contacts/agentAsian.jpg" /> </TD>
                     <TD>
                         <div class =modalagentname> <h6>Karen Smith, senior agent</h6></div>
                            <p> <a href="mailto:karensmith@travelexperts.com">Karensmith@travelexperts.com</a><br />
-                            >phone: 403 563 2382</p>
+                            phone: 403 563 2382</p>
                     </TD>
                 </TR>
                 <TD><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
                 <TD>
-                    <h6> Hamila Kumi, junior agent</h6>
+                <div class =modalagentname> <h6> Hamila Kumi, junior agent</h6></div>
                         <p><a href="hamilakumi@travelexperts.com">Hamilakumi@travelexperts.com</a><br />
-                        >phone: 403 563 2383</p>
+                        phone: 403 563 2383</p>
                 </TD>
                 </TR>
             </table>

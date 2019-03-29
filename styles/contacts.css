@@ -9,7 +9,8 @@ div.modaltable td{
     
 }
 
-
+.modalcell1 {padding:10px;
+            ;}
 
 
 TD.modalheading {
@@ -19,6 +20,7 @@ TD.modalheading {
 }
 /*tr.modalborderrow {padding-bottom: 100em; background-color: tomato; }    makes it red, but mo padding*/
 div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
+
 
 }
 
@@ -31,6 +33,7 @@ div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
 div.modal-body  { overflow:auto;}
 
 .modal {
+   
     display: none;
     position: fixed;
     z-index: 1;
@@ -54,8 +57,11 @@ div.modal-body  { overflow:auto;}
 }
 
 .modal-content {
+    
     background-color: #fefefe;
-    margin: 10%;
+    margin: auto;
+    margin-top:5%;
+    
     /* 15% from the top and centered */
     padding: 20px 20 px 20px 20px;
     border: 1px solid #888;

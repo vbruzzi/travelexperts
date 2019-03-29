@@ -125,41 +125,41 @@ function normalImg(x) {
             <div class= 'modaltable'>
                 <table >
                 <TR>
-                    <TD class='modalheading' colspan='2'>
+                    <TD class='modalheading modalcell1' colspan='2'>
                         <h5 > Travelagents located in Calgary</h5>
                     </TD>
                 </TR >
                 <TR class='modalborderrow'>
-                    <TD><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
+                    <TD class=modalcell1><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
                     <TD>
-                        <div class =modalagentname> <h6>John Doe, junior agent</h6></div>
+                        <div class = 'modalagentname modalcell1'> <h6>John Doe, junior agent</h6></div>
                             <a  class= 'agentemail' href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
                             </p>  phone: 403 123 456 01</p>
                     </TD>
                 </TR>
                 <TR>
-                    <TD><img width='250px' src="media/contacts/agentAnn1.jpg" /></TD>
-                    <TD class ='modalcell'>
+                    <TD class =modalcell1><img width='250px' src="media/contacts/agentAnn1.jpg" /></TD>
+                    <TD class ='modalcell modalcell1'>
                     <div class ='modalagentname'> <h6>Ann Douglas, junior agent</h6></div>
                         <a class= 'agentemail' href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
                         <p>phone: 403 123 456 02</p>
                 </TD>
                 </TR> 
                 <TR>
-                    <TD class='modalheading' colspan='2'>
-                    <br/>  <h5 > Travelagents located in Okotoks</h5>
+                    <TD class='modalheading modalcell1' colspan='2'>
+                    <br/> <br/> <br/> <h5 > Travelagents located in Okotoks</h5>
                     </TD>
                 </TR>
                 <TR>
-                    <TD><img width='250px' src="media/contacts/agentkaren.jpg" /> </TD>
-                    <TD>
+                    <TD class=modalcell1><img width='250px' src="media/contacts/agentkaren.jpg" /> </TD>
+                    <TD class= modalcell1>
                         <div class =modalagentname> <h6>Karen Smith, senior agent</h6></div>
                            <p> <a class= 'agentemail' href="mailto:karensmith@travelexperts.com">Karensmith@travelexperts.com</a><br />
                             phone: 403 563 2382</p>
                     </TD>
                 </TR>
-                <TD><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
-                <TD>
+                <TD class =modalcell1><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
+                <TD class =modalcell1>
                 <div class =modalagentname> <h6> Hamila Kumi, junior agent</h6></div>
                         <p><a class= 'agentemail' href="hamilakumi@travelexperts.com">Hamilakumi@travelexperts.com</a><br />
                         phone: 403 563 2383</p>

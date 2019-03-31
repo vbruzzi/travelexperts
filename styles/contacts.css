@@ -1,13 +1,26 @@
-.modaltable {
-    width: 800px;
-    height: 500px;
+ div.modaltable table {
+    width:100%;
+    
+ }
+div.modaltable td{
+
+    border-bottom: 1px solid grey;/*grey border disappears
+    ,if I delete the white one. */
+    
 }
 
-.modalheading {
+.modalcell1 {padding:10px;
+            ;}
+
+
+TD.modalheading {
     text-align: center;
+    
 
 }
+/*tr.modalborderrow {padding-bottom: 100em; background-color: tomato; }    makes it red, but mo padding*/
 div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
+
 
 }
 
@@ -17,18 +30,25 @@ div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
 
 
 }
+div.modal-body  { overflow:auto;}
 
 .modal {
+   
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
+    left: 50%;
+    top: 50%;
+    width: 100%;  /* Full width of screen */
+    max-width:100%;
+    height:100%;
+    max-height: 100%;
+    
+    transform: translate(-50%, -50%);
+   
+   
     /* Full height */
-    overflow: auto;
+   /* overflow: scroll;*/
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
@@ -37,22 +57,28 @@ div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
 }
 
 .modal-content {
+    
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
+    margin-top:5%;
+    
     /* 15% from the top and centered */
-    padding: 20px;
+    padding: 20px 20 px 20px 20px;
     border: 1px solid #888;
     width: 80%;
-    /* Could be more or less, depending on screen size */
+    height: 90%;
+   /* overflow should ony be for modaltable or modal-body. neither one worked. */
+    
 }
 
 div.modalagentname { font-weight:bold;color:rgba(91, 0, 114, 1.0);
-    }     
+    }    
+/* .TD */
 
 .close {
     color: #aaa;
     float: left;
-    font-size: 28px;
+    font-size: 34px;
     font-weight: bold;
 }
 
@@ -62,14 +88,16 @@ div.modalagentname { font-weight:bold;color:rgba(91, 0, 114, 1.0);
     text-decoration: none;
     cursor: pointer;
 }
-
-.button              {background:rgba(91, 0, 114, 0.5); border: 2px solid white; border-radius: 4px;}
+.button              {background:rgba(91, 0, 114, 0.5); border: 2px solid white; border-radius: 4px;
+                        font-size:20px;padding:10px 24px;
+                    }
 .button:hover        {background: rgb(121, 0, 151);color:white;}
 td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
     td.cell          {background:rgb(235, 230, 255);border-radius:30px;}
-    #email           {color:rgba(91, 0, 114, 1.0);}
+    #email           {color:rgba(91, 0, 114, 1.0);text-decoration:underline;}
     #headline        {color:rgba(91, 0, 114, 1.0);}
-    .table1, td      {border-style:solid;border-color:white; border-width:8px;}
+    .table1 td      {border-style:solid;border-color:white; border-width:8px;}
     #cell1           {text-align:center;}
-    #modalheader      {box-align:center;}
-
+    #modalheader     {box-align:center;}
+    TD.buttoncell    {text-align:center;}
+    a.agentemail     {color:black;}

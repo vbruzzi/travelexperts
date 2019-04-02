@@ -2,7 +2,7 @@
 
 .packagetitle { 
     text-align: center; 
-    vertical-align: middle;  
+    vertical-align: right;  
     background-color: rgb(121, 0, 151); 
     color: whitesmoke; 
     height: 35px; 
@@ -20,8 +20,15 @@ p.color {
 }
 
 .packagebanner { 
+    display: flex;
+    align-items: center;
     background: url("../media/packageimg/purplebannerbg.png");
     background-size: cover; 
-    height: 85px;
+    background-position: bottom left;
+    height: 120px;
     margin-bottom: 20px;
+}
+
+.packagebanner .container {
+    text-align:right;
 }

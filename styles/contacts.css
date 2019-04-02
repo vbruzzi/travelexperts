@@ -66,7 +66,7 @@ td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
         
     
     }
-    
+    /*tr.modalborderrow {padding-bottom: 100em; background-color: tomato; }    makes it red, but mo padding*/
     div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
     
     
@@ -79,8 +79,8 @@ td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
     
     }
     div.modal-body  { 
-        overflow:auto;      
-        margin-bottom:1%;  /*creates a small white margin below modal table.*/
+        overflow:auto;      /*I set both modal content and modalbody margins.However */
+        margin-bottom:10%;  /*the modal did not move upwards in the screen.*/
     }
     
     .modal {
@@ -110,9 +110,8 @@ td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
     div.modal-content {
         
         background-color: #fefefe;
-        margin: auto; /*creates the grey transparent margin around the modal */
-        margin-bottom:3%; /*creates the grey transparent margin above the modal */
-        margin-top:3%; /*creates the grey transparent margin  below the modal */
+        margin: auto;
+        margin-bottom:10%;
         padding: 20px 20 px 20px 20px;
         width: 80%;
         height: 90%;

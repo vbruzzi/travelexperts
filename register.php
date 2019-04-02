@@ -3,7 +3,13 @@
 <?php require "scripts/header.php" ?>
 
 <link rel="stylesheet" href="styles/home.css">
-
+<!--Banner (from Dina) to add consistency across pages-->
+<div class="packagebanner">
+    <div class="container">
+        <h1 class="bold">Sign in | Sign up</h1>
+        <p class="color">One agency many worlds</p>
+    </div>
+</div>
 <!-- NAVBAR -->
 <div class="container flashsales">
 
@@ -11,16 +17,16 @@
         <!-- Customer login starts from here -->
         <div class="col-lg-4 text-light" style="background-color: rgba(91,91,1,0.85)"><br />
             <h5 class="text-light">Return customers:<br /> Welcome back to Travel Experts!<br /> Please login:</h5>
-            <form class="px-4 py-3">
+            <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
 
                 <div class="form-group">
-                    <label for="Email1">Email address</label>
-                    <input type="email" class="form-control" id="Email1" placeholder="email@example.com">
+                    <label for="user">Username</label>
+                    <input type="text" class="form-control" id="user" placeholder="Enter your username">
                 </div>
 
                 <div class="form-group">
                     <label for="Password1">Password</label>
-                    <input type="password" class="form-control" id="Password1" placeholder="Password">
+                    <input type="password" class="form-control" name="Password1" placeholder="Password">
                 </div>
 
                 <div class="form-group">
@@ -44,8 +50,8 @@
         <!-- Registration section starts here -->
         <div class="col-lg-8 text-light" style="background-color:  rgba(91,0,114,0.75)"><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
-
-            <form id='register' name='registernewuser' action='bouncer.php' method='post' enctype='text/plain' class='px-4 py-3'>
+            <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
+            <!--form name="signup" action='bouncer.php' method="post" enctype='text/plain' class='px-4 py-3'-->
                 <div class="form-row" class="text-light">
                     <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
                     <div id="hideText" class="text"> </div>
@@ -59,25 +65,29 @@
                     <div class="form-group col-md-6">
                         <label for='2'>Please enter your Last name </label></td>
 
-                        <input class="form-control" id='2' name='lastname' type='text' minlength='2' maxlength='25' required pattern='[A-Za-z]+' onfocus='toggle(this.id);this.form.lastname.placeholder="Last name(2~25 characters)";' onblur='toggle(0);' />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for='3'>Email address as login ID: &nbsp;&nbsp; </label>
-                        <input class="form-control" id='3' name='email' type='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required onfocus='toggle(this.id); this.form.email.placeholder="a valid email address";' onblur='toggle(0);'>
+                        <input class="form-control" id="2" name="lastname" type="text" minlength="2" maxlength="25" required pattern="[A-Za-z]+" onfocus="toggle(this.id);this.form.lastname.placeholder='Last name(2~25 characters)';" onblur="toggle(0);" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='4'>Please input your password:&nbsp;&nbsp;
+                        <label for='3'>Email address: &nbsp;&nbsp; </label>
+                        <input class="form-control" id='3' name='email' type='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required onfocus='toggle(this.id); this.form.email.placeholder="a valid email address";' onblur='toggle(0);'>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for='4'>Username with 2-20 chars: &nbsp;&nbsp; </label>
+                        <input class="form-control" id='4' name='userid' type='text' pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$' required onfocus='toggle(this.id); this.form.userid.placeholder="Username with 2~20 characters";' onblur='toggle(0);'>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for='5'>Please input your password:&nbsp;&nbsp;
                         </label>
-                        <input class="form-control" id='4' name='passwd1' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+                        <input class="form-control" id='5' name='passwd1' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for='5'>Please verify your password:&nbsp;&nbsp; </label>
-                        <input class="form-control" id='5' name='passwd2' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must match the previous password settings' onfocus='toggle(this.id); this.form.passwd2.placeholder="Verify password"' onblur='toggle(0);' />
+                        <label for='6'>Please verify your password:&nbsp;&nbsp; </label>
+                        <input class="form-control" id='6' name='passwd2' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must match the previous password settings' onfocus='toggle(this.id); this.form.passwd2.placeholder="Verify password"' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
@@ -85,36 +95,36 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for='6'>Your Steet number: </label>
-                        <input class="form-control" id='6' name='localaddress' type='text' onfocus='toggle(this.id);this.form.address.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
+                        <label for='7'>Your Steet number: </label>
+                        <input class="form-control" id='7' name='localaddress' type='text' onfocus='toggle(this.id);this.form.localaddress.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-4">
-                        <label for='7'>City/Town/County: </label>
-                        <input class="form-control" id='7' name='city' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
+                        <label for='8'>City/Town/County: </label>
+                        <input class="form-control" id='8' name='city' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for='8'>Province/State: </label>
-                        <input class="form-control" id='8' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
+                        <label for='9'>Province/State: </label>
+                        <input class="form-control" id='9' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-4">
-                        <label for='9'>Country: </label>
-                        <input class="form-control" id='9' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
+                        <label for='10'>Country: </label>
+                        <input class="form-control" id='10' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-4">
-                        <label for='10'>Post Code: </label>
-                        <input class="form-control" id='10' name='postcode' type='text' onfocus='toggle(this.id); this.form.zip.placeholder="A1B 2C3";' onblur='toggle(0);' />
+                        <label for='11'>Post Code: </label>
+                        <input class="form-control" id='11' name='postcode' type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B 2C3";' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='11'>Your personal contact number with area code: </label></td>
-                        <input class="form-control" id='11' name='contactno' type='text' title='Please enter your personal contact number follow the patten: (987) 456-1234.' onfocus='toggle(this.id); this.form.contactno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+                        <label for='12'>Your personal contact number with area code: </label></td>
+                        <input class="form-control" id='12' name='contactno' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-6">
-                        <label for='12' class='jumbotext'>Your business contact number with area code: </label>
-                        <input class="form-control" id='12' name='businessno' type='text' title='Please enter your business contact number follow the patten: (987) 456-1234.' onfocus='toggle(this.id); this.form.businessno.placeholder="(987) 456-1234"' onblur='toggle(0);' />
+                        <label for='13' class='jumbotext'>Your business contact number with area code: </label>
+                        <input class="form-control" id='13' name='businessno' type='text' title='Please enter your business contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.businessno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
@@ -137,6 +147,7 @@
         'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
         'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
         'Please enter your valid email address, contains @ and . symbals',
+        'Username 2~20 characters start with a letter',
         'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
         'Verify your password, must match the previous password settings',
         'Please enter your local address, P.O.Box, Street No. etc.',
@@ -144,8 +155,8 @@
         'Please enter your province/state',
         'Please enter your country',
         'Please enter your post code, format for Canadian postcode: A1B 2C3',
-        'Please enter your personal contact number, follow the patten: (987) 456-1234.',
-        'Please enter your business contact number, follow the patten: (987) 456-1234.'
+        'Please enter your personal contact number, follow the patten: 9874561234.',
+        'Please enter your business contact number, follow the patten: 9874561234.'
     ];
 
     function toggle(id) {
@@ -160,7 +171,7 @@
     function validateform(form) {
         var flag = true;
         var i, j;
-
+        //Verify if all blanks are filled
         for (i = 1; i < 13; i++) {
             j = i.toString();
             if (document.getElementById(j).value == '') {
@@ -168,19 +179,23 @@
                 return false;
             }
         }
+        //verify PostCode(Canada)
+        var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
+        if (zip.test(form.postcode.value)) {
+            return false;
+        }
+        //Verify if passwords match 
         if (form.passwd1.value != form.passwd2.value) {
             flag = false;
             alert("Please make your password settings match!");
             return flag;
         } else {
+        
             return flag && confirm("Are you sure to submit the form?");
         }
 
-        var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
-        if (zip.test(form.postcode.value)) {
-            return false;
-        }
-        return true;
+
+        //return true;
     }
 </script>
 

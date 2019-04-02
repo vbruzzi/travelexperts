@@ -1,2 +1,34 @@
- .purple { text-align: center; vertical-align: middle;  background-color: rgb(121, 0, 151); color: whitesmoke; height: 35px; } 
- h1 { text-align: center; vertical-align: middle; background-color: rgb(121, 0, 151); color: whitesmoke; height: 55px; }
+/* Styling and design elements for packages page by Dina */
+
+.packagetitle { 
+    text-align: center; 
+    vertical-align: right;  
+    background-color: rgb(121, 0, 151); 
+    color: whitesmoke; 
+    height: 35px; 
+} 
+
+h1.bold { 
+    font-weight: 555; 
+    color: whitesmoke; 
+    vertical-align: middle; 
+}
+
+p.color { 
+    color: whitesmoke; 
+    vertical-align: middle; 
+}
+
+.packagebanner { 
+    display: flex;
+    align-items: center;
+    background: url("../media/packageimg/purplebannerbg.png");
+    background-size: cover; 
+    background-position: bottom left;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.packagebanner .container {
+    text-align:right;
+}

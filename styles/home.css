@@ -130,3 +130,21 @@ span {
     color: black;
     background-color: white;
 }
+.packagebanner { 
+    background: url("../media/packageimg/purplebannerbg.png");
+    background-size: cover; 
+    height: 85px;
+    margin-bottom: 20px;
+    text-align : right;
+}
+
+h1.bold { 
+    font-weight: 555; 
+    color: whitesmoke; 
+    vertical-align: middle; 
+}
+
+p.color { 
+    color: whitesmoke; 
+    vertical-align: middle; 
+}

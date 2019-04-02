@@ -42,8 +42,8 @@ function normalImg(x) {
                 will be space holders for now.-->
 <div class="container"> </div>
 
-<table class='table1' style='width:100%'>
-    <col width="50" >
+<table border=1 class='table1' style='width:100%'>
+    <col width="50">
     <col width="200">
     <col width="200">
     <col width="200">
@@ -61,7 +61,7 @@ function normalImg(x) {
         <!--Second row of table has in left cell: picture representing Calgary, in middle 
                     branch address and  in the right cell a map linking to google maps with location address. -->
         <td></td>
-        <td id= cell1 class=cell><img width='250px'  border="0" align='center' src="media/contacts/Calgary1.jpg" /></td>
+        <td id= cell1 class=cell><img width='200px'  border="0" align='center' src="media/contacts/Calgary1.jpg" /></td>
 
         <td class=cell>
             <p>1155 8th Ave SW, World tower level 10, suit 109<br />Calgary,AB, T2P1N3<br />
@@ -69,8 +69,7 @@ function normalImg(x) {
         </td>
 
         <td id= cell1 class =cell>
-            <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//51.0491311,-114.0622718/@51.0491041,-114.0623791,16z">
-            <img onmouseover ="bigImg(this)" onmouseout="normalImg(this)"src="media/contacts/Calgarymap2.jpg" style="width:200px; height:20%" title="Calgarymap"/></a>
+            <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//51.0491311,-114.0622718/@51.0491041,-114.0623791,16z"><img onmouseover ="bigImg(this)" onmouseout="normalImg(this)"src="media/contacts/Calgarymap2.jpg" style="width:200px; height:20%" title="Calgarymap"/></a>
         </td>
         <td></td>
     </tr>
@@ -88,18 +87,18 @@ function normalImg(x) {
             <!--Fourth row of table has a picture representing Okotoks, the branch address and
                             a map linking to google maps with location address. -->
             <td></td>
-            <td id= cell1 class=cell><img height='188px' align='center' src="media/contacts/Okotoksplaza.jpg" /></td>
+            <td id= cell1 class=cell><img width='200px' align='center' src="media/contacts/Okotoksplaza.jpg" /></td>
 
             <td class=cell>
                 <p>110 Main Street, ground floor,<br />Okotoks, AB, T7R3J5<br />
                     hours:Mo-Fri 9 am -5pm<br />info@travelexperts.com<br />phone: 403 563 2381<br/>fax: 403 563 2382</p>
             </td>
             <td id= cell1 class=cell >
-                <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//50.7253655,-113.9750487/@50.7254225,-113.9750904,17z/data=!4m2!4m1!3e2"><img onmouseover ="bigImg(this)" onmouseout="normalImg(this)"src="media/contacts/Okotoksmap.png" style="width:200px; height:20%" /></a>
+                <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//50.7253655,-113.9750487/@50.7254225,-113.9750904,17z/data=!4m2!4m1!3e2"><img src="media/contacts/Okotoksmap.png" style="width:200px; height:20%" /></a>
             </td>
             <td></td>
         </tr>
-        <tr> <!-- following cells are just place holders-->
+        <tr> <!-- follwing cells are just place holders-->
             <td></td>
             <td></td>
             <td></td>
@@ -117,59 +116,57 @@ function normalImg(x) {
 <!-- Creating the  modal-->
 <div id="ModalCalgaryAgents" class="modal">
     <div class="modal-content">
-             <div class=modal-header>
+        <div class=modal-header>
             <h3 class="modal-title w-100 text-center" >Contact an expert:</h3>
-             </div> 
-                <span class="close">&times;</span>
-        <div class= "modal-body">
-            <div class= 'modaltable'>
-                <table >
+        </div> 
+           <span class="close">&times;</span>
+        <div class="modal-body">
+            <table class='modaltable'>
                 <TR>
-                    <TD class='modalheading modalcell1' colspan='2'>
+                    <TD class='modalheading' colspan='2'>
                         <h5 > Travelagents located in Calgary</h5>
                     </TD>
-                </TR >
-                <TR class='modalborderrow'>
-                    <TD class=modalcell1><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
+                </TR>
+                <TR>
+                    <TD><img width='250px' src="media/contacts/agentDavid.jpg" /> </TD>
                     <TD>
-                        <div class = 'modalagentname modalcell1'> <h6>John Doe, junior agent</h6></div>
+                        <div class =modalagentname> <h6>John Doe, junior agent</h6></div>
                             <a  class= 'agentemail' href="mailto:JohnDoe@travelexperts.com">JohnDoe@travelexperts.com</a><br />
                             </p>  phone: 403 123 456 01</p>
                     </TD>
                 </TR>
                 <TR>
-                    <TD class =modalcell1><img width='250px' src="media/contacts/agentAnn1.jpg" /></TD>
-                    <TD class ='modalcell modalcell1'>
+                    <TD><img width='250px' src="media/contacts/agentAnn1.jpg" /></TD>
+                    <TD class ='modalcell'>
                     <div class ='modalagentname'> <h6>Ann Douglas, junior agent</h6></div>
                         <a class= 'agentemail' href="AnnDouglas@travelexperts.com">AnnDouglas@travelexperts.com</a><br />
                         <p>phone: 403 123 456 02</p>
                 </TD>
                 </TR> 
                 <TR>
-                    <TD class='modalheading modalcell1' colspan='2'>
-                    <br/> <br/> <br/> <h5 > Travelagents located in Okotoks</h5>
+                    <TD class='modalheading' colspan='2'>
+                        <h5 > Travelagents located in Okotoks</h5>
                     </TD>
                 </TR>
                 <TR>
-                    <TD class=modalcell1><img width='250px' src="media/contacts/agentkaren.jpg" /> </TD>
-                    <TD class= modalcell1>
+                    <TD><img width='250px' src="media/contacts/agentAsian.jpg" /> </TD>
+                    <TD>
                         <div class =modalagentname> <h6>Karen Smith, senior agent</h6></div>
                            <p> <a class= 'agentemail' href="mailto:karensmith@travelexperts.com">Karensmith@travelexperts.com</a><br />
                             phone: 403 563 2382</p>
                     </TD>
                 </TR>
-                <TD class =modalcell1><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
-                <TD class =modalcell1>
+                <TD><img width='250px' src="media/contacts/agentAfrican.jpg" /></TD>
+                <TD>
                 <div class =modalagentname> <h6> Hamila Kumi, junior agent</h6></div>
                         <p><a class= 'agentemail' href="hamilakumi@travelexperts.com">Hamilakumi@travelexperts.com</a><br />
                         phone: 403 563 2383</p>
                 </TD>
                 </TR>
-                </table>
-            </div> <!--close div table-->
-        </div>  <!--close div  -->
-    </div><!--close div  -->
-</div><!--close div  -->
+            </table>
+        </div>
+    </div>
+
     <!-- FOOTER -->
 
     <script>

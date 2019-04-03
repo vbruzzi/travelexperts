@@ -16,7 +16,7 @@ p.color {
 
 .packagebanner { 
     display:flex;
-    align-items:right;
+    align-items:center;
     background: url("../media/packageimg/purplebannerbg.png");
     background-size: cover; 
     height: 120px;

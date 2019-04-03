@@ -12,4 +12,15 @@
         INNER JOIN packageoptions ON featuredpackages.Feature = packageoptions.OptionId
         WHERE PackageId=$id";
     }
+    function changeUser($id, $role) {
+        return 
+        "UPDATE users
+        SET role=$role
+        WHERE UserId=$id";
+    }
+    function insertAgent($id) {
+        return 
+        "INSERT INTO agents (UserId)
+        VALUES (\"$id\")";
+    }
 ?>

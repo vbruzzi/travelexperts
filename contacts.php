@@ -14,7 +14,6 @@ function bigImg(x) {          // dimension of zoomed in image, shown upon hover
   x.style.height = "";
   x.style.width = "300px";
 }
-
 function normalImg(x) {       //dimension of normal image, shown as default
   x.style.height = "";
   x.style.width = "200px";
@@ -37,13 +36,13 @@ function normalImg(x) {       //dimension of normal image, shown as default
             <img width=800px  src="media/contacts/agentswithglobe5.jpg">
                </TD>
                 <TD class = buttoncell ><!-- I used linebreaks to arrange the text and button within this cell -->
-                   <h5> <br/><br/><br/>You can contact as with all your questions and booking needs and we will be happy to help.
+                   <h5> <br/><br/><br/>You can contact us with all your questions and booking needs and we will be happy to help.
                         You can reach any of our agents directly:
                         <br/><br/></h5>
                     <!-- create button to open the modal/window with agent contact details (preparation for project part2) -->
                          <button class='button' id="buttonCalgaryAgents">meet an agent</button>
                         <!-- Create text and a link that opens the users e-mail program to directly send an email--> 
-                         <h5> <br/>Or you can contact us in one of our branches in Calgary or Okotoks
+                         <h5> <br/>Or you can contact us at one of our branches in Calgary or Okotoks
                          via <a ID = email href="mailto:info@travelexperts.com">email</a>, phone, or in person.
                         </h5>
                </TD>
@@ -70,8 +69,8 @@ function normalImg(x) {       //dimension of normal image, shown as default
             <td  class=cell><img width='250px'  src="media/contacts/Calgary1.jpg" /></td>
 
             <td class=cell>
-            <p>1155 8th Ave SW, World tower level 10, suit 109<br />Calgary,AB, T2P1N3<br />
-                Hours: Mo-Fri 9am-5pm<br />info@travelexperts.com<br />phone: 403 2719 873<br /> fax: 403 271 9872</p>
+            <p>1155 8th Ave SW, World tower level 10, suite 109<br />Calgary,AB, T2P1N3<br />
+                Hours: Mon-Fri 9am-5pm<br />info@travelexperts.com<br />phone: 403 271 9873<br /> fax: 403 271 9872</p>
             </td>
 
             <td  class =cell><!-- onmouseover  and mouseout effects to zoom into the map. the map is also a link to google maps.-->
@@ -98,7 +97,7 @@ function normalImg(x) {       //dimension of normal image, shown as default
 
             <td class=cell>
                 <p>110 Main Street, ground floor,<br />Okotoks, AB, T7R3J5<br />
-                    Hours: Mo-Fri 9 am -5pm<br />info@travelexperts.com<br />phone: 403 563 2381<br/>fax: 403 563 2382</p>
+                    Hours: Mon-Fri 9 am -5pm<br />info@travelexperts.com<br />phone: 403 563 2381<br/>fax: 403 563 2382</p>
             </td>
             <td class=cell >
                 <h5>How to find us:</h5><a href="https://www.google.com/maps/dir//50.7253655,-113.9750487/@50.7254225,-113.9750904,17z/data=!4m2!4m1!3e2"><img onmouseover ="bigImg(this)" onmouseout="normalImg(this)"src="media/contacts/Okotoksmap.png" style="width:200px; height:20%" /></a>

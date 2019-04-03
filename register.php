@@ -13,6 +13,8 @@
     </div>
 </div>
 <!-- NAVBAR -->
+<!-- Main -->
+<main>
 <div class="container"> 
     <!-- flashsales theme-->
 
@@ -61,12 +63,12 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='1'>Please enter your First name </label></td>
+                        <label for='1'>Please enter your First name </label>
                         <input class="form-control" id='1' name='firstname' type='text' minlength='2' maxlength='25' required pattern='[A-Za-z]+' onfocus='toggle(this.id);this.form.firstname.placeholder="First name(2~25 characters)";' onblur='toggle(0)'>
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for='2'>Please enter your Last name </label></td>
+                        <label for='2'>Please enter your Last name </label>
 
                         <input class="form-control" id="2" name="lastname" type="text" minlength="2" maxlength="25" required pattern="[A-Za-z]+" onfocus="toggle(this.id);this.form.lastname.placeholder='Last name(2~25 characters)';" onblur="toggle(0);" />
                     </div>

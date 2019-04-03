@@ -1,6 +1,6 @@
 <!--Start of packages page by Dina-->
 
-<!--Header by Vitor-->
+<!--Header by Victor-->
 <?php require "scripts/header.php" ?>
 
 <!--Packages style sheet-->
@@ -9,12 +9,21 @@
 <!--Function to make price large, purple and bold onmouseover-->
 <div>
     <script type="text/javascript">
-        function scaleUp(obj, size, color = "black", weight = "normal") {
-            obj.style.fontSize = size;
-            obj.style.color = color;
-            obj.style.fontWeight = weight;
+        //Function to make price large, purple and bold onmouseover
+        function scaleUp(obj) {
+            let x = obj.style;
+            x.fontSize = "24px";
+            x.color = "rgb(121, 0, 151)";
+            x.fontWeight = "bolder";
         }
-    </script>
+        //Function to revert price to normal onmouseover
+        function scaleDown(obj){
+            let x = obj.style;
+            x.fontSize = "16px";
+            x.color = "black";
+            x.fontWeight = "normal";
+        }
+    </script> 
 </div>
 
 <!--Bootstrap Tooltip for pic descriptions when mouse is over image-->
@@ -53,11 +62,10 @@
                     places like the Tiger Nest, a cliffside Buddhist temple.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>              
         </div>
@@ -77,11 +85,10 @@
                     natural beauty. 
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -104,11 +111,10 @@
                     makes a difference in a trip of a lifetime.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -133,11 +139,10 @@
                     Copenhagen's cultural offerings are rich and eclectic.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -160,11 +165,10 @@
                     lazing on Ipanema or Copacabana beach.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                      $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -184,11 +188,10 @@
                     and within relatively short train rides at its outskirts.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -214,11 +217,10 @@
                     seated at the end of the cave.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -238,11 +240,10 @@
                     beauty.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -265,11 +266,10 @@
                     fortress, a church, and a mosque.
                 </p>
                 <h6>April 6-12</h6>
-                <p onmouseover="scaleUp(this,'24px', 'rgb(121, 0, 151)', 'bolder')" 
-                    onmouseout="scaleUp(this,'16px')">
+                <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="button" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>

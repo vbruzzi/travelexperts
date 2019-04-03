@@ -130,13 +130,6 @@ span {
     color: black;
     background-color: white;
 }
-.packagebanner { 
-    background: url("../media/packageimg/purplebannerbg.png");
-    background-size: cover; 
-    height: 85px;
-    margin-bottom: 20px;
-    text-align : right;
-}
 
 h1.bold { 
     font-weight: 555; 
@@ -148,3 +141,25 @@ p.color {
     color: whitesmoke; 
     vertical-align: middle; 
 }
+
+.packagebanner { 
+    display: flex;
+    align-items: center;
+    background: url("../media/packageimg/purplebannerbg.png");
+    background-size: cover; 
+    background-position: bottom left;
+    height: 120px;
+    margin-bottom: 20px;
+ 
+}
+ /*
+.registerform {
+    background-color: beige;
+    rgb(121, 102, 146); 
+    opacity: 0;
+}
+
+.loginform {
+    background-color: rgb(129, 128, 122);
+    opacity: 1;
+}*/

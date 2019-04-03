@@ -2,6 +2,8 @@
 
 <?php require "scripts/header.php" ?>
 
+
+<link rel="stylesheet" href="styles/packages.css">
 <link rel="stylesheet" href="styles/home.css">
 <!--Banner (from Dina) to add consistency across pages-->
 <div class="packagebanner">
@@ -11,26 +13,29 @@
     </div>
 </div>
 <!-- NAVBAR -->
-<div class="container flashsales">
+<!-- Main -->
+<main>
+<div class="container"> 
+    <!-- flashsales theme-->
 
     <div class="row">
         <!-- Customer login starts from here -->
-        <div class="col-lg-4 text-light" style="background-color: rgba(91,91,1,0.85)"><br />
-            <h5 class="text-light">Return customers:<br /> Welcome back to Travel Experts!<br /> Please login:</h5>
+        <div class="col-lg-4 text-primary" style="background-color: rgb(121, 102, 146);"><br />
+            <h5 class="text-light">Return customers:<br /> Welcome back!<br /> Please login:</h5>
             <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
 
-                <div class="form-group">
+                <div class="form-group  text-light ">
                     <label for="user">Username</label>
                     <input type="text" class="form-control" id="user" placeholder="Enter your username">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group text-light">
                     <label for="Password1">Password</label>
                     <input type="password" class="form-control" name="Password1" placeholder="Password">
                 </div>
 
                 <div class="form-group">
-                    <div class="form-check">
+                    <div class="form-check  text-light">
                         <input type="checkbox" class="form-check-input" id="Check">
                         <label class="form-check-label" for="Check">
                             Remember me
@@ -48,22 +53,22 @@
             </div>
         </div>
         <!-- Registration section starts here -->
-        <div class="col-lg-8 text-light" style="background-color:  rgba(91,0,114,0.75)"><br />
+        <div class="col-lg-8 text-light " style= "background-color: rgb(129, 128, 122);" ><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
             <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
-            <!--form name="signup" action='bouncer.php' method="post" enctype='text/plain' class='px-4 py-3'-->
+            
                 <div class="form-row" class="text-light">
                     <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
                     <div id="hideText" class="text"> </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='1'>Please enter your First name </label></td>
+                        <label for='1'>Please enter your First name </label>
                         <input class="form-control" id='1' name='firstname' type='text' minlength='2' maxlength='25' required pattern='[A-Za-z]+' onfocus='toggle(this.id);this.form.firstname.placeholder="First name(2~25 characters)";' onblur='toggle(0)'>
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for='2'>Please enter your Last name </label></td>
+                        <label for='2'>Please enter your Last name </label>
 
                         <input class="form-control" id="2" name="lastname" type="text" minlength="2" maxlength="25" required pattern="[A-Za-z]+" onfocus="toggle(this.id);this.form.lastname.placeholder='Last name(2~25 characters)';" onblur="toggle(0);" />
                     </div>
@@ -114,12 +119,12 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for='11'>Post Code: </label>
-                        <input class="form-control" id='11' name='postcode' type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B 2C3";' onblur='toggle(0);' />
+                        <input class="form-control" id='11' name='postcode' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='12'>Your personal contact number with area code: </label></td>
+                        <label for='12'>Your personal contact number with area code: </label>
                         <input class="form-control" id='12' name='contactno' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-6">
@@ -132,7 +137,7 @@
                         <input id='reset' name='resetbutton' class='btn btn-primary' type='reset' onclick='return confirm("Are you sure to clear the form?")' />
                     </div>
                     <div class="form-group col-md-6">
-                        <input id='submit' name='submitbutton' class='btn btn-primary' type='submit' onclick='return validateform(this.form);' />
+                        <input id='submit' name='submitbutton' value="Submit" class='btn btn-primary' type='submit' onclick='return validateform(this.form);' />
                     </div>
                 </div>
             </form>
@@ -144,9 +149,9 @@
     var hints = new Array;
     hints = [
         'Instructions and Hints to fill the form',
-        'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
-        'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
-        'Please enter your valid email address, contains @ and . symbals',
+        'Please enter your First name, minimum 2 characters, maximum 25 characters.',
+        'Please enter your Last name, minimum 2 characters, maximum 25 characters.',
+        'Please enter your valid email address, contains @ and . symbols',
         'Username 2~20 characters start with a letter',
         'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
         'Verify your password, must match the previous password settings',
@@ -154,7 +159,7 @@
         'Please enter your city',
         'Please enter your province/state',
         'Please enter your country',
-        'Please enter your post code, format for Canadian postcode: A1B 2C3',
+        'Format for Canadian postcode: A1B2C3, uppercase only, without space',
         'Please enter your personal contact number, follow the patten: 9874561234.',
         'Please enter your business contact number, follow the patten: 9874561234.'
     ];
@@ -172,31 +177,34 @@
         var flag = true;
         var i, j;
         //Verify if all blanks are filled
-        for (i = 1; i < 13; i++) {
+		 
+        for (i = 1; i <= 13; i++) {
             j = i.toString();
-            if (document.getElementById(j).value == '') {
+			
+            if (document.getElementById(j).value === '') {
                 alert("Please fill all blanks!");
                 return false;
             }
         }
-        //verify PostCode(Canada)
-        var zip = "/^[A-Z]\d[A-Z]?\d[A-Z]\d$";
-        if (zip.test(form.postcode.value)) {
+		 
+        //verify PostCode(Canada) A1B2C3
+        var zip = /^[A-Z]\d[A-Z]?\d[A-Z]\d$/;
+		
+        if (!zip.test(form.postcode.value)) {		//.toUpperCase()
+			alert("Please check PostCode format, uppercase letter only, no space");
             return false;
         }
         //Verify if passwords match 
+
         if (form.passwd1.value != form.passwd2.value) {
             flag = false;
             alert("Please make your password settings match!");
             return flag;
         } else {
-        
             return flag && confirm("Are you sure to submit the form?");
         }
-
-
-        //return true;
+		
+        return flag;
     }
 </script>
-
 <?php require "scripts/footer.php" ?> 

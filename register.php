@@ -135,7 +135,7 @@
                         <input id='reset' name='resetbutton' class='btn btn-primary' type='reset' onclick='return confirm("Are you sure to clear the form?")' />
                     </div>
                     <div class="form-group col-md-6">
-                        <input id='submit' name='submitbutton' class='btn btn-primary' type='submit' onclick='return validateform(this.form);' />
+                        <input id='submit' name='submitbutton' value="Submit" class='btn btn-primary' type='submit' onclick='return validateform(this.form);' />
                     </div>
                 </div>
             </form>

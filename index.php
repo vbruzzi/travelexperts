@@ -28,96 +28,34 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-auto mb-3">
-                <div class="card border-0">
-                    <a href="#">
-                        <div class="card-body rounded featured1 d-flex flex-column">
-                            <h5 class="card-title">Copacabana</h5>
-                        <ul class="card-text">
-                                <li>
-                                    5 days 6 nights
-                                </li>
-                                <li>
-                                    Luxury sedan
-                                </li>
-                                <li>
-                                    Hikes
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
-                        </div>
-                    </a>
+                <?php 
+                require "scripts/serverdef.php";
+                require "scripts/queries.php";
+                require "scripts/featured.php";
 
-                </div>                    
-                </div>
+                $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
 
+                # ERROR CHECKING
+                if(!$dbh) {
+                    return false;
+                }
+            
+                if(mysqli_connect_errno()) {
+                    return false;
+                }
 
-                <div class="col-auto mb-3">
-                <div class="card border-0">
-                    <a href="#">
-                        <div class="card-body rounded featured2 d-flex flex-column">
-                            <h5 class="card-title">Calgary</h5>
-                            <ul class="card-text">
-                                <li>
-                                    5 days 6 nights
-                                </li>
-                                <li>
-                                    Luxury sedan
-                                </li>
-                                <li>
-                                    Hikes
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
-                        </div>
-                    </a>
-                </div>    
-                </div>
-                
-                <div class="col-auto mb-3">
-                <div class="card border-0">
-                    <a href="#">
-                        <div class="card-body rounded featured3 d-flex flex-column">
-                            <h5 class="card-title">Japan</h5>
-                            <ul class="card-text">
-                                <li>
-                                    5 days 6 nights
-                                </li>
-                                <li>
-                                    Luxury sedan
-                                </li>
-                                <li>
-                                    Hikes
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
-                        </div>
-                    </a>
-                </div>                    
-                    </div>
+                $counter = 1;
+                foreach ($dbh->query(getFeatures()) as $package ) {
+                    
+                    $features = $dbh->query(packageFeature($package["PackageId"]))->fetch_all(MYSQLI_NUM);
+                    $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"]);
+                    $card->makeCard($counter); 
+                    $counter++;
 
-                <div class="col-auto mb-3">
-                <div class="card border-0">
-                    <a href="#">
-                        <div class="card-body rounded featured4 d-flex flex-column">
-                            <h5 class="card-title">Paris</h5>
-                            <ul class="card-text">
-                                <li>
-                                    5 days 6 nights
-                                </li>
-                                <li>
-                                    Luxury sedan
-                                </li>
-                                <li>
-                                    Hikes
-                                </li>
-                            </ul>
-                            <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
-                        </div>
-                    </a>
-                </div>    
-                    </div>
-                
+                }
+                mysqli_close($dbh);
+
+                ?>
             </div>
         </div>
 

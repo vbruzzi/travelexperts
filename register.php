@@ -18,7 +18,7 @@
 
     <div class="row">
         <!-- Customer login starts from here -->
-        <div class="col-lg-4 text-primary loginform"><br />
+        <div class="col-lg-4 text-primary" style="background-color: rgb(121, 102, 146);"><br />
             <h5 class="text-light">Return customers:<br /> Welcome back!<br /> Please login:</h5>
             <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
 
@@ -51,7 +51,7 @@
             </div>
         </div>
         <!-- Registration section starts here -->
-        <div class="col-lg-8 text-light registerform" ><br />
+        <div class="col-lg-8 text-light " style= "background-color: rgb(129, 128, 122);" ><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
             <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
             
@@ -147,9 +147,9 @@
     var hints = new Array;
     hints = [
         'Instructions and Hints to fill the form',
-        'Please enter your First name, minimum 2 characters, maxmum 25 characters.',
-        'Please enter your Last name, minimum 2 characters, maxmum 25 characters.',
-        'Please enter your valid email address, contains @ and . symbals',
+        'Please enter your First name, minimum 2 characters, maximum 25 characters.',
+        'Please enter your Last name, minimum 2 characters, maximum 25 characters.',
+        'Please enter your valid email address, contains @ and . symbols',
         'Username 2~20 characters start with a letter',
         'Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters',
         'Verify your password, must match the previous password settings',

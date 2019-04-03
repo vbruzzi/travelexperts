@@ -152,13 +152,14 @@ p.color {
     margin-bottom: 20px;
  
 }
-
+ /*
 .registerform {
-    background-color: rgb(121, 102, 146);
-    opacity: 1;
+    background-color: beige;
+    rgb(121, 102, 146); 
+    opacity: 0;
 }
 
 .loginform {
     background-color: rgb(129, 128, 122);
     opacity: 1;
-}
+}*/

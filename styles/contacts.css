@@ -11,20 +11,22 @@
 
 p.color { 
     color: whitesmoke; 
-    vertical-align: middle; 
+    vertical-align: middle;
 }
 
 .packagebanner { 
     display:flex;
-    align-items:right;
+    align-items:center;
+    
     background: url("../media/packageimg/purplebannerbg.png");
     background-size: cover; 
-    height: 120px;
-    margin-bottom: 20px;
+    height: 120px; /*delete*/
+    
     background-position: bottom left;
 }
 .packagebanner .container {
     text-align:right; 
+
 }
  /*STYLES FOR MAINPAGE*/
 

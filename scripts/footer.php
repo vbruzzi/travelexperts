@@ -19,9 +19,9 @@
                     <h5 class="text-uppercase">Links</h5>
 
                     <ul class="list-unstyled">
-                        <li>(123)456-7890</li>
+                        <li>(403)271-9873</li>
                         <li>info@travelexperts.com</li>
-                        <li>123 Spam Ave, Edmonton, AB</li>
+                        <li>1155 8th Ave SW, Calgary, AB T2P1N3</li>
                     </ul>
                   </div>
                   <div class="col-md-3 mb-md-0 mb-3">

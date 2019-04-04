@@ -1,97 +1,155 @@
- div.modaltable table {
-    width:100%;
+ 
+ /*STYLESHEET FROM SAMIRA
+ First I have the style elements concerning the main page,
+ then elements concerning the modal.*/
+ 
+ /*STYLES FOR BANNER FROM DINA*/
+ h1.bold { 
+    font-weight: 555; 
+    color: whitesmoke; 
+}
+
+p.color { 
+    color: whitesmoke; 
+    vertical-align: middle;
+}
+
+.packagebanner { 
+    display:flex;
+    align-items:center;
     
- }
-div.modaltable td{
-
-    border-bottom: 1px solid grey;/*grey border disappears
-    ,if I delete the white one. */
+    background: url("../media/packageimg/purplebannerbg.png");
+    background-size: cover; 
+    height: 120px; /*delete*/
     
+    background-position: bottom left;
 }
+.packagebanner .container {
+    text-align:right; 
 
+}
+ /*STYLES FOR MAINPAGE*/
 
+.button   {
+            background:white;  
+            border: 2px solid rgba(91, 0, 114, 0.8); 
+            border-radius: 4px;
+            font-size:20px;
+            padding:10px 24px; 
+            color: rgba(91, 0, 114, 0.8);
+            text-align:center;
+    }
+.button:hover      {
+            background: rgb(121, 0, 151);
+            color:white;
+    }
+td.headlinecell      {
+    background:rgb(121, 0, 151);  
+    color:white; 
+    text-align:center;
+}
+    td.cell          {
+        background:rgb(235, 230, 255);
+        border-radius:30px;
+        text-align:centre;
+        width:30%; 
+    }
+    #email           {
+        color:rgba(91, 0, 114, 1.0);
+        text-decoration:underline;
+    }
+    #headline        {
+        color:rgba(91, 0, 114, 1.0);
+    }
+    .table1 td       {
+        border-style:solid;
+        border-color:white; 
+        border-width:8px;
+    }
 
-
-TD.modalheading {
-    text-align: center;
+    .cell          {
+        text-align:center;
+    }
     
+    TD.buttoncell    {
+        text-align:center;
+    }
+    a.agentemail     {
+        color:black;
+    }
 
-}
-/*tr.modalborderrow {padding-bottom: 100em; background-color: tomato; }    makes it red, but mo padding*/
-div.modal-header { font-weight:bold;color:rgba(91, 0, 114, 1.0);
-
-}
-
-.button {
-    text-align: center;
-
-
-
-}
-div.modal-body  { overflow:auto;}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    width: 100%;  /* Full width of screen */
-    max-width:100%;
-    height:100%;
-    max-height: 100%;
+/*STYLES FOR MODAL*/
+    #modalheader     {
+        box-align:center;
+    }
+    div.modaltable table {
+        width:100%; /* stretches the table ovre entire length of modal*/
+     }
+    div.modaltable td{
+        border-bottom: 1px solid grey;/* adds the grey line to separate rows*/
+    }
     
-    transform: translate(-50%, -50%);
-   
-   
-    /* Full height */
-   /* overflow: scroll;*/
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10%;
-    /* 15% from the top and centered */
-    padding: 20px 20 px 20px 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 90%;
-   /* overflow should ony be for modaltable or modal-body. neither one worked. */
+    .modalcell1 {
+        padding:10px; /* provide white space around agents profile pictures*/
+                }
     
-}
-
-div.modalagentname { font-weight:bold;color:rgba(91, 0, 114, 1.0);
-    }    
-/* .TD */
-
-.close {
-    color: #aaa;
-    float: left;
-    font-size: 34px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-.button              {background:rgba(91, 0, 114, 0.5); border: 2px solid white; border-radius: 4px;
-                        font-size:20px;padding:10px 24px;
-                    }
-.button:hover        {background: rgb(121, 0, 151);color:white;}
-td.headlinecell      {background:rgb(121, 0, 151);  color:white;}
-    td.cell          {background:rgb(235, 230, 255);border-radius:30px;}
-    #email           {color:rgba(91, 0, 114, 1.0);text-decoration:underline;}
-    #headline        {color:rgba(91, 0, 114, 1.0);}
-    .table1 td      {border-style:solid;border-color:white; border-width:8px;}
-    #cell1           {text-align:center;}
-    #modalheader     {box-align:center;}
-    TD.buttoncell    {text-align:center;}
-    a.agentemail     {color:black;}
+    
+    TD.modalheading {
+        text-align: center;/* centers "travelagents located in..."*/
+    }
+    
+    div.modal-header {
+         font-weight:bold;
+         color:rgba(91, 0, 114, 1.0);/*  makes contact a "travelexpert" purple*/
+    }
+    div.modal-body  { 
+        overflow:auto;      
+        margin-bottom:1%;  /*creates a small white margin below modal table.*/
+    }
+    
+    .modal {
+       
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        width: 100%;  /* Full width of screen */
+        max-width:100%;
+        height:100%;
+        max-height: 100%;
+        transform: translate(-50%, -50%);
+        overflow: scroll;/*enables scrolling */
+        background-color: rgb(0, 0, 0);/* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);/* Black with opacity for background */
+        
+    }
+    
+    div.modal-content {
+        
+        background-color: #fefefe;
+        margin: auto; /*creates the grey transparent margin around the modal */
+        margin-bottom:3%; /*creates the grey transparent margin above the modal */
+        margin-top:3%; /*creates the grey transparent margin  below the modal */
+        padding: 20px 20 px 20px 20px;
+        width: 80%;
+        height: 90%;
+    }
+    
+    div.modalagentname { font-weight:bold;color:rgba(91, 0, 114, 1.0);/* displays name in purple*/
+        }    
+    
+    
+    .close {
+        color: #aaa;
+        float: left;
+        font-size: 34px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }

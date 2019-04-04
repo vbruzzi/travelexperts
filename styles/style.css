@@ -1,5 +1,5 @@
 :root {
-    --theme-color: rgba(91, 0, 114);
+    --theme-color: rgba(91, 0, 114, 0.5);
     --theme-color-hover: rgb(121, 0, 151);
 }
 
@@ -34,4 +34,4 @@ footer {
 
 .social li a:hover {
     color: var(--theme-color-hover);
-}
+} 

@@ -27,8 +27,9 @@
                 <h1 class="salestitle">Featured Packages</h1>
             </div>
 
-            <div class="card-deck row">
-                <div class="card border-0 col-sm-3">
+            <div class="row justify-content-center">
+                <div class="col-auto mb-3">
+                <div class="card border-0">
                     <a href="#">
                         <div class="card-body rounded featured1 d-flex flex-column">
                             <h5 class="card-title">Copacabana</h5>
@@ -47,9 +48,12 @@
                         </div>
                     </a>
 
+                </div>                    
                 </div>
 
-                <div class="card border-0 col-sm-3">
+
+                <div class="col-auto mb-3">
+                <div class="card border-0">
                     <a href="#">
                         <div class="card-body rounded featured2 d-flex flex-column">
                             <h5 class="card-title">Calgary</h5>
@@ -67,9 +71,11 @@
                             <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
                         </div>
                     </a>
+                </div>    
                 </div>
-
-                <div class="card border-0 col-sm-3">
+                
+                <div class="col-auto mb-3">
+                <div class="card border-0">
                     <a href="#">
                         <div class="card-body rounded featured3 d-flex flex-column">
                             <h5 class="card-title">Japan</h5>
@@ -87,9 +93,11 @@
                             <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
                         </div>
                     </a>
-                </div>
+                </div>                    
+                    </div>
 
-                <div class="card border-0 col-sm-3">
+                <div class="col-auto mb-3">
+                <div class="card border-0">
                     <a href="#">
                         <div class="card-body rounded featured4 d-flex flex-column">
                             <h5 class="card-title">Paris</h5>
@@ -107,7 +115,9 @@
                             <a href="#" class="mt-auto btn btn-light outline">Get it now for $900</a>
                         </div>
                     </a>
-                </div>
+                </div>    
+                    </div>
+                
             </div>
         </div>
 

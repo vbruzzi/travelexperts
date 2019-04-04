@@ -19,16 +19,27 @@
 </nav>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        function changeUser($user){
-            
+        function changeUser(user){
+          const val = user.value;
+          const id = user.name;
+          $.ajax({
+           type: 'POST',
+           url: "scripts/changeuser.php",
+           data: {val: val, id: id},
+           success: function(result){
+               //do something here with return value like alert
+               alert(result);
+           }
+     })
+        }
     </script>
 <?php
     $url = $_SERVER['QUERY_STRING'];
     if($url == "users") {
-        echo "<select id=\"myDropDown\" onchange=\"changeUser()\">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        echo "<select name=\"145\" id=\"user\" onchange=\"changeUser(this)\">
+        <option value=\"1\">1</option>
+        <option value=\"2\">2</option>
+        <option value=\"3\">3</option>
         </select>";
     } elseif ($url == "packages") {
 

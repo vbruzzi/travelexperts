@@ -1,19 +1,26 @@
 <?php 
     require 'queries.php';
-    require "scripts/serverdef.php";
+    require "serverdef.php";
     $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
-    if(isset($_POST['newRole'])) 
+    if(isset($_POST['val'])) 
         {
-            $newRole = $_POST['newRole'];
-            $userId = $_POST['UserId'];
+            echo $_POST['val'];
+            echo $_POST['id'];
+            $newRole = $_POST['val'];
+            $userId = $_POST['id'];
             $dbh->query(changeUser($userId, $newRole));
-            switch($newRole) {
+            switch($newRole) {  
                 case "1":
                     break;
-                case "2":
+                case "3":
                     $dbh->query(insertAgent($id));
                     break;
             }
         }
     mysqli_close($dbh);
 ?>
+
+<!--
+
+
+ -->

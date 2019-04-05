@@ -2,5 +2,5 @@
     DEFINE("dbHost", "localhost");
     DEFINE("dbUser", "root");
     DEFINE("dbPass", "");
-    DEFINE("dbName", "travelexperts");
+    DEFINE("dbName", "team2travelexperts");
 ?>

@@ -16,7 +16,7 @@
   
 
     // Step1: connect to database (already done baove)
-$dbh = mysqli_connect("localhost","root","","travelexperts");
+$dbh = mysqli_connect("localhost","root","","team2travelexperts");
 // step2: make a query with existing connection to ask database for agency info.
 
 

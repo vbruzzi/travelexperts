@@ -2,6 +2,16 @@
 
 
 <div class="container">
+<style>
+.agent {
+  background-color: #E1D2EC;
+}
+
+.agent:hover {
+  background: #D4B5EA !important;
+}
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -22,25 +32,22 @@
         function changeUser(user){
           const val = user.value;
           const id = user.name;
+          let field = user.className.split(" ");
+          const prev = field[1];
+          field = field[0];
           $.ajax({
            type: 'POST',
            url: "scripts/changeuser.php",
-           data: {val: val, id: id},
-           success: function(result){
-               //do something here with return value like alert
-               alert(result);
-           }
+           data: {val: val, id: id, field:field, prev: prev}
      })
+          console.log(typeof(prev));
         }
     </script>
 <?php
+  require "scripts/showusers.php";
     $url = $_SERVER['QUERY_STRING'];
     if($url == "users") {
-        echo "<select name=\"145\" id=\"user\" onchange=\"changeUser(this)\">
-        <option value=\"1\">1</option>
-        <option value=\"2\">2</option>
-        <option value=\"3\">3</option>
-        </select>";
+      showUsers();
     } elseif ($url == "packages") {
 
     } else {

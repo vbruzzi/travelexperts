@@ -30,8 +30,32 @@ function normalImg(x) {       //dimension of normal image, shown as default
     </div>
 </div>
 
-<div class="container" >
-    <div >
+
+
+
+                
+
+<div class= Contactstable> <!--tag to separate Calgary information from Okotoks information.-->
+<table>
+  <!-- start to work with function  for agency-->
+
+        <tr><!--First row of the table contains headline for Calgary. Middle three cells are merged and headline is centered. -->
+            <td></td><!-- empty cell 'just in case'-->
+            <td class=headlinecell colspan='3'> 
+              <h5>Where to find us in...</h5>
+            </td>
+            <td></td>
+        </tr>
+            <?php require "contactspull.php"?>
+</table>
+</div> <!-- close div contactstable-->
+
+
+
+
+
+<div class="flex-container" >
+    <div ID = tableGlobePicture>
         <table> <!-- create a table to arrange first elements of the page: welcome image and text.-->
             <TR><TD>
             <img width=800px  src="media/contacts/agentswithglobe5.jpg">
@@ -49,24 +73,17 @@ function normalImg(x) {       //dimension of normal image, shown as default
                </TD>
             </TR>
         </table>
-    </div><!-- close div table-->
-</div> <!-- close container for top part-->
+    </div> <!-- close div for table-->
 
-<!--Create another table to arange elements on the page:5 colums by 5 rows.Left and right columns
-                will be space holders for now.-->
-<div class= Calgary> <!--tag to separate Calgary information from Okotoks information.-->
-<table class='table1' style='width:100%'>
-  <!-- start to work with function  for agency-->
 
-        <tr><!--First row of the table contains headline for Calgary. Middle three cells are merged and headline is centered. -->
-            <td></td><!-- empty cell 'just in case'-->
-            <td class=headlinecell colspan='3'> 
-              <h5>Where to find us in...</h5>
-            </td>
-            <td></td>
-        </tr>
-            <?php require "contactspull.php"?>
-</table>
+
+
+
+
+
+
+
+</div> <!-- close flex-container-->
 <?php require "scripts/footer.php" ?> 
 
 </body>

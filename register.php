@@ -1,7 +1,18 @@
 <!-- Register page by Ken Zhang -->
 
-<?php require "scripts/header.php" ?>
+<?php 
+require "scripts/header.php";
+require "scripts/showuserguest.php";
+// continue session after login
+session_start();
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+}
+else{
+    $user = $_SESSION["username"];
+}
 
+?>
 
 <link rel="stylesheet" href="styles/packages.css">
 <link rel="stylesheet" href="styles/home.css">
@@ -10,6 +21,7 @@
     <div class="container">
         <h1 class="bold">Sign in | Sign up</h1>
         <p class="color">One agency many worlds</p>
+        <?php showUserGuest($user); ?>
     </div>
 </div>
 <!-- NAVBAR -->
@@ -22,16 +34,16 @@
         <!-- Customer login starts from here -->
         <div class="col-lg-4 text-primary" style="background-color: rgb(121, 102, 146);"><br />
             <h5 class="text-light">Return customers:<br /> Welcome back!<br /> Please login:</h5>
-            <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
+            <form name="signin" class="px-4 py-3" method="post" action="login.php">
 
                 <div class="form-group  text-light ">
                     <label for="user">Username</label>
-                    <input type="text" class="form-control" id="user" placeholder="Enter your username">
+                    <input type="text" class="form-control" id="user" name="username" placeholder="Enter your username">
                 </div>
 
                 <div class="form-group text-light">
                     <label for="Password1">Password</label>
-                    <input type="password" class="form-control" name="Password1" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
 
                 <div class="form-group">
@@ -55,7 +67,7 @@
         <!-- Registration section starts here -->
         <div class="col-lg-8 text-light " style= "background-color: rgb(129, 128, 122);" ><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
-            <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
+            <form name="signup" class="px-4 py-3" method="post" action="userdata.php">
             
                 <div class="form-row" class="text-light">
                     <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
@@ -80,7 +92,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for='4'>Username with 2-20 chars: &nbsp;&nbsp; </label>
-                        <input class="form-control" id='4' name='userid' type='text' pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$' required onfocus='toggle(this.id); this.form.userid.placeholder="Username with 2~20 characters";' onblur='toggle(0);'>
+                        <input class="form-control" id='4' name='username' type='text' pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$' required onfocus='toggle(this.id); this.form.userid.placeholder="Username with 2~20 characters";' onblur='toggle(0);'>
                     </div>
                 </div>
                 <div class="form-row">
@@ -101,7 +113,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-8">
                         <label for='7'>Your Steet number: </label>
-                        <input class="form-control" id='7' name='localaddress' type='text' onfocus='toggle(this.id);this.form.localaddress.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
+                        <input class="form-control" id='7' name='address' type='text' onfocus='toggle(this.id);this.form.localaddress.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-4">
                         <label for='8'>City/Town/County: </label>
@@ -119,18 +131,18 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for='11'>Post Code: </label>
-                        <input class="form-control" id='11' name='postcode' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
+                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for='12'>Your personal contact number with area code: </label>
-                        <input class="form-control" id='12' name='contactno' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
+                        <input class="form-control" id='12' name='phone' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
-                    <div class="form-group col-md-6">
+                    <!-- <div class="form-group col-md-6">
                         <label for='13' class='jumbotext'>Your business contact number with area code: </label>
                         <input class="form-control" id='13' name='businessno' type='text' title='Please enter your business contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.businessno.placeholder="9874561234"' onblur='toggle(0);' />
-                    </div>
+                    </div> -->
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">

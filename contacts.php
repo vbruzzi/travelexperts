@@ -1,4 +1,15 @@
 <!-- CONTACTS PAGE BY SAMIRA -->
+<?php  
+require "scripts/showuserguest.php";
+session_start();
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+    $_SESSION["ref"] = "packages.php";
+}
+else{
+    $user = $_SESSION["username"];
+}
+?>
 <html>
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
@@ -26,6 +37,10 @@ function normalImg(x) {       //dimension of normal image, shown as default
     <div class="container">
         <h1 class="bold">Contact us</h1>
         <p class="color">One agency many worlds</p>
+        <?php showUserGuest($user); 
+        if($user=="Guest") {
+        echo "<a href='register.php?ref='".$_SERVER['REQUEST_URI']."'><small>[login]</small></a>";
+    }?>
     </div>
 </div>
 

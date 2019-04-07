@@ -1,7 +1,23 @@
+<?php
+require "scripts/showuserguest.php";
+session_start();
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+}
+else{
+    $user = $_SESSION["username"];
+}
+?>
 <?php require "scripts/header.php"?>    
         <!-- INDEX STYLES -->
         <link rel="stylesheet" href="styles/home.css">
-        
+        <div style="text-align: right; color: blue;margin-right: 100px;">
+        <?php showUserGuest($user); 
+        if($user=="Guest"){
+              echo "<a href='register.php?ref=".$_SESSION["ref"]."'><small>[login]</small></a>";
+            }
+        ?>
+        </div>
         <!-- Flash sales section -->
         <div class="jumbotron flashsales">
             <div class="container">
@@ -29,7 +45,7 @@
 
             <div class="row justify-content-center">
                 <?php 
-                require "scripts/serverdef.php";
+           //     require "scripts/serverdef.php";
                 require "scripts/queries.php";
                 require "scripts/featured.php";
 

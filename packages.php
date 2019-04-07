@@ -1,7 +1,18 @@
 <!--Start of packages page by Dina-->
 
 <!--Header by Victor-->
-<?php require "scripts/header.php" ?>
+<?php require "scripts/header.php";
+require "scripts/showuserguest.php";
+session_start();
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+    $_SESSION["ref"] = "packages.php";
+}
+else{
+    $user = $_SESSION["username"];
+}
+
+?>
 
 <!--Packages style sheet-->
 <link rel="stylesheet" href="styles/packages.css">
@@ -40,13 +51,18 @@
     <div class="container">
         <h1 class="bold">Vacation Packages</h1>
         <p class="color">One agency many worlds</p>
+        <?php showUserGuest($user); 
+        if($user=="Guest"){
+              echo "<a href='register.php?ref=".$_SESSION["ref"]."'><small>[login]</small></a>";
+            }
+        ?>
     </div>
 </div>
 
 <!--Bootstrap Card Deck for clean formatting-->
 <div class="container">
     <div class="card-deck">
-
+<form id="fm" action="order.php" method="get"></form>
 <!--Row:1 Card:1-->
         <div class="card mb-4">
             <img title="Paro Taktsang: The Tiger's Nest Monastery in Paro" 
@@ -65,7 +81,7 @@
                 <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark" form="fm" name="order" value="5">Order Online </button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>              
         </div>
@@ -88,7 +104,7 @@
                 <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark" form="fm" name="order" value="6">Order Online</button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
@@ -114,7 +130,7 @@
                 <p onmouseover="scaleUp(this)" onmouseout="scaleDown(this)">
                     $2500
                 </p>
-                <button type="submit" class="btn btn-outline-dark">Order Online Coming Soon</button>
+                <button type="submit" class="btn btn-outline-dark" form="fm" name="order" value="7">Order Online </button>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>

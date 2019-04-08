@@ -1486,7 +1486,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `UserId` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(20) NOT NULL,
-  `Password` varchar(24) NOT NULL,
+  `Password` varchar(100) NOT NULL,
   `FirstName` varchar(22) NOT NULL,
   `MiddleNameInitials` varchar(5) DEFAULT NULL,
   `LastName` varchar(24) NOT NULL,

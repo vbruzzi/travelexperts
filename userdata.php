@@ -72,6 +72,8 @@ else{
             header("Location:$ref");
         }
         else{
+            echo addUser($userData);
+            
             print("Something is wrong...failed");
 
         }

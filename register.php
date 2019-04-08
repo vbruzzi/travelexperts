@@ -37,12 +37,12 @@ else{
             <form name="signin" class="px-4 py-3" method="post" action="login.php">
 
                 <div class="form-group  text-light ">
-                    <label for="user">Username</label>
+                    <label for="user"  title="Enter your username">Username</label>
                     <input type="text" class="form-control" id="user" name="username" placeholder="Enter your username">
                 </div>
 
                 <div class="form-group text-light">
-                    <label for="Password1">Password</label>
+                    <label for="Password1" title="Enter your password">Password</label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
 

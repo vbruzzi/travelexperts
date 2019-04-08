@@ -3,6 +3,8 @@ require "scripts/showuserguest.php";
 session_start();
 if(!isset($_SESSION["username"])){
     $user = "Guest";
+    $_SESSION["ref"]="index.php";
+
 }
 else{
     $user = $_SESSION["username"];

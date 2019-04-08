@@ -4,7 +4,7 @@ require "scripts/showuserguest.php";
 session_start();
 if(!isset($_SESSION["username"])){
     $user = "Guest";
-    $_SESSION["ref"] = "packages.php";
+    $_SESSION["ref"] = "contacts.php";
 }
 else{
     $user = $_SESSION["username"];

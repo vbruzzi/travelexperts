@@ -20,6 +20,11 @@
       header('Location: dash.php?users');
       die();
 }
+
+echo $x; 
+
+
+
 ?>
 <?php require "scripts/header.php"?>
 <div>

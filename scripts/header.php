@@ -42,7 +42,7 @@
                             <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
                         </li>
                     </ul>
-                    </form>
+        
                 </div>
             </header>
         </nav>

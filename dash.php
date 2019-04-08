@@ -1,16 +1,27 @@
 
 
-<?php require "scripts/header.php"?>
+
 <?php 
 
-$url = $_SERVER['QUERY_STRING'];
-if($url != "users" and $url != "packages "){
-    header('Location: dash.php?users');
+  if(!isset($_SESSION["agent"])) {
+    $agent = $_SESSION["agent"];
+    if ($agent["role"] == 3) {    
+    } else {
+      header('Location: index.php');
+      die();
+    }
+  } else {
+    header('Location: /');
     die();
+  }
+
+  $url = $_SERVER['QUERY_STRING'];
+  if($url != "users" ){
+      header('Location: dash.php?users');
+      die();
 }
-
 ?>
-
+<?php require "scripts/header.php"?>
 <div>
 <style>
 .agent {

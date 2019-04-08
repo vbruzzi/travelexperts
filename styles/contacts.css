@@ -1,7 +1,7 @@
 /*STYLESHEET FROM SAMIRA
 
  
- /*STYLES FOR BANNER FROM DINA*/
+ STYLES FOR BANNER FROM DINA*/
  h1.bold { 
     font-weight: 555; 
     color: whitesmoke; 
@@ -26,8 +26,20 @@ p.color {
     text-align:right; 
 
 }
- /*STYLES FOR MAINPAGE*/
-
+ /*STYLES FOR MAINTABLE*/
+ #maintable {
+    table-layout:auto;
+    width: 100%;
+    background-color:white  
+}
+@media (max-width: 900px){
+td{
+float:none; 
+display:block;
+}
+}
+    /*border:  1px solid black ;
+    }*/
 
  .headtext{
      text-align:center;
@@ -41,8 +53,11 @@ p.color {
     text-decoration:underline;
     text-transform:uppercase;
     padding-bottom:20px;
-
  }
+ .infoemail{
+    color:rgba(91, 0, 114, 1.0);
+    text-decoration: underline;
+}
  .headline{
     text-align:center;
     font-weight:bold;
@@ -54,69 +69,20 @@ p.color {
  p {
     font-weight:solid;
     font-size: 15px;
-   
-
  }
-
+/* STYLES FOR PURPLE CONTACTTABLE*/
 #contacttable{
     width: 500px;
     background:rgb(121, 102, 146);
     margin:30px;
     padding:10px;
-    
-}
-#maintable {
-    table-layout:auto;
-    width: 100%;
-    background-color:white  
-}
-@media (max-width: 900px){
-td{
-float:none; 
-display:block;
-}
-}
-    /*border:  1px solid black ;
-    }*/
-    .bigcell{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    
-        
-    }
-.okotokstable {
-    width:100%;
-    height: 100%;
-  
-    
-}
-.calgarytable{
-    width: 100%;
-    height:100;
-   
-}
-.calgarymap,th {
-    text-align:center;
-    font-weight:bold;
-    font-size: 20px;
-}
-.branchcell{
-    text-align:center;
-    color:rgba(255, 255, 255, 0.8);
-    
- 
 }
 h5.phone{
     text-align:center;
     font-weight:bold;
     font-size: 15px;
 }
-.infoemail{
-    color:rgba(91, 0, 114, 1.0);
-    text-decoration: underline;
-    
-}
+
 h5.head{
     text-align:center;
     font-weight:bold;
@@ -124,47 +90,6 @@ h5.head{
     color:rgba(255, 255, 255, 0.801);
     border-bottom: 2px solid grey;
 }
-    #email           {
-        color:rgba(91, 0, 114, 1.0);
-        text-decoration:underline;
-    }
-    #headline        {
-        color:rgba(91, 0, 114, 1.0);
-    }
-   #calgarymap  {
-        width: 200px;
-        padding:5px;
-        border: 1px solid rgba(221, 221, 221, 1);
-        border-radius: 4px;
-   }
-   #calgarymap:hover{
-    box-shadow: 0 0 2px 1px rgba(76, 65, 80, 0.142);
-   }
-   #okotoksmap  {
-    width: 200px;
-    padding:5px;
-    border: 1px solid rgba(221, 221, 221, 1);
-    border-radius: 4px;
-}
-#okotoksmap:hover{
-    box-shadow: 0 0 2px 1px rgba(76, 65, 80, 0.142); 
-} 
-.okotoksmap{
-    padding:50px;
-}
-.calgarymap{
-    padding:50px;
-}
-    a.agentemail     {
-        color: white;
-    }
-    #Janet{
-        width:400px;
-    }
-    #Fred{
-        width:400px;
-    }
-   
 .agentcell{
     padding-left:20px;
     padding-bottom:5px;
@@ -174,12 +99,113 @@ h5.head{
         font-weight:bold;
         color:rgba(91, 0, 114, 0.8);/* displays name in purple*/
     }
-    .centertext{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
+    a.agentemail     {
+        color: white;
+    }
+/* STYLES FOR RIGHT CELLS*/
+    .bigcell{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+.okotokstable {
+    width:100%;
+    height: 100%;
+}
+.calgarytable{
+    width: 100%;
+    height:100;
+}
+.calgarymap,th {
+    text-align:center;
+    font-weight:bold;
+    font-size: 20px;
+}
+.branchcell{
+    text-align:center;
+    color:rgba(255, 255, 255, 0.8);
+}
+#headline        {
+        color:rgba(91, 0, 114, 1.0);
+    }
+.calgarymap{
+        padding:50px;
+    }
+#calgarymap  {
+        width: 300px;
+        padding:5px;
+        border: 2px solid rgba(221, 221, 221, 1);
+        border-radius: 4px;
+   }
+#calgarymap:hover{
+    box-shadow: 0 0 3px 2px rgba(76, 65, 80, 0.142);
+   }
+   .container1 {
+    position: relative;
+    text-align: center;
+    color:rgb(93, 92, 92);
+    font-weight: bold;
+   }
+.textOnMap {
+    position: absolute;
+    top: 8px;
+    left: 90px;
+  }
+
+.okotoksmap{
+    padding:50px;
+}
+#okotoksmap  {
+    width: 300px;
+    padding:5px;
+    border: 2px solid rgba(221, 221, 221, 1);
+    border-radius: 4px;
+}
+#okotoksmap:hover{
+    box-shadow: 0 0 3px 2px rgba(76, 65, 80, 0.142); 
+} 
+
+
+div.polaroidJ {
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+    transform:rotate(2deg);
+  }
+  .polaroidJ:hover{
+  transform:rotate(0deg);
+  transition:all 0.3s;
+  }
+  div.polaroidF {
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+    transform:rotate(-1deg);
+  }
+  .polaroidF:hover{
+    transform:rotate(0deg);
+    transition:all 0.3s;
+    }
+  
+  div.container {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  p{
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-weight: bold;
+
+  }
+
+
+
+        
+        
+        
+
+
  
 
  

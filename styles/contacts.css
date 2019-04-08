@@ -37,9 +37,11 @@ p.color {
     text-align:center;
     font-weight:bold;
     font-size: 24px;
+    color:white;
     text-decoration:underline;
     text-transform:uppercase;
     padding-bottom:20px;
+
  }
  .headline{
     text-align:center;
@@ -58,9 +60,10 @@ p.color {
 
 #contacttable{
     width: 500px;
-    background: rgba(121, 0, 151, 0.2);
+    background:rgb(121, 102, 146);
     margin:30px;
     padding:10px;
+    
 }
 #maintable {
     table-layout:auto;
@@ -100,6 +103,7 @@ display:block;
 }
 .branchcell{
     text-align:center;
+    color:rgba(255, 255, 255, 0.8);
     
  
 }
@@ -111,12 +115,14 @@ h5.phone{
 .infoemail{
     color:rgba(91, 0, 114, 1.0);
     text-decoration: underline;
+    
 }
 h5.head{
     text-align:center;
     font-weight:bold;
     font-size: 18px;
-    border-bottom: 1px solid grey;
+    color:rgba(255, 255, 255, 0.801);
+    border-bottom: 2px solid grey;
 }
     #email           {
         color:rgba(91, 0, 114, 1.0);
@@ -150,7 +156,7 @@ h5.head{
     padding:50px;
 }
     a.agentemail     {
-        color:black;
+        color: white;
     }
     #Janet{
         width:400px;
@@ -162,10 +168,11 @@ h5.head{
 .agentcell{
     padding-left:20px;
     padding-bottom:5px;
+    color:white;
 }
     .agentname {
         font-weight:bold;
-        color:rgba(91, 0, 114, 1.0);/* displays name in purple*/
+        color:rgba(91, 0, 114, 0.8);/* displays name in purple*/
     }
     .centertext{
             position: absolute;

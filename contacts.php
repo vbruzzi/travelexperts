@@ -4,7 +4,7 @@
     <!-- Call the stylesheet for header and footer for conistency  -->
     <?php require "scripts/header.php" ?>
     <!-- Call the contacts stylesheet that I created for this page -->
-    <link rel="stylesheet" href="styles/contactsp2-5.css">
+    <link rel="stylesheet" href="styles/contacts.css">
 </head>
 <body>
 

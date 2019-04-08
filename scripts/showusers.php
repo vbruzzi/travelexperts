@@ -3,7 +3,26 @@
         require "queries.php";
         require "serverdef.php";
         $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
-        echo "<table class=\"table table-hover\"><tbody>";
+        echo "<table class=\"table table-hover\">
+        <thead>
+            <th>UserId</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Middle</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Country</th>
+            <th>Postal</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Access</th>
+            <th>Location</th>
+            <th>Position</th>
+
+        </thead>
+        <tbody>";
         foreach($dbh->query(getUsers())->fetch_all(MYSQLI_ASSOC) as $user) {
             $agencies = $dbh->query(getLocations())->fetch_all(MYSQLI_ASSOC);
             $positions =$dbh->query(getPositions())->fetch_all(MYSQLI_ASSOC);

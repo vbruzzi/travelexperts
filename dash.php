@@ -1,7 +1,17 @@
+
+
 <?php require "scripts/header.php"?>
+<?php 
 
+$url = $_SERVER['QUERY_STRING'];
+if($url != "users" and $url != "packages "){
+    header('Location: dash.php?users');
+    die();
+}
 
-<div class="container">
+?>
+
+<div>
 <style>
 .agent {
   background-color: #E1D2EC;
@@ -10,6 +20,7 @@
 .agent:hover {
   background: #D4B5EA !important;
 }
+
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
@@ -19,7 +30,7 @@
         <a class="nav-link" href="#">View users<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">View packages</a>
+        <a class="nav-link" href="?packages">View packages</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">View packages</a>
@@ -38,9 +49,11 @@
           $.ajax({
            type: 'POST',
            url: "scripts/changeuser.php",
-           data: {val: val, id: id, field:field, prev: prev}
+           data: {val: val, id: id, field:field, prev: prev},
+           success: function() {
+             alert ("Success!");
+           }
      })
-          console.log(typeof(prev));
         }
     </script>
 <?php
@@ -50,11 +63,7 @@
       showUsers();
     } elseif ($url == "packages") {
 
-    } else {
-        header('Location: dash.php?users');
-        die();
-    }
-
+    } 
 ?>
 </div>
 

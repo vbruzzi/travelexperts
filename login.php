@@ -17,9 +17,9 @@
            
               session_start();
               $_SESSION["username"]=$username;
-              $url = $_SESSION['ref'];
-              echo $url;
-              header("Location:$url"); 
+              // $url = $_SESSION['ref'];
+              // echo $url;
+              header("Location:order.php"); 
             }
             else
             {

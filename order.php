@@ -1,12 +1,12 @@
 <?php 
     if(isset($_SERVER['QUERY_STRING'])){
     $url = $_SERVER['QUERY_STRING'];
-    // echo "Package URL is ".$url."<br>";
+     echo "Package URL is ".$url."<br>";
 }
  if($_SERVER['REQUEST_METHOD']=='GET')
 {
     $pkg= $_GET['order'];
-    // echo "package GET selected $pkg";
+     echo "package GET selected $pkg";
 }
 ?>
 <?php 
@@ -18,9 +18,14 @@
     session_start();
     if(!isset($_SESSION["username"])){
         $user = "Guest";
-        if(!isset($_SESSION["ref"])){
-        $ref = $_SESSION["ref"];
-        }
+        echo "----------------Package URL is ".$url."<br>";
+        if(!isset($_SESSION["pkg"])){
+        $_SESSION["pkg"]= $pkg ;
+        echo "=============Package URL is ".$url."<br>";
+      
+
+        } 
+       header("location: register.php");
     }
     else{
         $user = $_SESSION["username"];
@@ -29,21 +34,13 @@
         $search = doQuery($billSql);
 
         $results = mysqli_fetch_array($search);
-            print_r($results);
-            echo "<br>=====================";
-            echo "<script>print(document.getElementById('welcome').innerHTML);</script>";
-            echo $results['FirstName'];
-            echo "=====================<br>";
-        echo "<scripts>";
-        echo 'document.getElementById("firstname").value="'.$results['FirstName'].'";';
-echo 'firstname.value="'.$results['FirstName'].'";';
-echo  "";
-        echo "</scripts>";
+        
         }
  
     $price = pkgprice($pkg);
     $desc = pkgdesc($pkg);     
 ?>    
+
     <!-- STYLES -->
     <link rel="stylesheet" href="styles/home.css">
     <link href="form-validation.css" rel="stylesheet">
@@ -198,11 +195,12 @@ echo  "";
 <!-- ================================================================= -->
     <div class="col-md-8 order-md-1" >
         <h4 class="mb-3">Billing address</h4>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate id="billing">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstName">First name</label>
                     <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
+
                     <div class="invalid-feedback">
                     Valid first name is required.
                     </div>
@@ -233,7 +231,7 @@ echo  "";
                 <label for="email">Email <span class="text-muted"> </span></label>
                 <input type="email" class="form-control" id="email" placeholder="you@example.com">
                 <div class="invalid-feedback">
-                    Please enter a valid email address for shipping updates.
+                    Please enter a valid email address for travel updates.
                 </div>
             </div>
 
@@ -241,7 +239,7 @@ echo  "";
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                 <div class="invalid-feedback">
-                    Please enter your shipping address.
+                    Please enter your address.
                 </div>
             </div>
 
@@ -264,7 +262,7 @@ echo  "";
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="state">Province/State</label>
-                    <select class="custom-select d-block w-100" id="state" required>
+                    <select class="custom-select d-block w-100" id="province" required>
                     <option value="">Choose...</option>
                     <option value="AB">Alberta</option>
                     <option value="BC">British Columbia</option>
@@ -410,4 +408,35 @@ echo  "";
     </div>
     
 </div>
+<?php
+    //  print_r($results);
+//     echo "<br>=====================";
+//     foreach ($results as $x=>$y){
+      
+//     }
+//     echo    '<script>document.getElementById("billing").style.display = none;</script>';
+//     echo "<script>print(document.getElementById('welcome').innerHTML);</script>";
+//   //  echo $results['FirstName'];
+//     echo "=====================<br>";
+// echo "<script>";
+// echo "document.getElementById('firstname').value = '".$results['FirstName']."'";
+// echo "document.getElementById('lastName').value = '".$results['LastName']."'";
+// // echo "document.getElementById('username').value = '".$results['Username']."'";
+// // echo "document.getElementById('email').value = '".$results['Email']."'";
+// // echo "document.getElementById('address').value = '".$results['Address']."'";
+// // echo "document.getElementById('city').value = '".$results['City']."'";
+// // echo "document.getElementById('country').value = '".$results['Country']."'";
+// // echo "document.getElementById('province').value = '".$results['i']."'";
+// // echo "document.getElementById('zip').value = '".$results['Postal']."'";
+// echo "</script>";
+?>
+<script>
+document.getElementById("firstname").value = '<?php echo "$results[4]"; ?>';
+document.getElementById('username').value = "<?php echo '$results[\"Username\"]'; ?>";
+document.getElementById('email').value = "<?php echo '$results[\"Email\"]'; ?>";
+document.getElementById('address').value = "<?php echo '$results[\"Address\"]'; ?>";
+document.getElementById('city').value = "<?php echo '$results[\"City\"]'; ?>";
+document.getElementById('country').value = "<?php echo '$results[\"Country\"]'; ?>";
+</script>
+
 <?php require "scripts/footer.php"?>

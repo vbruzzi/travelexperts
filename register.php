@@ -11,6 +11,9 @@ if(!isset($_SESSION["username"])){
 else{
     $user = $_SESSION["username"];
 }
+// if(isset($_SERVER['QUERY_STRING'])){
+//     $url = $_SERVER['QUERY_STRING'];
+   echo "Package URL is ".$_SESSION["pkg"]."<br>";
 
 ?>
 
@@ -124,7 +127,7 @@ else{
                     <div class="form-group col-md-4">
                         <label for='9'>Province/State: </label>
                         <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required>
+                <select class="custom-select d-block w-100" id="province" required>
                 <option value="">Choose...</option>
                 <option value="AB">Alberta</option>
                 <option value="BC">British Columbia</option>

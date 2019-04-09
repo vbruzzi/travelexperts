@@ -12,21 +12,16 @@ else{
     $user = $_SESSION["username"];
 }
 ?>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New User Registration </title>
-</head>
-<body>
-<?php showUserGuest($user); 
+<?php 
+    require "scripts/header.php";
+    showUserGuest($user); 
         if($user=="Guest") {
         echo "<a href='register.php?ref='".$_SERVER['REQUEST_URI']."'><small>[login]</small></a>";
     }?>
     <?php
         require_once("scripts/queries.php");
         require_once("scripts/userClass.php");
+
         $userData = new userClass($_POST);
 
         function addUser($user){
@@ -70,16 +65,13 @@ else{
         
         if(doQuery(addUser($userData)))
         {
-            print("New User Inserted.");
-            header("Location:$ref");
+            print("Welcome, ".$userData->getUserName());
         }
         else{
             echo addUser($userData);
-            
-            print("Something is wrong...failed");
+            print("Something went wrong, try again.");
 
         }
-    ?>
 
-</body>
-</html>
+    require "scripts/footer.php";
+?>

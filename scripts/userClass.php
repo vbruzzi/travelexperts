@@ -3,6 +3,7 @@
 
 <?php
 
+require_once("serverdef.php");
 class userClass{
 
   private  $UserId = 0;
@@ -22,7 +23,7 @@ class userClass{
 
   Public function __construct($UserArray){
     $this->setUsername($UserArray['username']);
-    $this->setPassword($UserArray['passwd1']);
+    $this->setPassword($UserArray['password']);
     $this->setFirstName($UserArray['firstname']);
    // $this->setMiddleInitial($UserArray['middleini']);
     $this->setLastName($UserArray['lastname']);
@@ -30,7 +31,7 @@ class userClass{
     $this->setPhone($UserArray['phone']);
     $this->setAddress($UserArray['address']);
     $this->setCity($UserArray['city']);    
-    $this->setProvince($UserArray['province']);
+    $this->setProvince($UserArray['state']);
     $this->setCountry($UserArray['country']);
     $this->setPostal($UserArray['postal']);
     
@@ -41,7 +42,7 @@ class userClass{
   }
 
   public function setPassword($pwd){
-    $this->Password = password_hash($pwd, PASSWORD_DEFAULT);
+    $this->Password = crypt($pwd, SALT);
   }
 
   public function setFirstName($fname){
@@ -101,6 +102,9 @@ class userClass{
               );
   }
 
+  public function getUserName() {
+    return $this->Username;
+  }
   public function __toString(){
     return $this->UserId.', '.
            $this->FirstName.', '.

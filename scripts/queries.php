@@ -1,4 +1,6 @@
 <?php
+    # Queries used in website
+
     # GET FUNCTIONS 
     require "serverdef.php";
     require "userClass.php";
@@ -11,12 +13,22 @@
 
     function getUsers() {
         return 
-        "SELECT UserId, Username, FirstName, MiddleNameInitials, LastName, Address, City, Province, Country, Postal, Email, Phone, Role
+        "SELECT UserId, Username, FirstName, LastName, Address, City, Postal, Email, Phone, Role
         FROM users
         ORDER BY FirstName";
     }
 
+    function userLogin($user, $pass) {
+        return
+        "SELECT username, role, firstname FROM users WHERE username=\"$user\" AND password=\"$pass\"";
+    }
 
+    function getPwd($user){
+        $q= 'select Password from users where Username = "'.$user.'"';
+        $search=doQuery($q);
+        $password=search_result($search, 0, "Password");
+        return $password;     
+    }
 
     function getPositions(){ 
         return

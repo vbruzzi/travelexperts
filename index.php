@@ -1,20 +1,8 @@
-<?php
-require "scripts/showuserguest.php";
-session_start();
-if(!isset($_SESSION["username"])){
-    $user = "Guest";
-    $_SESSION["ref"]="index.php";
-}
-else{
-    $user = $_SESSION["username"];
-}
-?>
+
 <?php require "scripts/header.php"?>    
         <!-- INDEX STYLES -->
         <link rel="stylesheet" href="styles/home.css">
-        <div style="text-align: right; color: blue;margin-right: 100px;">
-        <?php showUserGuest($user);   ?>
-        </div>
+
         <!-- Flash sales section -->
         <div class="jumbotron flashsales">
             <div class="container">
@@ -57,12 +45,14 @@ else{
                     return false;
                 }
 
+                # Counter gives each card an id
                 $counter = 1;
+                # Grabs all packages tagged as featured from db
                 foreach ($dbh->query(getFeatures()) as $package ) {
                     
                     $features = $dbh->query(packageFeature($package["PackageId"]))->fetch_all(MYSQLI_NUM);
                     $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"]);
-                    $card->makeCard($counter); 
+                    $card->makeCard($counter);
                     $counter++;
 
                 }

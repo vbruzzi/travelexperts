@@ -23,22 +23,18 @@ $dbh = mysqli_connect("localhost","root","","team2travelexperts");
 
 // NEEDS IF STATEMENTS HERE
 // step3: get information about agencies from database.Create assoc. array in which each row is one agency.
-    $resultagency1  = $dbh->query("SELECT AgencyId, AgncyCity, AgncyAddress,AgncyPhone, AgncyPostal,AgncyFax, AgncyProv, AgncyCountry from agencies ")->fetch_all(MYSQLI_ASSOC);
-   print ("<table Id= Contacttable>"); 
+    $resultagency1  = $dbh->query("SELECT AgencyId, AgncyCity, AgncyAddress,AgncyPhone from agencies ")->fetch_all(MYSQLI_ASSOC);
+   print ("<table border=1 >"); 
     // Step3 First:Foreach-loop: queries all agent information for each row=agency
     foreach($resultagency1 as $item){
         //query agents of this $items id
-        print("<tr><td class=headlinecell colspan='3'><br/> ");
+        print("<tr><td class=headlinecell colspan='3'>Location in ");
         print($item['AgncyCity']);
-        print("</td></tr><tr><td class =branchcell>Mon-Fri: 9am-5pm <br/>");
-        print("<h5 class = phone>Phone: ");
-        print $item['AgncyPhone'];//continue to print table
-        print("   Fax: ");
-        print $item['AgncyFax'];
-        print("</h5>Postal address: ");
-        print $item['AgncyAddress'].", ".$item['AgncyPostal'].", <br/>".$item['AgncyCity'].", ".$item['AgncyProv'].", ".$item['AgncyCountry']."<br/></td></tr>";
-        print ("<tr><td><br/><h5 class= head>Our Travelexperts </h5></td></tr>");
-        
+        print("</td></tr><tr><td>Picture here</td><td>Branch Contact: <br/>Postal Address:");
+        print $item['AgncyAddress'];//continue to print table
+        print("<br/>Phone:");
+        print $item['AgncyPhone'];
+        print("</td><td>map here</td></tr>");
         
     //step 4 make  new query for agent information. Agents are user with role 2.
     // Select only agents with agencyID same as current row=agency.
@@ -49,13 +45,14 @@ $dbh = mysqli_connect("localhost","root","","team2travelexperts");
   
     // Step4:Second Foreach-loop: prints all agent information (for each agency) 
             foreach  ($resultagent1 as $agent){
-                print("<tr><td class=agentcell><div class= agentname>");
-                print  $agent['FirstName']." ".$agent['LastName']."</div>".$agent['Phone'].
-                "<br/><a class= agentemail href=\"mailto:".$agent['Email']."\">".$agent['Email']."</a></td></tr>";
-               
+                print("<tr><td>headshot here</td><td>");
+                print $agent['FirstName']." ".$agent['LastName']."<br/>".$agent['Phone'].
+                "<br/><a class= agentemail href=\"mailto:".$agent['Email']."\">".$agent['Email']."</a";
+                      
+                print("</td><td>button or description here</td><tr/>");
     }//close foreach2
     }//close foreach1 <a ID = email href="mailto:info@travelexperts.com">email</a>
-print("</table>");
+
     mysqli_close($dbh);
 
 

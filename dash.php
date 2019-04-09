@@ -1,16 +1,29 @@
-
-
-<?php require "scripts/header.php"?>
-<?php 
-
-$url = $_SERVER['QUERY_STRING'];
-if($url != "users" and $url != "packages "){
-    header('Location: dash.php?users');
+<?php
+# Checks if user has permission and if they're accessing the ?user or ?package url query
+include "scripts/user.php";
+session_start();
+  if(isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+    if ($user->getRole() == 3) {
+    } else {
+      header('Location: index.php');
+      die();
+    }
+  } else {
+    header('Location: index.php');
     die();
+  }
+
+  $url = $_SERVER['QUERY_STRING'];
+  if($url != "users" ){
+      header('Location: dash.php?users');
+      die();
 }
 
-?>
 
+
+?>
+<?php require "scripts/header.php"?>
 <div>
 <style>
 .agent {
@@ -23,22 +36,11 @@ if($url != "users" and $url != "packages "){
 
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">View users<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="?packages">View packages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">View packages</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Uses ajax to send data to server so it can change the table without refreshing 
+    val is the new value, id is the user id, field is the field altered and prev is the previous value, necessary for changing to and from agent
+-->
     <script>
         function changeUser(user){
           const val = user.value;
@@ -56,7 +58,10 @@ if($url != "users" and $url != "packages "){
      })
         }
     </script>
+
+
 <?php
+  # displays users if the url is ?users and packages if ?packages
   require "scripts/showusers.php";
     $url = $_SERVER['QUERY_STRING'];
     if($url == "users") {

@@ -16,8 +16,8 @@
 $errorflag =false;
 //step2: connect to database. "connection value" is in variable $dbh
    
+require "scripts/serverdef.php";
 $dbh = mysqli_connect(dbHost,dbUser,dbPass,dbName);
-require "scripts/serverdef.php"
 //step3: check if database exists. If not, set errorflag to true.
     if(!$dbh)
     {

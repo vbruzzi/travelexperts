@@ -1,4 +1,5 @@
 <!-- CONTACTS PAGE BY SAMIRA -->
+<!-- code to include user login information is from Vitor and Ken -->
 <?php  
 require "scripts/showuserguest.php";
 if(!isset($_SESSION["user"])){
@@ -8,7 +9,7 @@ else{
     $user = $_SESSION["user"];
 }
 ?>
-<html>
+<html><!-- SAMIRAS CODE STARTS HERE -->
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
     <?php require "scripts/header.php" ?>
@@ -85,7 +86,7 @@ else{
                                     <td>
                                     <div class="polaroidF"> <img  src="media/contacts/businessbeach.jpg" style= "width:100%">
                                         <div class="container">
-                                            < class=comic> Fred from Okotoks (expert for business trips)</p>
+                                            <p class=comic> Fred from Okotoks (expert for business trips)</p>
                                         </div>
                                     </div>
                                     </td>

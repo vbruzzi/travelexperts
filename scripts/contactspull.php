@@ -57,7 +57,7 @@ $dbh = mysqli_connect(dbHost,dbUser,dbPass,dbName);
 //step 5.4: make  new query for agent information. Agents are user with role 2.
 // Select only agents with agencyID same as current row=agency=item, so that we select agents of one agency only.
          $resultagent1  = $dbh->query("SELECT FirstName,LastName, Email,Phone FROM users INNER JOIN agents on users.UserId=agents.UserId 
-         WHERE role=2 AND AgencyId= ".$item['AgencyId'])->fetch_all(MYSQLI_BOTH); // get agents for each agency in big array
+         WHERE role=2 AND AgencyId= ".$item['AgencyId']." Order by FirstName")->fetch_all(MYSQLI_BOTH); // get agents for each agency in big array
 
 // Step5.5:Second Foreach-loop: Prints all agent information (for each agency) 
             foreach  ($resultagent1 as $agent){

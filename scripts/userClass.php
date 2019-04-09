@@ -1,3 +1,6 @@
+<!-- User Class page by Kun Zhang -->
+<!-- Team 2 Purple -->
+
 <?php
 
 class userClass{

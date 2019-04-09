@@ -1,5 +1,7 @@
-
+<!-- User login page by Ken Zhang -->
+<!-- Team 2 Purple -- -->
 <?php
+
       //Check user login information
     require "scripts/queries.php";
       //retrieve userID and passWord from user login page
@@ -14,12 +16,17 @@
       }
       else{
          if(password_verify($password, $dbPwd)){
-           
+           // login information is good, jump to order page for check out 
+           // or packages page for selections
               session_start();
               $_SESSION["username"]=$username;
-              // $url = $_SESSION['ref'];
-              // echo $url;
-              header("Location:order.php"); 
+              if(!isset($_SESSION["pkg"])){
+                header("Location:packages.php");
+              }
+              else
+              {
+                header("Location:order.php");
+              }
             }
             else
             {

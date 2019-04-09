@@ -16,12 +16,7 @@
         ORDER BY FirstName";
     }
 
-    function getPwd($user){
-        $q= 'select Password from users where Username = "'.$user.'"';
-        $search=doQuery($q);
-        $password=search_result($search, 0, "Password");
-        return $password;     
-    }
+
 
     function getPositions(){ 
         return
@@ -86,7 +81,9 @@
         "INSERT INTO agents (UserId)
         VALUES ($id)";
     }
-
+//============================================= 
+//------------Functions by Ken Zhang-----------
+//------------Please do not delete-------------
     function doQuery($q){
         $error_flag = false; 
 		//connect to database
@@ -154,5 +151,12 @@
             echo "Flag is False";
         }
         return $flag;
+    }    
+    
+    function getPwd($user){
+        $q= 'select Password from users where Username = "'.$user.'"';
+        $search=doQuery($q);
+        $password=search_result($search, 0, "Password");
+        return $password;     
     }
 ?>

@@ -1,15 +1,15 @@
+<!-- Order page by Ken Zhang --------
+---- Team 2 Purple -->
 <?php 
     if(isset($_SERVER['QUERY_STRING'])){
     $url = $_SERVER['QUERY_STRING'];
-     echo "Package URL is ".$url."<br>";
+//     echo "Package URL is ".$url."<br>";
 }
  if($_SERVER['REQUEST_METHOD']=='GET')
 {
     $pkg= $_GET['order'];
-     echo "package GET selected $pkg";
+  //   echo "package GET selected $pkg";
 }
-?>
-<?php 
     require_once "scripts/showuserguest.php";
     //require_once "scripts/userClass.php";
     //require_once "scripts/queries.php";
@@ -18,13 +18,11 @@
     session_start();
     if(!isset($_SESSION["username"])){
         $user = "Guest";
-        echo "----------------Package URL is ".$url."<br>";
+     //   echo "----------------Package URL is ".$url."<br>";
         if(!isset($_SESSION["pkg"])){
         $_SESSION["pkg"]= $pkg ;
-        echo "=============Package URL is ".$url."<br>";
-      
-
-        } 
+      //  echo "=============Package URL is ".$url."<br>";
+            } 
        header("location: register.php");
     }
     else{
@@ -39,6 +37,8 @@
  
     $price = pkgprice($pkg);
     $desc = pkgdesc($pkg);     
+    $_SESSION["price"]=$price;
+    $_SESSION["desc"]=$desc;
 ?>    
 
     <!-- STYLES -->
@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="py-5 text-center">
-        <h2><?php echo $user.": "; ?> check out</h2>
+        <h2>Dear <?php echo $user; ?>'s Billing Information</h2>
     </div>
     
     <!-- ============================================================== -->
@@ -165,7 +165,7 @@
                 <small>
                 </small>
             </div>
-            <span class="text-success"><h6 class="my-0"><input type="number"   class=" d-block w-100" name="traveller" id="traveller" value="1" min="1" max="10" 
+            <span class="text-success"><h6 class="my-0"><input type="number" form="billing"  class=" d-block w-100" name="traveller" id="traveller" value="1" min="1" max="10" 
                 oninput="total.value=parseFloat(parseInt(traveller.value)*parseInt(<?php echo $price; ?>))"></h6>
                 <small>
                                
@@ -174,7 +174,7 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
             <span>Total (CAD)</span>
-            <strong>$<input type="text" size=8 id="total" step="0.01" name="total" value="<?php echo $price; ?>" readonly style="border: none;">
+            <strong>$<input type="text" size=8 id="total" step="0.01" form="billing" name="total" value="<?php echo $price; ?>" readonly style="border: none;">
             <!-- <span class="input-group-text">.00</span> -->
            </strong>
             
@@ -195,22 +195,15 @@
 <!-- ================================================================= -->
     <div class="col-md-8 order-md-1" >
         <h4 class="mb-3">Billing address</h4>
-        <form class="needs-validation" novalidate id="billing">
+        <form class="needs-validation" novalidate id="billing" action="print.php" method="post" >
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstName">First name</label>
                     <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
-
-                    <div class="invalid-feedback">
-                    Valid first name is required.
-                    </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="lastName">Last name</label>
                     <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                    <div class="invalid-feedback">
-                    Valid last name is required.
-                    </div>
                 </div>
             </div>
 
@@ -218,50 +211,38 @@
                 <label for="username">Username</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+                        <span class="input-group-text">@</span>
                     </div>
                     <input type="text" class="form-control" id="username" placeholder="Username" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                    Your username is required.
-                    </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="email">Email <span class="text-muted"> </span></label>
                 <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                <div class="invalid-feedback">
-                    Please enter a valid email address for travel updates.
-                </div>
             </div>
 
             <div class="mb-3">
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                <div class="invalid-feedback">
-                    Please enter your address.
-                </div>
             </div>
 
             <div class="mb-3">
-            <label for="address2">City<span class="text-muted"></span></label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                <label for="address2">City<span class="text-muted"></span></label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="City">
             </div>
 
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="country">Country</label>
                     <select class="custom-select d-block w-100" id="country" required>
-                    <option value="">Choose...</option>
-                    <option>Canada</option>
-                    <option>United States</option>
+                        <option value="">Choose...</option>
+                        <option>Canada</option>
+                        <option>United States</option>
                     </select>
-                    <div class="invalid-feedback">
-                    Please select a valid country.
-                    </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="state">Province/State</label>
+                    <label for="province">Province/State</label>
                     <select class="custom-select d-block w-100" id="province" required>
                     <option value="">Choose...</option>
                     <option value="AB">Alberta</option>
@@ -329,44 +310,33 @@
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                     </select>
-                    <div class="invalid-feedback">
-                    Please provide a valid state.
-                    </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="zip">Postal/Zip</label>
                     <input type="text" class="form-control" id="zip" placeholder="" required>
-                    <div class="invalid-feedback">
-                    Zip code required.
-                    </div>
                 </div>
             
             </div>
             <hr class="mb-4">
+            <h4 class="mb-3">Payment</h4>
             <!-- <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="same-address">
-            <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div> -->
-            <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="save-info">
                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
+            </div> -->
             <hr class="mb-4">
-
-            <h4 class="mb-3">Payment</h4>
 
             <div class="d-block my-3">
                 <div class="custom-control custom-radio">
                     <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                    <label class="custom-control-label" for="credit">Credit card</label>
+                    <label class="custom-control-label" for="credit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credit card</label>
                 </div>
                 <div class="custom-control custom-radio">
                     <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="debit">Debit card</label>
+                    <label class="custom-control-label" for="debit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debit card InterAc</label>
                 </div>
                 <div class="custom-control custom-radio">
                     <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="paypal">PayPal</label>
+                    <label class="custom-control-label" for="paypal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PayPal</label>
                 </div>
             </div>
             <div class="row">
@@ -409,34 +379,26 @@
     
 </div>
 <?php
-    //  print_r($results);
-//     echo "<br>=====================";
-//     foreach ($results as $x=>$y){
-      
-//     }
-//     echo    '<script>document.getElementById("billing").style.display = none;</script>';
-//     echo "<script>print(document.getElementById('welcome').innerHTML);</script>";
-//   //  echo $results['FirstName'];
-//     echo "=====================<br>";
-// echo "<script>";
-// echo "document.getElementById('firstname').value = '".$results['FirstName']."'";
-// echo "document.getElementById('lastName').value = '".$results['LastName']."'";
-// // echo "document.getElementById('username').value = '".$results['Username']."'";
-// // echo "document.getElementById('email').value = '".$results['Email']."'";
-// // echo "document.getElementById('address').value = '".$results['Address']."'";
-// // echo "document.getElementById('city').value = '".$results['City']."'";
-// // echo "document.getElementById('country').value = '".$results['Country']."'";
-// // echo "document.getElementById('province').value = '".$results['i']."'";
-// // echo "document.getElementById('zip').value = '".$results['Postal']."'";
-// echo "</script>";
+if(isset($results)){  
+    $i = 0;  
+    foreach ($results as $x=>$y){
+        if(!is_numeric($x)) {
+        $_SESSION[$x] = $y;
+        }
+    }
+}
 ?>
 <script>
-document.getElementById("firstname").value = '<?php echo "$results[4]"; ?>';
-document.getElementById('username').value = "<?php echo '$results[\"Username\"]'; ?>";
-document.getElementById('email').value = "<?php echo '$results[\"Email\"]'; ?>";
-document.getElementById('address').value = "<?php echo '$results[\"Address\"]'; ?>";
-document.getElementById('city').value = "<?php echo '$results[\"City\"]'; ?>";
-document.getElementById('country').value = "<?php echo '$results[\"Country\"]'; ?>";
+document.getElementById("firstname").value = '<?php echo "$results[3]"; ?>';
+document.getElementById('username').value = "<?php echo $results[1]; ?>";
+document.getElementById('email').value = "<?php echo $results[11]; ?>"; 
+document.getElementById('address').value = "<?php echo $results[6]; ?>";
+document.getElementById('city').value = "<?php echo $results[7]; ?>";
+
+document.getElementById('country').value = "<?php echo $results[9]; ?>";
+document.getElementById('zip').value = "<?php echo $results[10]; ?>";
+document.getElementById('lastName').value = "<?php echo $results[5]; ?>";
+document.querySelector('#province [value="' + "<?php echo $results[8]; ?>" + '"]').selected = true;
 </script>
 
 <?php require "scripts/footer.php"?>

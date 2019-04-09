@@ -1,3 +1,5 @@
+<!-- New user to Database page by Kun Zhang -->
+<!-- Team 2 Purple -->
 <?php  
 require "scripts/showuserguest.php";
 session_start();

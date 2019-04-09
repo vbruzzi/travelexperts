@@ -1,3 +1,6 @@
+<!-- Welcome user function page by Kun Zhang -->
+<!-- Team 2 Purple -->
+
 <?php
 function showUserGuest($user){
     if(isset($_SESSION["username"])){

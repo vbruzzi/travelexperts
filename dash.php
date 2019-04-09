@@ -3,9 +3,9 @@
 
 <?php 
 
-  if(!isset($_SESSION["agent"])) {
-    $agent = $_SESSION["agent"];
-    if ($agent["role"] == 3) {    
+  if(!isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+    if ($user["role"] == 3) {    
     } else {
       header('Location: index.php');
       die();

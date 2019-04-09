@@ -1,31 +1,28 @@
 
 <?php
-      //Check user login information
-    require "scripts/queries.php";
-      //retrieve userID and passWord from user login page
-      $username = trim($_POST['username']);
-      $password = trim($_POST['password']);  
-       echo "user password is".$password; 
-       //retrieve  passWord from user table in database
-      $dbPwd = getPwd($username);
-       echo "password is".$dbPwd;
-      if(!$dbPwd){
-        echo '<script> alert("Please check your username!"); </script> ';
-      }
-      else{
-         if(password_verify($password, $dbPwd)){
-           
-              session_start();
-              $_SESSION["username"]=$username;
-              $url = $_SESSION['ref'];
-              echo $url;
-              header("Location:$url"); 
-            }
-            else
-            {
-              echo '<script> alert("password Invalid!"); </script> ';
-            }
-      }
-    
-         
-    ?>
+
+  require "scripts/queries.php";
+  require_once("scripts/userClass.php");
+  require_once("scripts/user.php");
+  require_once("scripts/serverdef.php");
+
+
+  $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
+
+  //retrieve userID and passWord from user login page
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+    //retrieve  passWord from user table in database
+  $query = $dbh->query(userLogin($username, crypt($password, SALT)))->fetch_assoc();
+  echo userLogin($username, crypt($password, SALT));
+  echo ($query);
+  if(!$query){
+    echo '<script> alert("Please check your username!"); </script> ';
+  }
+  else{
+    $_SESSION["user"] = new User($query["FirstName"], $query["Username"], $query["Role"]);
+    header("Location: index.php");
+    die();
+  }
+
+?>

@@ -16,6 +16,11 @@
         ORDER BY FirstName";
     }
 
+    function userLogin($user, $pass) {
+        return
+        "SELECT username, role, firstname password FROM users WHERE username=\"$user\" AND password=\"$pass\"";
+    }
+
     function getPwd($user){
         $q= 'select Password from users where Username = "'.$user.'"';
         $search=doQuery($q);

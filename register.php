@@ -3,6 +3,7 @@
 <?php 
 require "scripts/header.php";
 require "scripts/showuserguest.php";
+require "scripts/serverdef.php";
 // continue session after login
 session_start();
 if(!isset($_SESSION["username"])){
@@ -11,7 +12,6 @@ if(!isset($_SESSION["username"])){
 else{
     $user = $_SESSION["username"];
 }
-
 ?>
 
 <link rel="stylesheet" href="styles/packages.css">
@@ -99,7 +99,7 @@ else{
                     <div class="form-group col-md-6">
                         <label for='5'>Please input your password:&nbsp;&nbsp;
                         </label>
-                        <input class="form-control" id='5' name='passwd1' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+                        <input class="form-control" id='5' name='password' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
                     </div>
 
                     <div class="form-group col-md-6">

@@ -2,43 +2,45 @@
 ---- Team 2 Purple -->
 <?php 
     if(isset($_SERVER['QUERY_STRING'])){
+     //get package order information if send by query string   
     $url = $_SERVER['QUERY_STRING'];
-//     echo "Package URL is ".$url."<br>";
 }
  if($_SERVER['REQUEST_METHOD']=='GET')
 {
+    //get package order information if send by Get mothod
     $pkg= $_GET['order'];
-  //   echo "package GET selected $pkg";
 }
     require_once "scripts/showuserguest.php";
-    //require_once "scripts/userClass.php";
-    //require_once "scripts/queries.php";
+
     require "scripts/header.php";
     require "scripts/queries.php";
     session_start();
     if(!isset($_SESSION["username"])){
         $user = "Guest";
-     //   echo "----------------Package URL is ".$url."<br>";
+
         if(!isset($_SESSION["pkg"])){
         $_SESSION["pkg"]= $pkg ;
-      //  echo "=============Package URL is ".$url."<br>";
+
             } 
        header("location: register.php");
     }
     else{
         $user = $_SESSION["username"];
-        
+        // if user logged in before, get user information from DB put into Array $results
         $billSql = "SELECT * FROM users us left join creditcards cc  on (cc.CustomerId = us.userId) having us.username='$user' ";
         $search = doQuery($billSql);
 
-        $results = mysqli_fetch_array($search);
-        
+        $results = mysqli_fetch_array($search); 
         }
- 
+        //transfer price and package description to next page
     $price = pkgprice($pkg);
     $desc = pkgdesc($pkg);     
     $_SESSION["price"]=$price;
     $_SESSION["desc"]=$desc;
+    if(!isset($_SESSION["ordernum"])){
+        $_SESSION["ordernum"]=bookingNum();
+    }
+    // print_r($_SESSION);
 ?>    
 
     <!-- STYLES -->
@@ -52,20 +54,14 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-
-
- <!-- BootStrap 4 DateRange Picker for travel package start and end date availabilities Starts Here -->
-
 <div class="container">
     <!-- CREATE CONTENT -->
     <!--Banner to add consistency across pages-->
     <div class="packagebanner">
         <div class="container" style="text-align: right;" id="welcome">
-            <?php showUserGuest($user);  //show login infomation on this page
-            if($user=="Guest"){
-                echo "<a href='register.php?ref=".$ref."'><small>[login]</small></a>";
-            }
-        ?>
+            <?php 
+                 showUserGuest($user);  //show login infomation on this page
+            ?>
         </div>
     </div>
     <div class="py-5 text-center">
@@ -83,6 +79,21 @@
             <span class="badge badge-secondary badge-pill">Package #<?php echo  $pkg; ?></span>
         </h4>
         <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">Order Number</h6>
+                <small class="text-muted"></small>
+            </div>
+            <span class="text-muted"><?php echo $_SESSION["ordernum"]; ?></span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="text-muted"></div>
+            <div>
+                <h6 class="my-0">Package brief description:</h6>
+                <small class="text-muted"><?php echo $desc; ?></small>
+            </div>
+            </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
                 <h6 class="my-0">Package Price:</h6>
@@ -151,7 +162,7 @@
                 <small class="text-muted">Please select:</small>
             </div>
             <span class="text-muted">
-                <select  class="custom-select d-block w-100" required name="triptype" id="triptype" >
+                <select  class="custom-select d-block w-100" required name="triptype" id="triptype" form="billing">
                     <option value = "Business">Business</option>
                     <option value = "Group">Group</option>
                     <option value = "Leisure">Leisure</option> 

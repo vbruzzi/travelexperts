@@ -5,12 +5,7 @@ require "scripts/header.php";
 require "scripts/showuserguest.php";
 // continue session after login
 session_start();
-if(!isset($_SESSION["username"])){
-    $user = "Guest";
-}
-else{
-    $user = $_SESSION["username"];
-}
+
 // if(isset($_SERVER['QUERY_STRING'])){
 //     $url = $_SERVER['QUERY_STRING'];
 //   echo "Package URL is ".$_SESSION["pkg"]."<br>";
@@ -24,7 +19,6 @@ else{
     <div class="container">
         <h1 class="bold">Sign in | Sign up</h1>
         <p class="color">One agency many worlds</p>
-        <?php showUserGuest($user); ?>
     </div>
 </div>
 <!-- NAVBAR -->
@@ -124,7 +118,7 @@ else{
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                     <label for="province">Province</label>
                     <select class="custom-select d-block w-100" id="province" required>
                     <option value="">Choose...</option>
@@ -195,7 +189,7 @@ else{
                     </select>
                         <!-- <input class="form-control" id='9' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for='10'>Country: </label>
                         <select class="custom-select d-block w-100" id="country" required>
                         <option value="">Choose...</option>
@@ -204,14 +198,15 @@ else{
                         </select>
                         <!-- <input class="form-control" id='10' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for='11'>Post Code: </label>
-                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
-                    </div>
+                   
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='12'>Your personal contact number with area code: </label>
+                        <label for='11'>Post Code: </label>
+                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for='12'>Contact number with area code: </label>
                         <input class="form-control" id='12' name='phone' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
                     <!-- <div class="form-group col-md-6">

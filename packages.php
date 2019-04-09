@@ -50,11 +50,7 @@ else{
     <div class="container">
         <h1 class="bold">Vacation Packages</h1>
         <p class="color">One agency many worlds</p>
-        <?php showUserGuest($user); 
-        if($user=="Guest"){
-              echo "<a href='register.php?ref=".$_SESSION["ref"]."'><small>[login]</small></a>";
-            }
-        ?>
+        <?php showUserGuest($user);    ?>
     </div>
 </div>
 

@@ -1,5 +1,7 @@
 <!-- Invoice page by Kun Zhang -->
 <!-- Team 2 Purple -->
+<!-- This file generate a printable invoice for the client,  -->
+<!-- Also update the booking table for the Database  -->
 <?php
 session_start();
 if(isset($_SESSION["username"])){
@@ -36,7 +38,7 @@ foreach($_POST as $x=>$y){
         <div class="col-xs-12">
     		<div class="invoice-title">
     			<h2>Invoice</h2><br>
-                <h3 class="pull-right" >Order # 12345</h3>
+                <h3 class="pull-right" >Order # <?php echo $_SESSION["ordernum"]; ?></h3>
     		</div>
     		<hr>
     		<div class="row">
@@ -44,6 +46,7 @@ foreach($_POST as $x=>$y){
     				<address>
     				<strong>Billed To:</strong><br>
     					<?php
+                        // show customer's billing information
                         echo $_SESSION["FirstName"]." ".$_SESSION["LastName"]."<br>";
     					echo $_SESSION["Address"]."<br>";
                         echo $_SESSION["City"].", ". $_SESSION["Province"]." ".$_SESSION["Postal"]."<br>"; 
@@ -56,18 +59,19 @@ foreach($_POST as $x=>$y){
     		<div class="row">
     			<div class="col-md-6">
     				<address>
-    					<!-- <strong>Payment Method:</strong><br>
-    					Visa ending **** 4242<br> -->
+    
     					<?php echo $_SESSION["Email"];?>
     				</address>
     			</div>
     			<div class="col-md-12 text-left">
     				<address>
     					<strong>Order Date:</strong><br>
-    					<script>
-                        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-                        document.write(today);
-                        </script>
+                        <?php
+                        // show order date information on invoice
+                            $date = date("Y-m-d G:i:s");
+                            echo date($date);
+                        ?>
+
                         <br><br>
     				</address>
     			</div>
@@ -130,4 +134,14 @@ foreach($_POST as $x=>$y){
     	</div>
     </div>
 </div>
-<?php require "scripts/footer.php";?>
+<?php 
+$sql = "INSERT INTO bookings(BookingDate, BookingNo, TravelerCount, CustomerId, TripTypeId, PackageId) 
+VALUES ('".$date."','".$_SESSION['ordernum']."','".$_POST['traveller']."','".$_SESSION['UserId']."','".$_POST['triptype']."','".$_SESSION['pkg']."') ";
+require "scripts/footer.php";
+require "scripts/queries.php";
+// update booking table in the database
+//echo $sql;
+if(doQuery($sql)){
+   // echo "database updated";
+}
+?>

@@ -1,14 +1,6 @@
 <!-- CONTACTS PAGE BY SAMIRA -->
 <!-- code to include user login information is from Vitor and Ken -->
-<?php  
-require "scripts/showuserguest.php";
-if(!isset($_SESSION["user"])){
-    $user = "Guest";
-}
-else{
-    $user = $_SESSION["user"];
-}
-?>
+
 <html><!-- SAMIRAS CODE STARTS HERE -->
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
@@ -23,10 +15,9 @@ else{
     <div class="container">
         <h1 class="bold">Contact us</h1>
         <p class="color">One agency many worlds</p>
-        <?php showUserGuest(); 
-        if($user=="Guest") {
-        echo "<a href='register.php?ref='".$_SERVER['REQUEST_URI']."'><small>[login]</small></a>";
-    }?>
+        <?php 
+        require "scripts/showuserguest.php";
+        showUserGuest(); ?>
     </div>
 </div>
 <!-- open table to organize elements on side: 3 rows and 2 columns (a version of this page using Flex-box gave me a worse overall result.) -->

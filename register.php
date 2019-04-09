@@ -5,21 +5,10 @@ require "scripts/header.php";
 require "scripts/showuserguest.php";
 require "scripts/serverdef.php";
 // continue session after login
-<<<<<<< HEAD
-session_start();
-
 // if(isset($_SERVER['QUERY_STRING'])){
 //     $url = $_SERVER['QUERY_STRING'];
 //   echo "Package URL is ".$_SESSION["pkg"]."<br>";
 
-=======
-if(!isset($_SESSION["username"])){
-    $user = "Guest";
-}
-else{
-    $user = $_SESSION["username"];
-}
->>>>>>> eefb70491ec2058e8b09fef7b8dbafd351e37fb7
 ?>
 
 <link rel="stylesheet" href="styles/packages.css">

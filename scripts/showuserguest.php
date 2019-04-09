@@ -5,9 +5,10 @@
 function showUserGuest(){
     if(isset($_SESSION["user"])){
         $user=$_SESSION["user"]->getName();
+        echo "<small>Welcome, $user</small>";
     } 
-    else{ echo '<p class="color">Welcome '.$user;
-        echo "<a href='logout.php?'><small>[logout]</small></a>";
+    else{ echo '<p class="color">Welcome, Guest';
+        echo "<a href='register.php'><small> [Login]</small></a>";
        
     }
 }

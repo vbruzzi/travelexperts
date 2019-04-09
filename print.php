@@ -3,7 +3,6 @@
 <!-- This file generate a printable invoice for the client,  -->
 <!-- Also update the booking table for the Database  -->
 <?php
-session_start();
 if(isset($_SESSION["username"])){
     foreach($_SESSION as $k=>$v){
       //  echo $k."  :   ".$v."<br>";
@@ -136,12 +135,15 @@ foreach($_POST as $x=>$y){
 </div>
 <?php 
 $sql = "INSERT INTO bookings(BookingDate, BookingNo, TravelerCount, CustomerId, TripTypeId, PackageId) 
-VALUES ('".$date."','".$_SESSION['ordernum']."','".$_POST['traveller']."','".$_SESSION['UserId']."','".$_POST['triptype']."','".$_SESSION['pkg']."') ";
+VALUES ('".$date."','".$_SESSION['ordernum']."','".$_POST['traveller']."','".$_SESSION['UserId']."','".$_POST['triptype']."','".$_SESSION['pkg']."')";
 require "scripts/footer.php";
 require "scripts/queries.php";
 // update booking table in the database
 //echo $sql;
 if(doQuery($sql)){
+	echo $sql;
    // echo "database updated";
+} else {
+	echo "no good $sql";
 }
 ?>

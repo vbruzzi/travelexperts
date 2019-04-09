@@ -93,7 +93,7 @@ if ($result->num_rows > 0) {
                         <p onmouseover='scaleUp(this)' onmouseout='scaleDown(this)'>
                             $".number_format($row["PkgBasePrice"], 0)."
                         </p>
-                        <a href='order.php?".$row["PackageId"]."'>
+                        <a href='order.php?order=".$row["PackageId"]."'>
                             <button type='button' class='btn btn-outline-dark'>
                                 Order Now!
                             </button>
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
                             <p onmouseover='scaleUp(this)' onmouseout='scaleDown(this)'>
                                 $".number_format($row["PkgBasePrice"], 0)."
                             </p>
-                            <a href='order.php?".$row["PackageId"]."'>
+                            <a href='order.php?order=".$row["PackageId"]."'>
                                 <button type='button' class='btn btn-outline-dark'>
                                     Order Now!
                                 </button>

@@ -11,25 +11,20 @@
     $pkg= $_GET['order'];
 }
     require_once "scripts/showuserguest.php";
-
     require "scripts/header.php";
     require "scripts/queries.php";
-    session_start();
-    if(!isset($_SESSION["username"])){
+    if(!isset($_SESSION["user"])){
         $user = "Guest";
-
         if(!isset($_SESSION["pkg"])){
         $_SESSION["pkg"]= $pkg ;
-
             } 
        header("location: register.php");
     }
     else{
-        $user = $_SESSION["username"];
+        $user = $_SESSION["user"]->getName();
         // if user logged in before, get user information from DB put into Array $results
         $billSql = "SELECT * FROM users us left join creditcards cc  on (cc.CustomerId = us.userId) having us.username='$user' ";
         $search = doQuery($billSql);
-
         $results = mysqli_fetch_array($search); 
         }
         //transfer price and package description to next page
@@ -38,6 +33,9 @@
     $_SESSION["price"]=$price;
     $_SESSION["desc"]=$desc;
     if(!isset($_SESSION["ordernum"])){
+        $_SESSION["ordernum"]=bookingNum();
+    } else {
+        unset($_SESSION["ordernum"]);
         $_SESSION["ordernum"]=bookingNum();
     }
     // print_r($_SESSION);
@@ -97,45 +95,11 @@
             <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
                 <h6 class="my-0">Package Price:</h6>
-                <small class="text-muted">For single person</small>
+                <small class="text-muted">Each person</small>
             </div>
             <span class="text-muted">$<?php echo $price; ?></span>
             </li>
 
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div class="text-muted"></div>
-            <div>
-                <h6 class="my-0">Package brief description:</h6>
-                <small class="text-muted"><?php echo $desc; ?></small>
-            </div>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            
-            <div >
-                Trip Start Date: <input id="startDate" />
-                Trip End Date: <input id="endDate" />
-                <script>
-                var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-                $('#startDate').datepicker({
-                    uiLibrary: 'bootstrap4',
-                    iconsLibrary: 'fontawesome',
-                    minDate: today,
-                    maxDate: function () {
-                        return $('#endDate').val();
-                    }
-                });
-                $('#endDate').datepicker({
-                    uiLibrary: 'bootstrap4',
-                    iconsLibrary: 'fontawesome',
-                    minDate: function () {
-                        return $('#startDate').val();
-                    }
-                });
-                </script>
-            </div>
-
-            </li>
 
         
             <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -163,9 +127,9 @@
             </div>
             <span class="text-muted">
                 <select  class="custom-select d-block w-100" required name="triptype" id="triptype" form="billing">
-                    <option value = "Business">Business</option>
-                    <option value = "Group">Group</option>
-                    <option value = "Leisure">Leisure</option> 
+                    <option value = "B">Business</option>
+                    <option value = "G">Group</option>
+                    <option value = "L">Leisure</option> 
                 </select>    
             </span>
             </li>
@@ -329,61 +293,6 @@
             
             </div>
             <hr class="mb-4">
-            <h4 class="mb-3">Payment</h4>
-            <!-- <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="save-info">
-                <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div> -->
-            <hr class="mb-4">
-
-            <div class="d-block my-3">
-                <div class="custom-control custom-radio">
-                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                    <label class="custom-control-label" for="credit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credit card</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="debit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Debit card InterAc</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                    <label class="custom-control-label" for="paypal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PayPal</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="cc-name">Name on card</label>
-                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                    <small class="text-muted">Full name as displayed on card</small>
-                    <div class="invalid-feedback">
-                    Name on card is required
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="cc-number">Credit card number</label>
-                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                    <div class="invalid-feedback">
-                    Credit card number is required
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">Expiration</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                    <div class="invalid-feedback">
-                    Expiration date required
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="cc-cvv">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                    <div class="invalid-feedback">
-                    Security code required
-                    </div>
-                </div>
-            </div>
-            <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
         </form>
     </div>
@@ -405,7 +314,6 @@ document.getElementById('username').value = "<?php echo $results[1]; ?>";
 document.getElementById('email').value = "<?php echo $results[11]; ?>"; 
 document.getElementById('address').value = "<?php echo $results[6]; ?>";
 document.getElementById('city').value = "<?php echo $results[7]; ?>";
-
 document.getElementById('country').value = "<?php echo $results[9]; ?>";
 document.getElementById('zip').value = "<?php echo $results[10]; ?>";
 document.getElementById('lastName').value = "<?php echo $results[5]; ?>";

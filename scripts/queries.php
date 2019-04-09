@@ -165,10 +165,4 @@
         return $flag;
     }    
     
-    function getPwd($user){
-        $q= 'select Password from users where Username = "'.$user.'"';
-        $search=doQuery($q);
-        $password=search_result($search, 0, "Password");
-        return $password;     
-    }
 ?>

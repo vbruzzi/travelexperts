@@ -1,4 +1,5 @@
-<!-- CONTACTS PAGE BY SAMIRA -->
+<!-- CONTACTS PAGE BY SAMIRA 
+Needs contactspull.php and contacts.css and header.php and footer.php to work-->
 <html>
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
@@ -29,7 +30,7 @@
         <td class= bigcellcontacts rowspan ="2"><!-- open cell (left) of maintable for contactstable, will span across 2 rows -->
                   <div class= "ContactsTable">
                       <!-- call and include the php file that connects to travelexprts database and prints the agncy and agent information -->
-                      <?php require "contactspull.php"?>
+                      <?php require "scripts/contactspull.php"?>
                  </div>
             </td><!-- close cell maintable for contactstable -->
         <td class=bigcell> <!-- open cell (right) in maintable for another table with Calgaryinfo -->

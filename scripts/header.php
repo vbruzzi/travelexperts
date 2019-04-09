@@ -38,11 +38,35 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contacts.php">Contact Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php" tabindex="-1" aria-disabled="true">Register</a>
-                        </li>
+                        <?php 
+                            #displays different header links depending on permissions
+                            require_once("scripts/user.php");
+                            if(!isset($_SESSION)) 
+                            { 
+                                session_start(); 
+                            } 
+                            if(isset($_SESSION["user"])) {
+                                $user = $_SESSION["user"];
+                                if ($user->getRole() == 3) {
+                                    echo "<li class=\"nav-item\">
+                                            <a class=\"nav-link\" href=\"dash.php\" tabindex=\"-1\" aria-disabled=\"true\">Dash</a>
+                                    	</li>";
+                                    echo "<li class=\"nav-item\">
+                                            <a class=\"nav-link\" href=\"logout.php\" tabindex=\"-1\" aria-disabled=\"true\">Logout</a>
+                                    	</li>";
+                                } else {
+                                    echo "<li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"logout.php\" tabindex=\"-1\" aria-disabled=\"true\">Logout</a>
+                                </li>";
+                                }
+                            } else {
+                                echo "<li class=\"nav-item\">
+                                        <a class=\"nav-link\" href=\"register.php\" tabindex=\"-1\" aria-disabled=\"true\">Register</a>
+                                    </li>";
+                            }
+                        ?>
                     </ul>
-                    </form>
+        
                 </div>
             </header>
         </nav>

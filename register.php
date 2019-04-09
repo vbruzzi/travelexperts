@@ -1,7 +1,17 @@
 <!-- Register page by Ken Zhang -->
 
-<?php require "scripts/header.php" ?>
-
+<?php 
+require "scripts/header.php";
+require "scripts/showuserguest.php";
+require "scripts/serverdef.php";
+// continue session after login
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+}
+else{
+    $user = $_SESSION["username"];
+}
+?>
 
 <link rel="stylesheet" href="styles/packages.css">
 <link rel="stylesheet" href="styles/home.css">
@@ -10,6 +20,7 @@
     <div class="container">
         <h1 class="bold">Sign in | Sign up</h1>
         <p class="color">One agency many worlds</p>
+        <?php showUserGuest($user); ?>
     </div>
 </div>
 <!-- NAVBAR -->
@@ -22,16 +33,16 @@
         <!-- Customer login starts from here -->
         <div class="col-lg-4 text-primary" style="background-color: rgb(121, 102, 146);"><br />
             <h5 class="text-light">Return customers:<br /> Welcome back!<br /> Please login:</h5>
-            <form name="signin" class="px-4 py-3" method="post" action="bouncer.php">
+            <form name="signin" class="px-4 py-3" method="post" action="login.php">
 
                 <div class="form-group  text-light ">
-                    <label for="user">Username</label>
-                    <input type="text" class="form-control" id="user" placeholder="Enter your username">
+                    <label for="user"  title="Enter your username">Username</label>
+                    <input type="text" class="form-control" id="user" name="username" placeholder="Enter your username">
                 </div>
 
                 <div class="form-group text-light">
-                    <label for="Password1">Password</label>
-                    <input type="password" class="form-control" name="Password1" placeholder="Password">
+                    <label for="Password1" title="Enter your password">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
 
                 <div class="form-group">
@@ -55,7 +66,7 @@
         <!-- Registration section starts here -->
         <div class="col-lg-8 text-light " style= "background-color: rgb(129, 128, 122);" ><br />
             <h5 class="text-light">New around here? Please sign up:</h5>
-            <form name="signup" class="px-4 py-3" method="post" action="bouncer.php">
+            <form name="signup" class="px-4 py-3" method="post" action="userdata.php">
             
                 <div class="form-row" class="text-light">
                     <div id="displayText" class="text-warning"><label>Instructions and Hints to fill the form</label></div>
@@ -80,14 +91,14 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for='4'>Username with 2-20 chars: &nbsp;&nbsp; </label>
-                        <input class="form-control" id='4' name='userid' type='text' pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$' required onfocus='toggle(this.id); this.form.userid.placeholder="Username with 2~20 characters";' onblur='toggle(0);'>
+                        <input class="form-control" id='4' name='username' type='text' pattern='^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$' required onfocus='toggle(this.id); this.form.userid.placeholder="Username with 2~20 characters";' onblur='toggle(0);'>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for='5'>Please input your password:&nbsp;&nbsp;
                         </label>
-                        <input class="form-control" id='5' name='passwd1' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
+                        <input class="form-control" id='5' name='password' type='password' minlength='8' maxlength='15' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}' title='Must contain at least one number and one uppercase and lowercase letter, and 8~15 characters' onfocus='toggle(this.id); this.form.passwd1.placeholder="8~15 characters";' onblur='toggle(0);' />
                     </div>
 
                     <div class="form-group col-md-6">
@@ -101,7 +112,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-8">
                         <label for='7'>Your Steet number: </label>
-                        <input class="form-control" id='7' name='localaddress' type='text' onfocus='toggle(this.id);this.form.localaddress.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
+                        <input class="form-control" id='7' name='address' type='text' onfocus='toggle(this.id);this.form.localaddress.placeholder="eg. 123-45 67th St., NE"' onblur='toggle(0);' />
                     </div>
                     <div class="form-group col-md-4">
                         <label for='8'>City/Town/County: </label>
@@ -111,26 +122,99 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for='9'>Province/State: </label>
-                        <input class="form-control" id='9' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
+                        <label for="state">State</label>
+                <select class="custom-select d-block w-100" id="state" name="state" required>
+                <option value="">Choose...</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="QC">Quebec</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+                <option value="YT">Yukon</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+                </select>
+                        <!-- <input class="form-control" id='9' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
                     <div class="form-group col-md-4">
                         <label for='10'>Country: </label>
-                        <input class="form-control" id='10' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' />
+                        <select class="custom-select d-block w-100" id="country" name="country" required>
+                        <option value="">Choose...</option>
+                        <option>Canada</option>
+                        <option>United States</option>
+                        </select>
+                        <!-- <input class="form-control" id='10' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
                     <div class="form-group col-md-4">
                         <label for='11'>Post Code: </label>
-                        <input class="form-control" id='11' name='postcode' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
+                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for='12'>Your personal contact number with area code: </label>
-                        <input class="form-control" id='12' name='contactno' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
+                        <input class="form-control" id='12' name='phone' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
-                    <div class="form-group col-md-6">
+                    <!-- <div class="form-group col-md-6">
                         <label for='13' class='jumbotext'>Your business contact number with area code: </label>
                         <input class="form-control" id='13' name='businessno' type='text' title='Please enter your business contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.businessno.placeholder="9874561234"' onblur='toggle(0);' />
-                    </div>
+                    </div> -->
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -196,7 +280,7 @@
         }
         //Verify if passwords match 
 
-        if (form.passwd1.value != form.passwd2.value) {
+        if (form.password.value != form.passwd2.value) {
             flag = false;
             alert("Please make your password settings match!");
             return flag;

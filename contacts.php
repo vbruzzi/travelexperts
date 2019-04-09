@@ -1,5 +1,19 @@
+<<<<<<< HEAD
 <!-- CONTACTS PAGE BY SAMIRA 
 Needs contactspull.php and contacts.css and header.php and footer.php to work-->
+=======
+<!-- CONTACTS PAGE BY SAMIRA -->
+<?php  
+require "scripts/showuserguest.php";
+if(!isset($_SESSION["username"])){
+    $user = "Guest";
+    $_SESSION["ref"] = "contacts.php";
+}
+else{
+    $user = $_SESSION["username"];
+}
+?>
+>>>>>>> 66f0b81b3b5a77184c3200b6476d28f1b4978a29
 <html>
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
@@ -14,6 +28,10 @@ Needs contactspull.php and contacts.css and header.php and footer.php to work-->
     <div class="container">
         <h1 class="bold">Contact us</h1>
         <p class="color">One agency many worlds</p>
+        <?php showUserGuest($user); 
+        if($user=="Guest") {
+        echo "<a href='register.php?ref='".$_SERVER['REQUEST_URI']."'><small>[login]</small></a>";
+    }?>
     </div>
 </div>
 <!-- open table to organize elements on side: 3 rows and 2 columns (a version of this page using Flex-box gave me a worse overall result.) -->

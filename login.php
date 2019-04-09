@@ -9,18 +9,19 @@
 
   $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
 
-  //retrieve userID and passWord from user login page
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-    //retrieve  passWord from user table in database
+  //retrieve userID and passWord from user login page and sanitize
+  $username = mysqli_real_escape_string($dbh, $_POST['username']);
+  $password = mysqli_real_escape_string($dbh, $_POST['password']);
+
+  # gets user from database and set it as the user session
   $query = $dbh->query(userLogin($username, crypt($password, SALT)))->fetch_assoc();
-  echo userLogin($username, crypt($password, SALT));
-  echo ($query);
   if(!$query){
-    echo '<script> alert("Please check your username!"); </script> ';
+    header("Location: register.php");
+    die();
   }
   else{
-    $_SESSION["user"] = new User($query["FirstName"], $query["Username"], $query["Role"]);
+    session_start();
+    $_SESSION["user"] = new User($query["firstname"], $query["username"], $query["role"]);
     header("Location: index.php");
     die();
   }

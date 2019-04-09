@@ -1,12 +1,17 @@
 <?php 
+
+    # Changes user settings in the dashboard
     require 'queries.php';
     require "serverdef.php";
     $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
     if(isset($_POST['val'])) 
         {
+            # Gets values from ajax
             $newRole = $_POST['val'];
             $userId = (int)$_POST['id'];
             $previous = $_POST['prev'];
+
+            # Changes role/position/city
             if($_POST['field'] == "role") {
                 $dbh->query(changeUser($userId, $newRole));
                 if($previous == "2" && $newRole != "2") {

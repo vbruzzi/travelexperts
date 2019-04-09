@@ -1,7 +1,6 @@
 <!-- CONTACTS PAGE BY SAMIRA -->
 <?php  
 require "scripts/showuserguest.php";
-session_start();
 if(!isset($_SESSION["username"])){
     $user = "Guest";
     $_SESSION["ref"] = "contacts.php";

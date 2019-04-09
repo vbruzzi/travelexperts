@@ -1,4 +1,5 @@
 <?php
+# User class for sessions
 class User {
     private $username;
     private $firstName;
@@ -9,5 +10,9 @@ class User {
         $this->firstName = $fname;
         $this->role = $role;
     }
+    public function getRole() {
+        return $this->role;
+    }
 }
+    
 ?>

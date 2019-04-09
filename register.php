@@ -5,7 +5,6 @@ require "scripts/header.php";
 require "scripts/showuserguest.php";
 require "scripts/serverdef.php";
 // continue session after login
-session_start();
 if(!isset($_SESSION["username"])){
     $user = "Guest";
 }
@@ -281,7 +280,7 @@ else{
         }
         //Verify if passwords match 
 
-        if (form.passwd1.value != form.passwd2.value) {
+        if (form.password.value != form.passwd2.value) {
             flag = false;
             alert("Please make your password settings match!");
             return flag;

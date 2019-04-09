@@ -1,4 +1,5 @@
-<!-- CONTACTS PAGE BY SAMIRA -->
+<!-- CONTACTS PAGE BY SAMIRA 
+Needs contactspull.php and contacts.css and header.php and footer.php to work-->
 <html>
     <head>
     <!-- Call the stylesheet for header and footer for conistency  -->
@@ -7,20 +8,6 @@
     <link rel="stylesheet" href="styles/contacts.css">
 </head>
 <body>
-
-<!--javascript enabling zoomin and zoomout of maps-->
-<script>
-function bigImg(x) {          // dimension of zoomed in image, shown upon hover
-  x.style.height = "";
-  x.style.width = "300px";
-}
-
-function normalImg(x) {       //dimension of normal image, shown as default
-  x.style.height = "";
-  x.style.width = "200px";
-}
-</script> <!-- close script -->
-
 <!-- CREATE CONTENT -->
 <!--Banner (from Dina) to add consistency across pages-->
 <div class="packagebanner">
@@ -29,61 +16,89 @@ function normalImg(x) {       //dimension of normal image, shown as default
         <p class="color">One agency many worlds</p>
     </div>
 </div>
-
-
-
-
-                
-
-<div class= Contactstable> <!--tag to separate Calgary information from Okotoks information.-->
-<table>
-  <!-- start to work with function  for agency-->
-
-        <tr><!--First row of the table contains headline for Calgary. Middle three cells are merged and headline is centered. -->
-            <td></td><!-- empty cell 'just in case'-->
-            <td class=headlinecell colspan='3'> 
-              <h5>Where to find us in...</h5>
+<!-- open table to organize elements on side: 3 rows and 2 columns (a version of this page using Flex-box gave me a worse overall result.) -->
+<table id =maintable > 
+    <tr><!-- open frst row of maintable. It is the headline for the page, so it spans both columns.-->
+        <td  colspan ="2">
+            <div class= "headtext">
+            <h5>You can contact us with all your questions and booking needs and we will be happy to help. <br/> <a class= infoemail href="mailto:info@travelexperts.com">E-mail</a> or call us directly at (123)456-7890.<br/>
+                        Or visit one of our branches or contact an agent directly.</h5>
+            </div>
             </td>
-            <td></td>
-        </tr>
-            <?php require "contactspull.php"?>
-</table>
-</div> <!-- close div contactstable-->
+    </tr><!-- close first row of maintable -->
+    <tr><!-- open second row of maintable -->
+        <td class= bigcellcontacts rowspan ="2"><!-- open cell (left) of maintable for contactstable, will span across 2 rows -->
+                  <div class= "ContactsTable">
+                      <!-- call and include the php file that connects to travelexprts database and prints the agncy and agent information -->
+                      <?php require "scripts/contactspull.php"?>
+                 </div>
+            </td><!-- close cell maintable for contactstable -->
+        <td class=bigcell> <!-- open cell (right) in maintable for another table with Calgaryinfo -->
+                            <table class= "Calgarytable">
+                                <tr>
+                                    <th class=headline colspan="2">
+                                        Meet us in Calgary
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <div class="polaroidJ"> <img src="media/contacts/businesspalmtree.jpeg" style="width:100%"> 
+                                        <div class="container">
+                                        <p class=comic>Janet from Calgary (expert for Spa vacations)</p>  
+                                        </div>
+                                    </div>     
+                                    </td>
+                                    <td> <!-- create a container for the map and inside it an element for the text
+                                so that the text can be positioned with relative positioning -->
+                                        <div class ="container1">
+                                            <a href="https://www.google.com/maps/dir//51.0491311,-114.0622718/@51.0491041,-114.0623791,16z"target="_blank" >
+                                            <img Id= calgarymap src="media/contacts/Calgarymap2.jpg" ></a>
+                                            <div class="textOnMap">Click map for directions</div>
+                                        </div>
+                                    </td>
+                                 </tr>
+                              
+                            </table>
+</tr><!-- close row of maintable for Calgaryinfo -->
+    </td>  <!-- close cell of maintable for Calgaryinfo -->
+<tr> <!-- open row in maintable for Okotoksinfo -->
+ <td class=bigcell>  <!-- open cell(right) in maintable for another table with Okotoksinfo -->                  
+                            <table class= "Okotokstable">
+                                 <tr>
+                                     <th class= headline colspan ="2">
+                                        Meet us in Okotoks
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <div class="polaroidF"> <img  src="media/contacts/businessbeach.jpg" style= "width:100%">
+                                        <div class="container">
+                                            <p class=comic> Fred from Okotoks (expert for business trips)</p>
+                                        </div>
+                                    </div>
+                                    </td>
+                                    <td>
+                                        <div class ="container1">
+                                            <a href="https://www.google.com/maps/dir//50.7253655,-113.9750487/@50.7254225,-113.9750904,17z/data=!4m2!4m1!3e2"target="_blank">
+                                            <img Id= okotoksmap src="media/contacts/Okotoksmap.png"  /></a> 
+                                            <div class="textOnMap">Click map for directions</div>
+                                        </div>
+                                    </td>
+                                
+                                </tr>
+                                </table>
+</td><!-- close cell maintable for Okotoksinfo -->
+</tr><!-- close row maintable for Okotoksinfo -->
+     
+    
+
+</table><!-- close maintable -->
 
 
 
 
 
-<div class="flex-container" >
-    <div ID = tableGlobePicture>
-        <table> <!-- create a table to arrange first elements of the page: welcome image and text.-->
-            <TR><TD>
-            <img width=800px  src="media/contacts/agentswithglobe5.jpg">
-               </TD>
-                <TD class = buttoncell ><!-- I used linebreaks to arrange the text and button within this cell -->
-                   <h5> <br/><br/><br/>You can contact us with all your questions and booking needs and we will be happy to help.
-                        You can reach any of our agents directly:
-                        <br/><br/></h5>
-                    <!-- create button to open the modal/window with agent contact details (preparation for project part2) -->
-                         <button class='button' id="buttonCalgaryAgents">meet an agent</button>
-                        <!-- Create text and a link that opens the users e-mail program to directly send an email--> 
-                         <h5> <br/>Or you can contact us in one of our branches in Calgary or Okotoks
-                         via <a ID = email href="mailto:info@travelexperts.com">email</a>, phone, or in person.
-                        </h5>
-               </TD>
-            </TR>
-        </table>
-    </div> <!-- close div for table-->
 
-
-
-
-
-
-
-
-
-</div> <!-- close flex-container-->
 <?php require "scripts/footer.php" ?> 
 
 </body>

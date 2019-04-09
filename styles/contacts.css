@@ -26,121 +26,133 @@ p.color {
     text-align:right; 
 
 }
- /*STYLES FOR MAINTABLE*/
- #maintable {
+/*STYLES FOR MAINTABLE*/
+#maintable {
     table-layout:auto;
     width: 100%;
     background-color:white  
-}
+    }
+/*When window or screen are smaler900px, the table columns will be displayed as rows.*/
 @media (max-width: 900px){
 td{
-float:none; 
-display:block;
-}
-}
-    /*border:  1px solid black ;
-    }*/
-
- .headtext{
+    float:none; 
+    display:block;
+    }
+    }
+/* position the text in the page's header*/
+.headtext{
      text-align:center;
      margin:30px;
- }
- .headlinecell{
-    text-align:center;
-    font-weight:bold;
-    font-size: 24px;
-    color:white;
-    text-decoration:underline;
-    text-transform:uppercase;
-    padding-bottom:20px;
- }
- .infoemail{
+     }
+ /* Format the EMAIL in the page's header.*/
+.infoemail{
     color:rgba(91, 0, 114, 1.0);
     text-decoration: underline;
-}
- .headline{
+    }
+/* Format the "Meet us in..." in page body.*/
+.headline{
     text-align:center;
     font-weight:bold;
     font-size: 20px;
     text-decoration:underline;
     padding-bottom: 20px;
- }
-
- p {
-    font-weight:solid;
-    font-size: 15px;
- }
+    }
 /* STYLES FOR PURPLE CONTACTTABLE*/
 #contacttable{
     width: 500px;
     background:rgb(121, 102, 146);
     margin:30px;
-    padding:10px;
-}
+    padding:5px;
+    }
+.scrollable{
+    overflow-x:auto;
+    overflow-y:auto;
+    max-height:900px;
+    }
 h5.phone{
     text-align:center;
     font-weight:bold;
     font-size: 15px;
-}
+    }
 
 h5.head{
     text-align:center;
     font-weight:bold;
     font-size: 18px;
-    color:rgba(255, 255, 255, 0.801);
+    color:whitesmoke;
     border-bottom: 2px solid grey;
-}
+    }
+ /* Format the CITY headline in the contacts table*/
+ .headlinecell{
+    text-align:center;
+    font-weight:bold;
+    font-size: 24px;
+    color:whitesmoke;
+    text-decoration:underline;
+    text-transform:uppercase;
+    padding-bottom:20px;
+    }
 .agentcell{
     padding-left:20px;
     padding-bottom:5px;
-    color:white;
-}
-    .agentname {
-        font-weight:bold;
-        color:rgba(91, 0, 114, 0.8);/* displays name in purple*/
+    color:whitesmoke;
     }
-    a.agentemail     {
-        color: white;
+.agentname {
+    font-weight:bold;
+    color:rgba(91, 0, 114, 0.8);/* displays name in purple*/
     }
+a.agentemail     {
+    color: whitesmoke;
+    }
+.branchcell{
+        text-align:center;
+        color:whitesmoke;
+    }
+#headline        {
+        color:rgba(91, 0, 114, 1.0);
+        }
 /* STYLES FOR RIGHT CELLS*/
-    .bigcell{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+/* Place image and map in upper left of cell*/
+.bigcell{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding:20px;
     }
+/* Place purple contactstable in upper left of cell*/
+.bigcellcontacts{
+    text-align:left;
+    vertical-align:top;
+    }
+/* Place agentimage and map in upper left of cell*/
 .okotokstable {
     width:100%;
     height: 100%;
-}
+    }
 .calgarytable{
     width: 100%;
     height:100;
-}
+    }   
 .calgarymap,th {
     text-align:center;
     font-weight:bold;
     font-size: 20px;
-}
-.branchcell{
-    text-align:center;
-    color:rgba(255, 255, 255, 0.8);
-}
-#headline        {
-        color:rgba(91, 0, 114, 1.0);
     }
+/* Create padding around the cell with Calgarymap.*/
 .calgarymap{
-        padding:50px;
+    padding:50px;
     }
 #calgarymap  {
-        width: 300px;
-        padding:5px;
-        border: 2px solid rgba(221, 221, 221, 1);
-        border-radius: 4px;
+    width: 300px;
+    padding:5px;
+    border: 2px solid rgba(221, 221, 221, 1);
+    border-radius: 4px;
    }
 #calgarymap:hover{
     box-shadow: 0 0 3px 2px rgba(76, 65, 80, 0.142);
    }
-   .container1 {
+/* Create a container around maps so that text can be positined on maps.*/
+.container1 {
     position: relative;
     text-align: center;
     color:rgb(93, 92, 92);
@@ -150,53 +162,55 @@ h5.head{
     position: absolute;
     top: 8px;
     left: 90px;
-  }
-
+    }
 .okotoksmap{
     padding:50px;
-}
+    }
 #okotoksmap  {
     width: 300px;
     padding:5px;
     border: 2px solid rgba(221, 221, 221, 1);
     border-radius: 4px;
-}
+    }
 #okotoksmap:hover{
     box-shadow: 0 0 3px 2px rgba(76, 65, 80, 0.142); 
 } 
-
-
+/* Allow images to shring when screen is small (works for maps, but not polaroids).*/
+img {
+    height: auto;
+    max-width: 100%;
+    min-width: 200px;
+   }
+   /* Create and style the polaroid frmes for agent images.*/
 div.polaroidJ {
     width: 500px;
     background-color: white;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.3);
     margin-bottom: 25px;
     transform:rotate(2deg);
-  }
-  .polaroidJ:hover{
+    } 
+.polaroidJ:hover{
   transform:rotate(0deg);
   transition:all 0.3s;
-  }
-  div.polaroidF {
+    }
+div.polaroidF {
     width: 500px;
     background-color: white;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 22px 0 rgba(0, 0, 0, 0.3);
     margin-bottom: 25px;
     transform:rotate(-1deg);
-  }
-  .polaroidF:hover{
+    }
+.polaroidF:hover{
     transform:rotate(0deg);
     transition:all 0.3s;
     }
-  
   div.container {
     text-align: center;
     padding: 10px 20px;
-  }
-  p{
-font-family: "Comic Sans MS", cursive, sans-serif;
-font-weight: bold;
-
+    }
+p.comic{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
   }
 
 

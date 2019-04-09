@@ -26,7 +26,7 @@
             </td>
     </tr><!-- close first row of maintable -->
     <tr><!-- open second row of maintable -->
-        <td rowspan ="2"><!-- open cell (left) of maintable for contactstable, will span across 2 rows -->
+        <td class= bigcellcontacts rowspan ="2"><!-- open cell (left) of maintable for contactstable, will span across 2 rows -->
                   <div class= "ContactsTable">
                       <!-- call and include the php file that connects to travelexprts database and prints the agncy and agent information -->
                       <?php require "contactspull.php"?>
@@ -43,7 +43,7 @@
                                     <td>
                                     <div class="polaroidJ"> <img src="media/contacts/businesspalmtree.jpeg" style="width:100%"> 
                                         <div class="container">
-                                        <p>Janet from Calgary (expert for Spa vacations)</p>  
+                                        <p class=comic>Janet from Calgary (expert for Spa vacations)</p>  
                                         </div>
                                     </div>     
                                     </td>
@@ -72,7 +72,7 @@
                                     <td>
                                     <div class="polaroidF"> <img  src="media/contacts/businessbeach.jpg" style= "width:100%">
                                         <div class="container">
-                                            <p> Fred from Okotoks (expert for business trips)</p>
+                                            < class=comic> Fred from Okotoks (expert for business trips)</p>
                                         </div>
                                     </div>
                                     </td>

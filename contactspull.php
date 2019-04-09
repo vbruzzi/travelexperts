@@ -15,7 +15,7 @@
 // step1: Create an errorflag that I use to check the database connection. Set to false as default.
 $errorflag =false;
 //step2: connect to database. "connection value" is in variable $dbh
-    $dbh = mysqli_connect("localhost","root","","travelexperts");
+    $dbh = mysqli_connect("localhost","root","","team2travelexperts");
 //step3: check if database exists. If not, set errorflag to true.
     if(!$dbh)
     {
@@ -36,7 +36,7 @@ $errorflag =false;
     $resultagency1  = $dbh->query("SELECT AgencyId, AgncyCity, AgncyAddress,AgncyPhone, AgncyPostal,AgncyFax, AgncyProv, AgncyCountry from agencies ")->fetch_all(MYSQLI_ASSOC);
 //step5.2: start to print a table  for database information. A table allows to add a column with additional info
 //(e.g.headshot).if needed later.
-    print ("<table Id= Contacttable>"); 
+    print ("<div class=scrollable><table Id= Contacttable>"); 
 // Step5.3: First:Foreach-loop: queries all agency information for each row(=agency). Each item is a row and a agency.
      foreach($resultagency1 as $item){
 // step5.4: print the "html" to print a table with rows and columns.
@@ -65,7 +65,7 @@ $errorflag =false;
                 
             }//close foreach2
      }//close foreach1 
-    print("</table>");
+    print("</table></div>");
     // step5.6 Close the database
          mysqli_close($dbh);
     }

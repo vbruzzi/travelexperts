@@ -1,7 +1,7 @@
 <?php
-function showUserGuest($user){
-    if(isset($_SESSION["username"])){
-        $user=$_SESSION["username"];
+function showUserGuest(){
+    if(isset($_SESSION["user"])){
+        $user=$_SESSION["user"]->getName();
     } 
     else{
         $user="Guest";

@@ -13,6 +13,9 @@ class User {
     public function getRole() {
         return $this->role;
     }
+    public function getName() {
+        return $this->firstName;
+    }
 }
     
 ?>

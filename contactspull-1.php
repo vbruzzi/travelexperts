@@ -15,7 +15,7 @@
 // step1: Create an errorflag that I use to check the database connection. Set to false as default.
 $errorflag =false;
 //step2: connect to database. "connection value" is in variable $dbh
-    $dbh = mysqli_connect("localhost","root","","travelexperts");
+    $dbh = mysqli_connect("localhost","root","","team2travelexperts");
 //step3: check if database exists. If not, set errorflag to true.
     if(!$dbh)
     {

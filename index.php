@@ -1,7 +1,8 @@
+
 <?php require "scripts/header.php"?>    
         <!-- INDEX STYLES -->
         <link rel="stylesheet" href="styles/home.css">
-        
+
         <!-- Flash sales section -->
         <div class="jumbotron flashsales">
             <div class="container">
@@ -29,7 +30,7 @@
 
             <div class="row justify-content-center">
                 <?php 
-                require "scripts/serverdef.php";
+           //     require "scripts/serverdef.php";
                 require "scripts/queries.php";
                 require "scripts/featured.php";
 
@@ -44,12 +45,14 @@
                     return false;
                 }
 
+                # Counter gives each card an id
                 $counter = 1;
+                # Grabs all packages tagged as featured from db
                 foreach ($dbh->query(getFeatures()) as $package ) {
                     
                     $features = $dbh->query(packageFeature($package["PackageId"]))->fetch_all(MYSQLI_NUM);
                     $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"]);
-                    $card->makeCard($counter); 
+                    $card->makeCard($counter);
                     $counter++;
 
                 }

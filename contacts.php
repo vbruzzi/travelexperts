@@ -34,7 +34,7 @@ else{
     <tr><!-- open frst row of maintable. It is the headline for the page, so it spans both columns.-->
         <td  colspan ="2">
             <div class= "headtext">
-            <h5>You can contact us with all your questions and booking needs and we will be happy to help. <br/> <a class= infoemail href="mailto:info@travelexperts.com">E-mail</a> or call us directly at (123)456-7890.<br/>
+            <h5>You can contact us with all your questions and booking needs and we will be happy to help. <br/> <a class= infoemail href="mailto:info@travelexperts.com">E-mail</a> or call us directly at (403)271-9873.<br/>
                         Or visit one of our branches or contact an agent directly.</h5>
             </div>
             </td>

@@ -10,11 +10,14 @@
     //get package order information if send by Get mothod
     $pkg= $_GET['order'];
 }
+
     require_once "scripts/showuserguest.php";
     require "scripts/header.php";
     require "scripts/queries.php";
     if(!isset($_SESSION["user"])){
         $user = "Guest";
+        
+        $_SESSION["pkg"]= $pkg ;
        header("location: register.php");
        die();
     } else {
@@ -23,12 +26,6 @@
         $billSql = "SELECT * FROM users us left join creditcards cc  on (cc.CustomerId = us.userId) having us.username='$user' ";
         $search = doQuery($billSql);
         $results = mysqli_fetch_array($search); 
-        if(!isset($_SESSION["pkg"])){
-            $_SESSION["pkg"]= $pkg ;
-        } else {
-            unset($_SESSION["pkg"]);
-            $_SESSION["pkg"] = $pkg;
-        }
     }
         //transfer price and package description to next page
     $price = pkgprice($pkg);
@@ -40,6 +37,12 @@
     } else {
         unset($_SESSION["ordernum"]);
         $_SESSION["ordernum"]=bookingNum();
+    }
+    if(!isset($_SESSION["pkg"])){
+        $_SESSION["pkg"]= $pkg ;
+    } else {
+        unset($_SESSION["pkg"]);
+        $_SESSION["pkg"] = $pkg;
     }
     // print_r($_SESSION);
 ?>    

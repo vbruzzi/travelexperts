@@ -22,8 +22,13 @@
   else{
     session_start();
     $_SESSION["user"] = new User($query["firstname"], $query["username"], $query["role"]);
-    header("Location: index.php");
-    die();
+    if(isset($_SESSION["pkg"])) {
+      header("location: order.php?order=".$_SESSION["pkg"]);
+      die();
+  } else {
+      header("Location: index.php");
+      die();
+  }
   }
 
 ?>

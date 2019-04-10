@@ -119,7 +119,7 @@ require "scripts/serverdef.php";
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label for="province">Province</label>
-                    <select class="custom-select d-block w-100" id="province" required>
+                    <select class="custom-select d-block w-100" id="province" name="province" required>
                     <option value="">Choose...</option>
                     <option value="AB">Alberta</option>
                     <option value="BC">British Columbia</option>
@@ -257,6 +257,12 @@ require "scripts/serverdef.php";
     function validateform(form) {
         var flag = true;
         var i, j;
+        if (form.password.value != form.passwd2.value) {
+            flag = false;
+            alert("Passwords do not match!");
+            return flag;
+        }
+        console.log(form.password.value, form.passwd2.value);
         //Verify if all blanks are filled
 		 
         for (i = 1; i <= 13; i++) {
@@ -277,13 +283,7 @@ require "scripts/serverdef.php";
         }
         //Verify if passwords match 
 
-        if (form.password.value != form.passwd2.value) {
-            flag = false;
-            alert("Please make your password settings match!");
-            return flag;
-        } else {
-            return flag && confirm("Are you sure to submit the form?");
-        }
+        
 		
         return flag;
     }

@@ -13,7 +13,6 @@ else{
 }
 ?>
 <?php 
-    require "scripts/header.php";
     showUserGuest($user); 
         if($user=="Guest") {
         echo "<a href='register.php?ref='".$_SERVER['REQUEST_URI']."'><small>[login]</small></a>";
@@ -65,7 +64,13 @@ else{
         
         if(doQuery(addUser($userData)))
         {
-            print("Welcome, ".$userData->getUserName());
+            if(isset($_SESSION["pkg"])) {
+                header("location: order.php?order=$_SESSION["pkg"]")
+            } else {
+                header("Location: index.php");
+                die();
+            }
+            
         }
         else{
             echo addUser($userData);

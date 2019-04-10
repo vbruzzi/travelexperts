@@ -1,7 +1,7 @@
 
 <?php
 
-  require "scripts/queries.php";
+  require_once("scripts/queries.php");
   require_once("scripts/userClass.php");
   require_once("scripts/user.php");
   require_once("scripts/serverdef.php");

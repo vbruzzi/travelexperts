@@ -15,23 +15,24 @@
     require "scripts/queries.php";
     if(!isset($_SESSION["user"])){
         $user = "Guest";
-        if(!isset($_SESSION["pkg"])){
-        $_SESSION["pkg"]= $pkg ;
-            } 
        header("location: register.php");
-    }
-    else{
+       die();
+    } else {
         $user = $_SESSION["user"]->getName();
         // if user logged in before, get user information from DB put into Array $results
         $billSql = "SELECT * FROM users us left join creditcards cc  on (cc.CustomerId = us.userId) having us.username='$user' ";
         $search = doQuery($billSql);
         $results = mysqli_fetch_array($search); 
+        if(!isset($_SESSION["pkg"])){
+            $_SESSION["pkg"]= $pkg ;
+        } else {
+            unset($_SESSION["pkg"]);
+            $_SESSION["pkg"] = $pkg;
         }
+    }
         //transfer price and package description to next page
     $price = pkgprice($pkg);
-    $desc = pkgdesc($pkg);     
     $_SESSION["price"]=$price;
-    $_SESSION["desc"]=$desc;
     if(!isset($_SESSION["ordernum"])){
         $_SESSION["ordernum"]=bookingNum();
     } else {
@@ -51,6 +52,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles/order.css">
 
 <div class="container">
     <!-- CREATE CONTENT -->
@@ -63,7 +65,7 @@
         </div>
     </div>
     <div class="py-5 text-center">
-        <h2>Dear <?php echo $user; ?>'s Billing Information</h2>
+        <h2><?php echo $user; ?>'s Billing Information</h2>
     </div>
     
     <!-- ============================================================== -->
@@ -84,14 +86,6 @@
             </div>
             <span class="text-muted"><?php echo $_SESSION["ordernum"]; ?></span>
             </li>
-
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div class="text-muted"></div>
-            <div>
-                <h6 class="my-0">Package brief description:</h6>
-                <small class="text-muted"><?php echo $desc; ?></small>
-            </div>
-            </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
                 <h6 class="my-0">Package Price:</h6>
@@ -102,6 +96,7 @@
 
 
         
+            <form class="needs-validation" id="billing" action="print.php" method="post" >
             <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div class="my-0">Reward Program: </div>
             <div class="text-muted">
@@ -114,9 +109,6 @@
                     <option value = "Mariott Rewards">Mariott Rewards</option>
 
                 </select>   
-                
-                <label for="rwdnum" > <small class="text-muted"> </small></label>
-                <input type="text" class="form-control" id="rwdnum" placeholder="Program Number" title="Please enter your reward program number">
             </div>
             </li>
 
@@ -155,71 +147,45 @@
             
             </li>
         </ul>
-       <!-- redeem promotion code function for later use -->
-        <form class="card p-2" style="visibility: hidden;">
-            <div class="input-group">
-            <input type="text" class="form-control" placeholder="Promo code soon">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary" disabled>Redeem</button>
-            </div>
-            </div>
-        </form>
+
     </div>
 <!-- ================================================================= -->
 <!-- Left Zone for billing information  -->
 <!-- ================================================================= -->
     <div class="col-md-8 order-md-1" >
         <h4 class="mb-3">Billing address</h4>
-        <form class="needs-validation" novalidate id="billing" action="print.php" method="post" >
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstName">First name</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" required>
+                    <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $results[3] ?>" placeholder="" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="lastName">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="" value="<?php echo $results[5] ?>" value="<?php echo "$results[4] "?>" required>
                 </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="username">Username</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="email">Email <span class="text-muted"> </span></label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
             </div>
 
             <div class="mb-3">
                 <label for="address">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St" value="<?php echo "$results[6] "?>" required />
             </div>
 
             <div class="mb-3">
                 <label for="address2">City<span class="text-muted"></span></label>
-                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                <input type="text" class="form-control" id="city" name="city" placeholder="City" value="<?php echo "$results[7] "?>">
             </div>
 
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="country">Country</label>
-                    <select class="custom-select d-block w-100" id="country" required>
-                        <option value="">Choose...</option>
+                    <select name="country" class="custom-select d-block w-100" id="country" required>
                         <option>Canada</option>
                         <option>United States</option>
                     </select>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <label for="province">Province/State</label>
-                    <select class="custom-select d-block w-100" id="province" required>
-                    <option value="">Choose...</option>
+                <div name="province" class="col-md-4 mb-3">
+                    <label for="province" id="province">Province/State</label>
+                    <select class="custom-select d-block w-100" name="province" id="province" required>
                     <option value="AB">Alberta</option>
                     <option value="BC">British Columbia</option>
                     <option value="MB">Manitoba</option>
@@ -288,7 +254,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="zip">Postal/Zip</label>
-                    <input type="text" class="form-control" id="zip" placeholder="" required>
+                    <input name="postal" type="text" class="form-control" id="zip" value="<?php echo "$results[10] "?>" placeholder="" required>
                 </div>
             
             </div>
@@ -308,16 +274,4 @@ if(isset($results)){
     }
 }
 ?>
-<script>
-document.getElementById("firstname").value = '<?php echo "$results[3]"; ?>';
-document.getElementById('username').value = "<?php echo $results[1]; ?>";
-document.getElementById('email').value = "<?php echo $results[11]; ?>"; 
-document.getElementById('address').value = "<?php echo $results[6]; ?>";
-document.getElementById('city').value = "<?php echo $results[7]; ?>";
-document.getElementById('country').value = "<?php echo $results[9]; ?>";
-document.getElementById('zip').value = "<?php echo $results[10]; ?>";
-document.getElementById('lastName').value = "<?php echo $results[5]; ?>";
-document.querySelector('#province [value="' + "<?php echo $results[8]; ?>" + '"]').selected = true;
-</script>
-
 <?php require "scripts/footer.php"?>

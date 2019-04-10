@@ -46,10 +46,10 @@ foreach($_POST as $x=>$y){
     				<strong>Billed To:</strong><br>
     					<?php
                         // show customer's billing information
-                        echo $_SESSION["FirstName"]." ".$_SESSION["LastName"]."<br>";
-    					echo $_SESSION["Address"]."<br>";
-                        echo $_SESSION["City"].", ". $_SESSION["Province"]." ".$_SESSION["Postal"]."<br>"; 
-                        echo $_SESSION["Country"];
+                        echo $_POST["firstname"]." ".$_POST["lastname"]."<br>";
+    					echo $_POST["address"]."<br>";
+                        echo $_POST["city"].", ". $_POST["province"]." ".$_POST["postal"]."<br>"; 
+                        echo $_POST["country"];
                         ?>
     				</address>
     			</div>

@@ -131,10 +131,10 @@
         return $result;
     } 
     
-    function pkgdesc($id){
-        $q= 'select PkgDesc from packages where PackageId = "'.$id.'"';
+    function pkgImage($id){
+        $q= 'select PkgImage from packages where PackageId = "'.$id.'"';
         $search=doQuery($q);
-        $desc=search_result($search, 0, "PkgDesc");
+        $desc=search_result($search, 0, "PkgImage");
         return $desc;
     }
 

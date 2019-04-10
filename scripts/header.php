@@ -61,7 +61,7 @@
                                 }
                             } else {
                                 echo "<li class=\"nav-item\">
-                                        <a class=\"nav-link\" href=\"register.php\" tabindex=\"-1\" aria-disabled=\"true\">Register</a>
+                                        <a class=\"nav-link\" href=\"register.php\" tabindex=\"-1\" aria-disabled=\"true\">Register/Login</a>
                                     </li>";
                             }
                         ?>

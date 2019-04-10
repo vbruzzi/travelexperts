@@ -1,3 +1,5 @@
+<!-- Logout page by Kun Zhang -->
+<!-- Team 2 Purple -->
 <?php
 #Log out
 session_start();

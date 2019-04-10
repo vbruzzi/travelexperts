@@ -1,16 +1,14 @@
 <!-- Register page by Ken Zhang -->
-
+<!--   Team 2 Purple --> 
 <?php 
 require "scripts/header.php";
 require "scripts/showuserguest.php";
 require "scripts/serverdef.php";
 // continue session after login
-if(!isset($_SESSION["username"])){
-    $user = "Guest";
-}
-else{
-    $user = $_SESSION["username"];
-}
+// if(isset($_SERVER['QUERY_STRING'])){
+//     $url = $_SERVER['QUERY_STRING'];
+//   echo "Package URL is ".$_SESSION["pkg"]."<br>";
+
 ?>
 
 <link rel="stylesheet" href="styles/packages.css">
@@ -20,7 +18,6 @@ else{
     <div class="container">
         <h1 class="bold">Sign in | Sign up</h1>
         <p class="color">One agency many worlds</p>
-        <?php showUserGuest($user); ?>
     </div>
 </div>
 <!-- NAVBAR -->
@@ -120,95 +117,95 @@ else{
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for='9'>Province/State: </label>
-                        <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" name="state" required>
-                <option value="">Choose...</option>
-                <option value="AB">Alberta</option>
-                <option value="BC">British Columbia</option>
-                <option value="MB">Manitoba</option>
-                <option value="NB">New Brunswick</option>
-                <option value="NL">Newfoundland and Labrador</option>
-                <option value="NS">Nova Scotia</option>
-                <option value="ON">Ontario</option>
-                <option value="PE">Prince Edward Island</option>
-                <option value="QC">Quebec</option>
-                <option value="SK">Saskatchewan</option>
-                <option value="NT">Northwest Territories</option>
-                <option value="NU">Nunavut</option>
-                <option value="YT">Yukon</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-                </select>
+                    <div class="form-group col-md-6">
+                    <label for="province">Province</label>
+                    <select class="custom-select d-block w-100" id="province" name="province" required>
+                    <option value="">Choose...</option>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NL">Newfoundland and Labrador</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                    <option value="NT">Northwest Territories</option>
+                    <option value="NU">Nunavut</option>
+                    <option value="YT">Yukon</option>
+                    <!-- <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option> -->
+                    </select>
                         <!-- <input class="form-control" id='9' name='province' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for='10'>Country: </label>
                         <select class="custom-select d-block w-100" id="country" name="country" required>
                         <option value="">Choose...</option>
                         <option>Canada</option>
-                        <option>United States</option>
+                        <!-- <option>United States</option> -->
                         </select>
                         <!-- <input class="form-control" id='10' name='country' type='text' onfocus='toggle(this.id);' onblur='toggle(0);' /> -->
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for='11'>Post Code: </label>
-                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
-                    </div>
+                   
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for='12'>Your personal contact number with area code: </label>
+                        <label for='11'>Post Code: </label>
+                        <input class="form-control" id='11' name='postal' title='Format for Canadian postcode: A1B2C3'  type='text' onfocus='toggle(this.id); this.form.postcode.placeholder="A1B2C3";' onblur='toggle(0);' />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for='12'>Contact number with area code: </label>
                         <input class="form-control" id='12' name='phone' type='text' title='Please enter your personal contact number follow the patten: 9874561234.' onfocus='toggle(this.id); this.form.contactno.placeholder="9874561234"' onblur='toggle(0);' />
                     </div>
                     <!-- <div class="form-group col-md-6">
@@ -260,6 +257,12 @@ else{
     function validateform(form) {
         var flag = true;
         var i, j;
+        if (form.password.value != form.passwd2.value) {
+            flag = false;
+            alert("Passwords do not match!");
+            return flag;
+        }
+        console.log(form.password.value, form.passwd2.value);
         //Verify if all blanks are filled
 		 
         for (i = 1; i <= 13; i++) {
@@ -280,13 +283,7 @@ else{
         }
         //Verify if passwords match 
 
-        if (form.password.value != form.passwd2.value) {
-            flag = false;
-            alert("Please make your password settings match!");
-            return flag;
-        } else {
-            return flag && confirm("Are you sure to submit the form?");
-        }
+        
 		
         return flag;
     }

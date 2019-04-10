@@ -51,6 +51,13 @@
         WHERE UserId=".(int)$agentId."";
     }
 
+    function pkgName($id) {
+        $q= 'select PkgName from packages where PackageId = "'.$id.'"';
+        $search=doQuery($q);
+        $desc=search_result($search, 0, "PkgName");
+        return $desc;
+    }
+
     function packageFeature($id) {
         return
         "SELECT packageoptions.Feature
@@ -93,7 +100,9 @@
         "INSERT INTO agents (UserId)
         VALUES ($id)";
     }
-
+//============================================= 
+//------------Functions by Ken Zhang-----------
+//------------Please do not delete-------------
     function doQuery($q){
         $error_flag = false; 
 		//connect to database
@@ -129,10 +138,10 @@
         return $result;
     } 
     
-    function pkgdesc($id){
-        $q= 'select PkgDesc from packages where PackageId = "'.$id.'"';
+    function pkgImage($id){
+        $q= 'select PkgImage from packages where PackageId = "'.$id.'"';
         $search=doQuery($q);
-        $desc=search_result($search, 0, "PkgDesc");
+        $desc=search_result($search, 0, "PkgImage");
         return $desc;
     }
 
@@ -161,5 +170,6 @@
             echo "Flag is False";
         }
         return $flag;
-    }
+    }    
+    
 ?>

@@ -34,12 +34,17 @@
                 require "scripts/queries.php";
                 require "scripts/featured.php";
 
+                if(isset($_SESSION["pkg"])) {
+                    unset($_SESSION["pkg"]);  
+                }
+
                 $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
 
                 # ERROR CHECKING
                 if(!$dbh) {
                     return false;
                 }
+                
             
                 if(mysqli_connect_errno()) {
                     return false;
@@ -51,7 +56,7 @@
                 foreach ($dbh->query(getFeatures()) as $package ) {
                     
                     $features = $dbh->query(packageFeature($package["PackageId"]))->fetch_all(MYSQLI_NUM);
-                    $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"]);
+                    $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"], $package["PackageId"]);
                     $card->makeCard($counter);
                     $counter++;
 

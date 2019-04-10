@@ -1,3 +1,6 @@
+<!-- User Class page by Kun Zhang -->
+<!-- Team 2 Purple -->
+
 <?php
 
 require_once("serverdef.php");
@@ -28,7 +31,7 @@ class userClass{
     $this->setPhone($UserArray['phone']);
     $this->setAddress($UserArray['address']);
     $this->setCity($UserArray['city']);    
-    $this->setProvince($UserArray['state']);
+    $this->setProvince($UserArray['province']);
     $this->setCountry($UserArray['country']);
     $this->setPostal($UserArray['postal']);
     

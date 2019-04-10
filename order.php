@@ -276,4 +276,5 @@ if(isset($results)){
     }
 }
 ?>
+</div>
 <?php require "scripts/footer.php"?>

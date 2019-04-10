@@ -65,13 +65,12 @@ else{
         if(doQuery(addUser($userData)))
         {
             if(isset($_SESSION["pkg"])) {
-                header("location: order.php?order=$_SESSION["pkg"]");
+                header("location: order.php?order=".$_SESSION["pkg"]);
                 die();
             } else {
                 header("Location: index.php");
                 die();
-            }
-            
+            } 
         }
         else{
             echo addUser($userData);

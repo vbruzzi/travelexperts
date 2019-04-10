@@ -32,6 +32,8 @@
     }
         //transfer price and package description to next page
     $price = pkgprice($pkg);
+    $pkgName = pkgName($pkg);
+    $img = pkgImage($pkg);
     $_SESSION["price"]=$price;
     if(!isset($_SESSION["ordernum"])){
         $_SESSION["ordernum"]=bookingNum();
@@ -57,11 +59,11 @@
 <div class="container">
     <!-- CREATE CONTENT -->
     <!--Banner to add consistency across pages-->
-    <div class="packagebanner">
-        <div class="container" style="text-align: right;" id="welcome">
-            <?php 
-                 showUserGuest($user);  //show login infomation on this page
-            ?>
+    <div class="packagebanner" style="background: url(media/packageimg/<?php echo $img;?>) no-repeat;
+            background-size: cover;
+            background-position: center;">
+        <div class="container banner-text" id="welcome">
+            <?php echo  $pkgName; ?>
         </div>
     </div>
     <div class="py-5 text-center">
@@ -76,7 +78,7 @@
         <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">Package #<?php echo  $pkg; ?></span>
+            <span class="badge badge-secondary badge-pill"></span>
         </h4>
         <ul class="list-group mb-3">
         <li class="list-group-item d-flex justify-content-between lh-condensed">
@@ -86,13 +88,7 @@
             </div>
             <span class="text-muted"><?php echo $_SESSION["ordernum"]; ?></span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-                <h6 class="my-0">Package Price:</h6>
-                <small class="text-muted">Each person</small>
-            </div>
-            <span class="text-muted">$<?php echo $price; ?></span>
-            </li>
+
 
 
         
@@ -139,8 +135,11 @@
                 </small>
             </span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-            <span>Total (CAD)</span>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">Package Price:</h6>
+                <small class="text-muted">$<?php echo $price; ?> each</small>
+            </div>
             <strong>$<input type="text" size=8 id="total" step="0.01" form="billing" name="total" value="<?php echo $price; ?>" readonly style="border: none;">
             <!-- <span class="input-group-text">.00</span> -->
            </strong>

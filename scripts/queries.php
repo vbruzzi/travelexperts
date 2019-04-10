@@ -51,6 +51,13 @@
         WHERE UserId=".(int)$agentId."";
     }
 
+    function pkgName($id) {
+        $q= 'select PkgName from packages where PackageId = "'.$id.'"';
+        $search=doQuery($q);
+        $desc=search_result($search, 0, "PkgName");
+        return $desc;
+    }
+
     function packageFeature($id) {
         return
         "SELECT packageoptions.Feature

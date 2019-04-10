@@ -51,7 +51,7 @@
                 foreach ($dbh->query(getFeatures()) as $package ) {
                     
                     $features = $dbh->query(packageFeature($package["PackageId"]))->fetch_all(MYSQLI_NUM);
-                    $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"]);
+                    $card = new Card($package["PkgName"], $features, $package["PkgBasePrice"], $package["PackageId"]);
                     $card->makeCard($counter);
                     $counter++;
 

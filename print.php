@@ -49,7 +49,7 @@ foreach($_POST as $x=>$y){
                         echo $_POST["firstname"]." ".$_POST["lastname"]."<br>";
     					echo $_POST["address"]."<br>";
                         echo $_POST["city"].", ". $_POST["province"]." ".$_POST["postal"]."<br>"; 
-                        echo $_POST["country"];
+                         	 $_POST["country"];
                         ?>
     				</address>
     			</div>
@@ -140,10 +140,6 @@ require "scripts/footer.php";
 require "scripts/queries.php";
 // update booking table in the database
 //echo $sql;
-if(doQuery($sql)){
-	echo $sql;
-   // echo "database updated";
-} else {
-	echo "no good $sql";
-}
+
+unset($_SESSION["pkg"]);  
 ?>

@@ -34,12 +34,17 @@
                 require "scripts/queries.php";
                 require "scripts/featured.php";
 
+                if(isset($_SESSION["pkg"])) {
+                    unset($_SESSION["pkg"]);  
+                }
+
                 $dbh = mysqli_connect(dbHost, dbUser, dbPass, dbName);
 
                 # ERROR CHECKING
                 if(!$dbh) {
                     return false;
                 }
+                
             
                 if(mysqli_connect_errno()) {
                     return false;
